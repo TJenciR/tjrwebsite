@@ -6,6 +6,7 @@ import {
   legacyAliases,
   legacyDownloadRedirects,
   legacyPageRoutes,
+  legacyPermanentRedirects,
   legacySensitiveAssets,
   legacyWebsiteOrigin,
 } from "../src/content/legacy-routes";
@@ -45,9 +46,18 @@ describe("legacy route contract", () => {
     }
   });
 
-  it("keeps sensitive PDFs out of the new public tree", () => {
+  it("gives every sensitive PDF an explicit privacy-safe disposition", () => {
     expect(legacySensitiveAssets).toHaveLength(5);
-    expect(legacySensitiveAssets.every((asset) => asset.migrationState === "legacy-only")).toBe(true);
+    expect(legacyPermanentRedirects).toEqual([
+      { source: "/CV.pdf", destination: "/resume" },
+    ]);
+    expect(legacySensitiveAssets).toEqual([
+      { path: "/CV.pdf", migrationState: "permanent-redirect", destination: "/resume" },
+      { path: "/bacdipl.pdf", migrationState: "intentional-410", destination: null },
+      { path: "/engling.pdf", migrationState: "intentional-410", destination: null },
+      { path: "/certcomp.pdf", migrationState: "intentional-410", destination: null },
+      { path: "/ateprof.pdf", migrationState: "intentional-410", destination: null },
+    ]);
   });
 });
 

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import {
   ContentPlaceholder,
   ProfilePortrait,
@@ -11,12 +9,13 @@ import {
   formatCommunicationLevel,
   getPublishedEntries,
 } from "@/lib/public-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About",
   description: "Verified profile context and open biography questions.",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   const biographies = getPublishedEntries(portfolioContent.biographies);

@@ -70,3 +70,17 @@ The Stitch files suggest `/projects`, `/now`, `/skills`, `/hobbies`, `/education
 - In Next.js App Router, create route segments for preserved paths and route handlers/redirect configuration for legacy aliases and downloads.
 - Set a single canonical hostname only after the custom domain is confirmed.
 
+## v0.12 implementation disposition
+
+The migration foundation now preserves the four page routes, permanently
+normalizes the three `.html` aliases, permanently redirects `/CV.pdf` to the
+sanitized HTML résumé, returns 410 for the four qualification PDFs, and keeps
+the six archive paths available through one-hop temporary Netlify redirects.
+Legacy CSS and JavaScript paths are intentionally retired implementation details.
+
+The preferred future hostname is `jenorichardtokoli.com`; a host-based rule
+redirects `www.jenorichardtokoli.com` while preserving path and query. These
+rules do not attach domains, edit DNS, or alter the current Netlify deployment.
+Release and rollback procedure is documented in
+`docs/deployment/seo-vercel-migration.md`.
+

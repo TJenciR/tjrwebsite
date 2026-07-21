@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  description: "The requested portfolio page could not be found.",
+  robots: { follow: false, index: false },
+  title: "Page not found",
+};
 
 export default function NotFoundPage() {
   return (

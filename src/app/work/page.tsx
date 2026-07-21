@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { LegacyNotice } from "@/components/legacy-notice";
@@ -13,12 +12,13 @@ import {
   parseProjectFilters,
   type ProjectSearchParams,
 } from "@/lib/projects";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Projects",
   description: "Verified project inventory and case studies by Tököli Jenő-Richard.",
-  alternates: { canonical: "/work" },
-};
+  path: "/work",
+});
 
 interface WorkPageProps {
   searchParams: Promise<ProjectSearchParams>;

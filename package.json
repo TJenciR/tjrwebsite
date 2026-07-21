@@ -1,6 +1,6 @@
 {
   "name": "tjr-portfolio",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "private": true,
   "description": "Verified portfolio workspace with a privacy-safe professional contact-request workflow for Tököli Jenő-Richard.",
   "packageManager": "npm@11.12.1",

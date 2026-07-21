@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
-
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
 import { Card } from "@/components/ui";
 import { legacyQualifications } from "@/content/legacy-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Documents",
   description: "Privacy-safe migration status for legacy qualification documents.",
-  alternates: { canonical: "/documents" },
-};
+  path: "/documents",
+});
 
 export default function DocumentsPage() {
   return (

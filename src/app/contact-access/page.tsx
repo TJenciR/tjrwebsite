@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
-
 import { ContactRequestForm } from "@/components/contact";
 import { PageShell } from "@/components/page-shell";
 import { StatusNotice } from "@/components/ui";
 import { contactAccessCopy } from "@/content/contact";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Contact Access",
   description: "Submit a privacy-safe request for legitimate professional contact.",
-  alternates: { canonical: "/contact-access" },
-};
+  path: "/contact-access",
+});
 
 export default function ContactAccessPage() {
   return (

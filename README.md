@@ -4,7 +4,7 @@ Migration-safe personal workspace with source-aware profile, projects, and a pri
 
 ## Status
 
-- Branch scope: privacy-safe media primitives, coordinated motion, and measured performance polish.
+- Branch scope: canonical SEO, non-indexable Vercel previews, security headers, and migration-safe legacy routes.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Authentication, accounts, a submissions database, CMS, and AI APIs: intentionally absent.
@@ -21,6 +21,7 @@ Read `docs/portfolio-command-composer.md` before changing command matching, acti
 Read `docs/contact-access.md` before changing contact fields, validation, delivery, rate limiting, or privacy behavior.
 Read `docs/deployment/contact-access.md` before enabling real delivery on Vercel.
 Read `docs/media-motion-performance.md` before adding imagery, animation, fonts, scripts, or client-side interaction.
+Read `docs/deployment/seo-vercel-migration.md` before changing SEO origins, Vercel environments, security headers, custom domains, Netlify behavior, or legacy redirects.
 
 ## Stack
 
@@ -92,7 +93,7 @@ Workspace routes added without replacing verified content: `/now`, `/skills`,
 continues to use `/work`. Static detail routes use `/work/[slug]`, while the
 original project fragment identifiers remain on the all-project grid.
 
-`.html` aliases redirect permanently to extensionless paths. The six public project-download paths temporarily redirect to Netlify. Sensitive résumé and qualification PDF paths remain documented as legacy-only and are not copied into the new application.
+`.html` aliases redirect permanently to extensionless paths. The six public project-download paths temporarily redirect to Netlify. `/CV.pdf` permanently redirects to the sanitized web résumé, while the four legacy qualification-document paths return 410 pending privacy approval. No legacy PDF is copied into `public/`.
 
 The current Netlify deployment and its custom-domain configuration, if any, must remain unchanged until an approved release branch.
 
@@ -104,4 +105,8 @@ The current Netlify deployment and its custom-domain configuration, if any, must
 
 The application does not derive its canonical origin from `VERCEL_URL`, and no
 redirect from the Netlify deployment is configured.
+
+The apex hostname is canonical. `www.jenorichardtokoli.com` is configured to
+redirect to the apex while preserving paths and queries once both hostnames are
+attached to Vercel. This branch does not attach either domain or modify Netlify.
 

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import {
   ContentPlaceholder,
   ProjectExperienceList,
@@ -12,12 +10,13 @@ import {
   getPublishedEntries,
   getPublishedValue,
 } from "@/lib/public-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Résumé",
   description: "Privacy-safe web résumé generated from verified public content.",
-  alternates: { canonical: "/resume" },
-};
+  path: "/resume",
+});
 
 export default function ResumePage() {
   const name = getPublishedValue(portfolioContent.profile.name) ?? "Tököli Jenő-Richard";

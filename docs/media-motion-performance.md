@@ -33,7 +33,7 @@ contact value.
 | Architecture diagram | `ArchitectureDiagram` | None |
 | Qualification image | `QualificationImage` | None |
 | Hobby image | `HobbyImage` | None |
-| Open Graph image | `OpenGraphArtwork` and `src/app/opengraph-image.tsx` | None |
+| Open Graph image | `OpenGraphArtwork` and `src/app/opengraph-image/route.tsx` | None |
 | Missing media | `MediaPlaceholder` inside the shared media frame | None |
 
 Qualification and hobby media components are intentionally not populated: the

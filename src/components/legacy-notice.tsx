@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { StatusNotice } from "@/components/ui";
 import { getPublicValue } from "@/lib/content-value";
 import { siteConfig } from "@/content/site-config";
 
@@ -17,21 +18,18 @@ export function LegacyNotice({ path }: LegacyNoticeProps) {
   const legacyUrl = new URL(path, legacyWebsiteUrl).toString();
 
   return (
-    <aside
-      aria-labelledby="legacy-notice-title"
-      className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-amber-950"
+    <StatusNotice
+      actions={
+        <Link className="foundation-link" href={legacyUrl}>
+          Open the current legacy page
+        </Link>
+      }
+      title="Legacy site remains authoritative"
+      variant="warning"
     >
-      <h2 className="font-semibold" id="legacy-notice-title">
-        Legacy site remains authoritative
-      </h2>
-      <p className="mt-2 text-sm leading-6">
-        This route is a migration placeholder. The existing Netlify page remains
-        available until its reviewed replacement is complete.
-      </p>
-      <Link className="mt-3 inline-block underline" href={legacyUrl}>
-        Open the current legacy page
-      </Link>
-    </aside>
+      This route is a migration placeholder. The existing Netlify page remains
+      available until its reviewed replacement is complete.
+    </StatusNotice>
   );
 }
 

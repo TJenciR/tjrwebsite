@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
+import { Card } from "@/components/ui";
 import { legacyProjects } from "@/content/legacy-content";
 
 export const metadata: Metadata = {
@@ -18,27 +19,27 @@ export default function WorkPage() {
       title="Legacy project inventory"
     >
       <LegacyNotice path="/work" />
-      <section aria-labelledby="legacy-projects" className="rounded-lg border border-slate-200 bg-white p-6">
-        <h2 className="text-xl font-semibold" id="legacy-projects">
+      <Card as="section" aria-labelledby="legacy-projects">
+        <h2 className="foundation-card-heading" id="legacy-projects">
           Published projects
         </h2>
-        <ul className="mt-4 divide-y divide-slate-200">
+        <ul className="foundation-list">
           {legacyProjects.map((project) => (
-            <li className="flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between" key={project.downloadPath}>
+            <li key={project.downloadPath}>
               <div>
-                <h3 className="font-medium">{project.name}</h3>
-                <p className="text-sm text-slate-600">
+                <h3>{project.name}</h3>
+                <p>
                   {project.category}
                   {project.publishedStatus === "incomplete" ? " · published as incomplete" : ""}
                 </p>
               </div>
-              <Link className="text-sm font-medium underline" href={project.downloadPath}>
+              <Link className="foundation-link" href={project.downloadPath}>
                 Legacy download
               </Link>
             </li>
           ))}
         </ul>
-      </section>
+      </Card>
     </PageShell>
   );
 }

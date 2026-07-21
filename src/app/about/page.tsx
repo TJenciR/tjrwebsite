@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ContentStatus } from "@/components/content-status";
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
+import { Card } from "@/components/ui";
 import { siteConfig } from "@/content/site-config";
 
 export const metadata: Metadata = {
@@ -26,21 +27,21 @@ export default function AboutPage() {
       title="About content pending verification"
     >
       <LegacyNotice path="/about" />
-      <section aria-labelledby="about-fields" className="rounded-lg border border-slate-200 bg-white p-6">
-        <h2 className="text-xl font-semibold" id="about-fields">
+      <Card as="section" aria-labelledby="about-fields">
+        <h2 className="foundation-card-heading" id="about-fields">
           Required content fields
         </h2>
-        <dl className="mt-4 divide-y divide-slate-200">
+        <dl className="foundation-definition-list">
           {pendingFields.map(([label, status]) => (
-            <div className="flex flex-wrap items-center justify-between gap-3 py-3" key={label}>
-              <dt className="font-medium">{label}</dt>
+            <div key={label}>
+              <dt>{label}</dt>
               <dd>
                 <ContentStatus status={status} />
               </dd>
             </div>
           ))}
         </dl>
-      </section>
+      </Card>
     </PageShell>
   );
 }

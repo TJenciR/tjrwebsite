@@ -1,16 +1,17 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe technical foundation for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe technical foundation and reusable design system for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: framework and content-safety foundation only.
+- Branch scope: approved Stitch design tokens, accessible component primitives, and development showcase.
 - Production cutover: not authorized.
-- Final visual design: not implemented.
+- Final page designs and verified portfolio content: not implemented.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
 - Legacy source recovery: still required.
 
 Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or content.
+Read `docs/design-system/foundation.md` before extending tokens or components.
 
 ## Stack
 
@@ -18,8 +19,11 @@ Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or 
 - React
 - TypeScript in strict mode
 - Tailwind CSS
+- Semantic CSS custom-property tokens
+- Self-hosted Inter and JetBrains Mono typefaces
+- Lucide icons through a typed local registry
 - npm
-- Vitest
+- Vitest and Testing Library
 - ESLint
 
 ## Local development
@@ -30,6 +34,10 @@ Requirements: Node.js 22 or newer and npm 11 or newer.
 npm install
 npm run dev
 ```
+
+The development-only component showcase is available at `/design-system`. It is
+`noindex` and returns 404 in production unless `DESIGN_SYSTEM_SHOWCASE=true` is
+set at build time. Keep it disabled on public deployments.
 
 Optional preview origin:
 

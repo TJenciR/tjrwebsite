@@ -4,7 +4,7 @@ Migration-safe personal workspace with source-aware profile, projects, and a pri
 
 ## Status
 
-- Branch scope: server-validated professional contact requests without exposing direct contact details.
+- Branch scope: privacy-safe media primitives, coordinated motion, and measured performance polish.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Authentication, accounts, a submissions database, CMS, and AI APIs: intentionally absent.
@@ -20,6 +20,7 @@ Read `docs/now-skills-hobbies.md` before changing current activity, skill groupi
 Read `docs/portfolio-command-composer.md` before changing command matching, actions, privacy refusals, or keyboard behavior.
 Read `docs/contact-access.md` before changing contact fields, validation, delivery, rate limiting, or privacy behavior.
 Read `docs/deployment/contact-access.md` before enabling real delivery on Vercel.
+Read `docs/media-motion-performance.md` before adding imagery, animation, fonts, scripts, or client-side interaction.
 
 ## Stack
 
@@ -74,7 +75,13 @@ npm run lint
 npm run typecheck
 npm run test
 npm run build
+npm run performance:assets
 ```
+
+The asset report runs after a production build and lists uncompressed generated
+JavaScript and CSS. It is a composition aid rather than a network-transfer
+estimate; Vercel compression and per-route loading still need browser-based
+measurement before production cutover.
 
 ## Legacy compatibility
 

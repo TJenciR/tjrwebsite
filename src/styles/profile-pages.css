@@ -175,15 +175,13 @@
   width: min(100%, 12rem);
 }
 
-.profile-portrait img,
-.profile-portrait .ds-media-placeholder {
+.profile-portrait .media-frame__image,
+.profile-portrait .media-frame__placeholder {
   width: 100%;
   height: 100%;
 }
 
-.profile-portrait img { object-fit: cover; }
-
-.profile-portrait .ds-media-placeholder {
+.profile-portrait .media-frame__placeholder {
   border: 0;
   border-radius: 0;
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ProjectGallery } from "@/components/media";
 import { ProjectMedia } from "@/components/projects";
 import { Badge, Card, StatusNotice } from "@/components/ui";
 import { projects } from "@/content/projects";
@@ -205,19 +205,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {gallery.length > 0 ? (
         <section aria-labelledby="project-gallery" className="case-study-media-section">
           <h2 id="project-gallery">Gallery</h2>
-          <div className="case-study-gallery">
-            {gallery.map((image) => (
-              <Image
-                alt={image.alt}
-                height={image.height}
-                key={image.id}
-                loading="lazy"
-                sizes="(max-width: 48rem) 100vw, 50vw"
-                src={image.publicPath}
-                width={image.width}
-              />
-            ))}
-          </div>
+          <ProjectGallery media={gallery} projectTitle={project.title} />
         </section>
       ) : null}
 

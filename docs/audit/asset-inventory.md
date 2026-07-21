@@ -102,3 +102,29 @@ The only confirmed personal photograph is the portrait embedded in the public r�
 
 None. The work-page screenshots show text entries, not project UIs. Stitch project-detail images are generated concepts and must not be represented as evidence of the actual projects.
 
+## v0.11 media disposition
+
+The classifications below describe production disposition. “Reuse” means the
+file remains useful inside `design/` as audit or comparison evidence; it does
+not authorize copying it into `public/`.
+
+| Asset or group | Classification | Production decision |
+|---|---|---|
+| `home-desktop.png` | Reuse | Retain as desktop regression evidence only. |
+| `home-tablet.jpg` | Reuse | Retain as tablet regression evidence only; it is not portfolio content. |
+| `home-mobile.jpg` | Reuse | Retain as mobile regression evidence only; it documents a legacy layout problem. |
+| `projects-01.png` and `projects-02.png` | Reuse | Retain as route/content evidence only; neither is a screenshot of a project. |
+| `skills.png` | Reuse | Retain as sanitized audit evidence only; do not derive skill ratings or production imagery from it. |
+| `about.png` | Remove | Exclude from production and public documentation because the captured résumé contains private contact data. |
+| `legacy-notes.md` | Remove | It is not media and adds no production asset value. |
+| Portrait embedded in the legacy résumé | Ownership unclear | Do not extract, crop, or publish it. An approved original plus explicit public-use permission is required first. |
+| Legacy public `CV.pdf` | Remove | Do not copy it; it exposes private contact data. A separately sanitized résumé is required. |
+| Four legacy qualification PDFs | Ownership unclear | Do not copy them until ownership, metadata, and public-document privacy are approved. |
+| 21 valid Stitch `screen.png` files | Reuse | Keep as design references only. They are composite mockups, not production media. |
+| Four invalid 28-byte Stitch PNG placeholders | Remove | They contain no image data and cannot be reused. |
+| Stitch remote portraits, project renders, and hobby images | Ownership unclear | Do not download, proxy, or publish them. They remain layout references only. |
+
+No current local asset qualifies for **Re-crop**, **Re-export**, or **Replace**:
+those actions require a source-quality, owned original. The application therefore
+uses fixed-ratio missing-media states until approved originals are supplied.
+

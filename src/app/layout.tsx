@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { WorkspaceShell } from "@/components/workspace";
+import { portfolioCommands } from "@/content/portfolio-commands";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
 import {
@@ -46,7 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <WorkspaceShell>{children}</WorkspaceShell>
+        <WorkspaceShell commands={portfolioCommands}>{children}</WorkspaceShell>
       </body>
     </html>
   );

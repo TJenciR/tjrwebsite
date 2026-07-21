@@ -4,7 +4,7 @@ Migration-safe personal workspace with source-aware profile, education, résumé
 
 ## Status
 
-- Branch scope: server-rendered Now, Skills, and Hobbies experiences using verified CV, repository, and user-confirmed facts.
+- Branch scope: deterministic, client-local portfolio commands built from verified public content.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
@@ -17,6 +17,7 @@ Read `docs/content-editing-guide.md` before adding or publishing factual content
 Read `docs/profile-resume-pages.md` before changing profile placeholders, portrait handling, or print behavior.
 Read `docs/project-library.md` before changing project routes, filters, media, or legacy downloads.
 Read `docs/now-skills-hobbies.md` before changing current activity, skill groupings, evidence links, communication levels, or hobby details.
+Read `docs/portfolio-command-composer.md` before changing command matching, actions, privacy refusals, or keyboard behavior.
 
 ## Stack
 
@@ -30,6 +31,11 @@ Read `docs/now-skills-hobbies.md` before changing current activity, skill groupi
 - npm
 - Vitest and Testing Library
 - ESLint
+
+The command composer opens from the shell, sidebar search control, or
+Ctrl/Cmd+K. It performs deterministic matching in the browser against a typed,
+server-built public command registry. Entered text is not sent to a server,
+persisted, or captured by analytics.
 
 ## Local development
 

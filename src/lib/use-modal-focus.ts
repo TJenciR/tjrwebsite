@@ -21,6 +21,7 @@ export function useModalFocus(
   open: boolean,
   containerRef: RefObject<HTMLElement | null>,
   onDismiss: () => void,
+  initialFocusRef?: RefObject<HTMLElement | null>,
 ) {
   useEffect(() => {
     if (!open || !containerRef.current) {
@@ -34,7 +35,7 @@ export function useModalFocus(
     const previousOverflow = document.body.style.overflow;
 
     document.body.style.overflow = "hidden";
-    (getFocusableElements(container)[0] ?? container).focus();
+    (initialFocusRef?.current ?? getFocusableElements(container)[0] ?? container).focus();
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -73,5 +74,5 @@ export function useModalFocus(
       document.body.style.overflow = previousOverflow;
       returnFocusTo?.focus();
     };
-  }, [containerRef, onDismiss, open]);
+  }, [containerRef, initialFocusRef, onDismiss, open]);
 }

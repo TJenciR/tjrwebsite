@@ -11,6 +11,6 @@ Hey there, I'm a computer science student who's got a pretty solid handle on Jav
 
 ## Contact Me
 
-Email me at: tokolijenci@gmail.com
+Email me at: private email
 
 Find me on: [__](https://www.facebook.com/jenci.tokoli)[__](https://www.instagram.com/jenci_tokoli)

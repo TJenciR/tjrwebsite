@@ -1,11 +1,11 @@
-import { userConfirmedMetadata } from "@/lib/content-model";
+import { userConfirmedMetadataFor } from "@/lib/content-model";
 import type { ContactAccessCopy } from "@/types/content-model";
 
 export const contactAccessCopy: ContactAccessCopy = Object.freeze({
-  ...userConfirmedMetadata,
+  ...userConfirmedMetadataFor("User-provided v0.10.0 contact-access brief"),
   id: "contact-access",
-  state: "closed",
-  heading: "Contact access is currently closed",
-  body: "No direct contact details are published from this portfolio.",
-  internalNote: "A future workflow requires separate privacy and provider approval.",
+  state: "request-only",
+  heading: "Request professional contact",
+  body: "Requests are reviewed manually. Direct contact details remain private and no automatic approval occurs.",
+  internalNote: "The request workflow does not disclose the private email or private telephone.",
 });

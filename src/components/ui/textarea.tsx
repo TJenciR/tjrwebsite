@@ -21,8 +21,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
     .join(" ") || undefined;
 
   return (
-    <label className="ds-field" htmlFor={id}>
-      <span className="ds-field__label">{label}</span>
+    <div className="ds-field">
+      <label className="ds-field__label" htmlFor={id}>{label}</label>
       <textarea
         {...props}
         aria-describedby={describedBy}
@@ -34,6 +34,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
       />
       {description ? <span className="ds-field__description" id={descriptionId}>{description}</span> : null}
       {error ? <span className="ds-field__error" id={errorId}><span aria-hidden="true">!</span>{error}</span> : null}
-    </label>
+    </div>
   );
 });

@@ -21,8 +21,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     .join(" ") || undefined;
 
   return (
-    <label className="ds-field" htmlFor={id}>
-      <span className="ds-field__label">{label}</span>
+    <div className="ds-field">
+      <label className="ds-field__label" htmlFor={id}>{label}</label>
       <input
         {...props}
         aria-describedby={describedBy}
@@ -33,6 +33,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       />
       {description ? <span className="ds-field__description" id={descriptionId}>{description}</span> : null}
       {error ? <span className="ds-field__error" id={errorId}><span aria-hidden="true">!</span>{error}</span> : null}
-    </label>
+    </div>
   );
 });

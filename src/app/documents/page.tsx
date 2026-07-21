@@ -8,6 +8,7 @@ import { legacyQualifications } from "@/content/legacy-content";
 export const metadata: Metadata = {
   title: "Documents",
   description: "Privacy-safe migration status for legacy qualification documents.",
+  alternates: { canonical: "/documents" },
 };
 
 export default function DocumentsPage() {

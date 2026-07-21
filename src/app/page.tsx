@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
+
 import { ContentStatus } from "@/components/content-status";
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
 import { Card } from "@/components/ui";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const name = getPublicValue(siteConfig.name) ?? "Portfolio";

@@ -6,7 +6,7 @@ export default function NotFoundPage() {
       <p className="ds-eyebrow">404</p>
       <h1>Page not found</h1>
       <p>
-        This foundation preserves known legacy routes and returns a truthful 404
+        This workspace preserves known legacy routes and returns a truthful 404
         for unknown paths.
       </p>
       <Link className="foundation-link" href="/">

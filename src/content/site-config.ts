@@ -62,10 +62,10 @@ export const siteConfig: SiteConfiguration = Object.freeze({
     source: "docs/audit/legacy-site-audit.md",
   }),
   productionDomain: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/questions-for-richard.md",
+    value: "https://jenorichardtokoli.com/",
+    status: "verified",
+    verifiedAt: auditDate,
+    source: "User-provided v0.4.0 domain rules",
   }),
   sanitizedResumeUrl: defineContentValue<string>({
     value: null,

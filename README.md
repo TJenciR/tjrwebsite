@@ -1,13 +1,13 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal workspace with source-aware profile, education, résumé, projects, current activity, skills, and hobbies. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with source-aware profile, projects, and a privacy-safe professional contact-request workflow. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: deterministic, client-local portfolio commands built from verified public content.
+- Branch scope: server-validated professional contact requests without exposing direct contact details.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
-- Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
+- Authentication, accounts, a submissions database, CMS, and AI APIs: intentionally absent.
 - Legacy source recovery: still required.
 
 Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or content.
@@ -18,6 +18,8 @@ Read `docs/profile-resume-pages.md` before changing profile placeholders, portra
 Read `docs/project-library.md` before changing project routes, filters, media, or legacy downloads.
 Read `docs/now-skills-hobbies.md` before changing current activity, skill groupings, evidence links, communication levels, or hobby details.
 Read `docs/portfolio-command-composer.md` before changing command matching, actions, privacy refusals, or keyboard behavior.
+Read `docs/contact-access.md` before changing contact fields, validation, delivery, rate limiting, or privacy behavior.
+Read `docs/deployment/contact-access.md` before enabling real delivery on Vercel.
 
 ## Stack
 
@@ -28,6 +30,8 @@ Read `docs/portfolio-command-composer.md` before changing command matching, acti
 - Semantic CSS custom-property tokens
 - Self-hosted Inter and JetBrains Mono typefaces
 - Lucide icons through a typed local registry
+- Vercel Firewall rate limiting for the contact endpoint
+- Resend REST delivery behind a server-only provider abstraction
 - npm
 - Vitest and Testing Library
 - ESLint
@@ -57,6 +61,11 @@ copy .env.example .env.local
 ```
 
 Do not place contact details, the original CV, or qualification documents in environment files or `public/`.
+
+Contact requests default to development mode locally: they are validated but are
+not sent, stored, or logged. Real delivery requires explicit server-only Vercel
+configuration and the published firewall rule documented in
+`docs/deployment/contact-access.md`.
 
 ## Verification
 

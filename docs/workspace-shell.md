@@ -13,9 +13,9 @@ pinned-project, and secondary-project navigation. Projects continue to resolve
 through the audited `/work` route and use stable fragment identifiers. The
 legacy routes `/`, `/about`, `/work`, and `/documents` remain available.
 
-The added `/now`, `/skills`, `/hobbies`, `/education`, `/resume`, and
-`/contact-access` routes are privacy-safe placeholders. They deliberately do not
-publish unverified content.
+The added `/now`, `/skills`, `/hobbies`, `/education`, and `/resume` routes use
+the verified content model. `/contact-access` provides a privacy-safe request
+form and `/privacy` explains its public data-handling boundary.
 
 ## Responsive behavior
 
@@ -35,8 +35,9 @@ store subscription to avoid rendering browser-only state during hydration.
 
 There is no approved standalone portrait asset, professional title, location,
 GitHub URL, or LinkedIn URL. The shell uses a TJR monogram and clearly labelled
-pending states. LinkedIn is omitted until verified. Contact access remains
-closed; no private contact values or original résumé are exposed.
+pending states. LinkedIn is omitted until verified. Contact requests never expose
+private contact values or the original résumé, and submission grants no automatic
+access.
 
 ## Deployment origins
 

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3D Optimal Pathfinder - TJR Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#492900",
+                        "on-primary": "#002d6d",
+                        "surface-elevated": "#102238",
+                        "on-secondary-container": "#002f35",
+                        "secondary-fixed": "#9bf0ff",
+                        "primary-container": "#5b91ff",
+                        "tertiary-container": "#d68000",
+                        "border-subtle": "#203A57",
+                        "on-background": "#d6e3fb",
+                        "on-primary-fixed-variant": "#00429a",
+                        "outline": "#8c909f",
+                        "on-primary-container": "#002a67",
+                        "inverse-surface": "#d6e3fb",
+                        "status-warning": "#E4B768",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#424653",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-surface": "#d6e3fb",
+                        "surface": "#061425",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#afc6ff",
+                        "surface-variant": "#283648",
+                        "text-secondary": "#9CB0C7",
+                        "secondary-fixed-dim": "#62d6e9",
+                        "on-secondary-fixed": "#001f24",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-container-lowest": "#020f1f",
+                        "status-success": "#45CEA1",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "secondary-container": "#0d9fb1",
+                        "primary-fixed": "#d9e2ff",
+                        "app-bg": "#050D18",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-high": "#1d2b3c",
+                        "inverse-on-surface": "#243143",
+                        "error-container": "#93000a",
+                        "surface-bright": "#2d3a4c",
+                        "surface-interactive": "#142A43",
+                        "surface-tint": "#afc6ff",
+                        "text-muted": "#70869F",
+                        "tertiary": "#ffb86e",
+                        "sidebar-bg": "#071321",
+                        "background": "#061425",
+                        "surface-container": "#132032",
+                        "on-surface-variant": "#c2c6d5",
+                        "surface-dim": "#061425",
+                        "inverse-primary": "#0f59c4",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001944",
+                        "surface-container-highest": "#283648",
+                        "secondary": "#62d6e9",
+                        "text-primary": "#EEF5FF",
+                        "primary": "#afc6ff",
+                        "surface-container-low": "#0e1c2d",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#452600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "stack-md": "1rem",
+                        "container-max": "1200px",
+                        "sidebar-width": "260px",
+                        "sidebar-collapsed": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "code-snippet": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "code-snippet": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.app-bg');
+            color: theme('colors.text-primary');
+        }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col bg-sidebar-bg dark:bg-sidebar-bg border-r border-border-subtle w-[260px] z-50">
+<div class="p-6">
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted mt-1">Software Engineer</p>
+</div>
+<div class="px-4 pb-4">
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-interactive border border-border-subtle rounded text-text-muted text-label-sm font-label-sm hover:text-text-primary hover:border-outline transition-colors">
+<span>Search</span>
+<span class="bg-surface-elevated px-1.5 py-0.5 rounded border border-border-subtle text-xs">CMD+K</span>
+</button>
+</div>
+<ul class="flex-1 px-2 space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">person</span>
+                    About
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                    Projects
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+                    Now
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+                    Skills
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+                    Hobbies
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">school</span>
+                    Education
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors text-label-sm font-label-sm rounded-r" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+                    Resume
+                </a>
+</li>
+</ul>
+<div class="p-4 border-t border-border-subtle">
+<div class="flex gap-4 px-2">
+<a class="text-text-muted hover:text-primary transition-colors" href="#" title="LinkedIn">
+<span class="material-symbols-outlined">link</span>
+</a>
+<a class="text-text-muted hover:text-primary transition-colors" href="#" title="GitHub">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar (Mobile) -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 lg:hidden bg-app-bg/80 backdrop-blur-md z-40 border-b border-border-subtle">
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</h1>
+<div class="flex gap-4">
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 lg:pl-[260px] pb-24 lg:pb-8">
+<div class="max-w-container-max mx-auto p-4 md:p-gutter lg:p-8 space-y-stack-lg">
+<!-- Header Section -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-muted">
+<a class="hover:text-primary transition-colors" href="#">Projects</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">3D Optimal Pathfinder</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg">3D Optimal Pathfinder</h1>
+<p class="text-body-lg font-body-lg text-text-secondary mt-2 max-w-2xl">Implementation of a highly optimized A* pathfinding algorithm adapted for complex three-dimensional environments, suitable for drone navigation and volumetric spatial analysis.</p>
+</div>
+<div class="flex gap-2 items-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-success/15 border border-status-success/30 text-status-success text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success shadow-[0_0_4px_theme(colors.status-success)]"></span>
+                            Finished
+                        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-elevated border border-border-subtle text-text-primary text-label-sm font-label-sm">
+                            Python
+                        </span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+<!-- Main Visualization Card -->
+<div class="md:col-span-8 bg-surface-elevated border border-border-subtle rounded-lg overflow-hidden flex flex-col min-h-[400px]">
+<div class="p-4 border-b border-border-subtle flex justify-between items-center bg-surface-interactive">
+<h2 class="text-label-sm font-label-sm text-text-secondary">Algorithm Visualization</h2>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-variant text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]">play_arrow</span></button>
+<button class="p-1 rounded hover:bg-surface-variant text-text-muted transition-colors"><span class="material-symbols-outlined text-[18px]">restart_alt</span></button>
+</div>
+</div>
+<div class="flex-1 relative bg-surface-dim p-4 flex items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="A dark, sophisticated volumetric 3D pathfinding visualization. A glowing neon blue path weaves through a matrix of translucent navy-blue cubes representing obstacles. The environment is minimalist and technical, resembling a high-end data analytics dashboard. Soft atmospheric depth of field, sharp neon accents on the calculated path, deep shadow contrasts." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARDlz0GVOe4iJFoZ-VhEhUcaK9UOWu6QI6SPpISzR0tTJQ2bzuK_OnZ1sXMQTyqRBQfunvqZYjXImqPbev2emP8wKAsHkoCUuQk-onyAHTzYJ3fUxGEyLxyNH2nUtKC1mK_qhckY2_5DMPwxWOuwOvprklBAL85lWW8hN8GT-80LNGyK9JpSlNi3fU-vxiCCmz5g4A6iYAfLkLBhsFpiM9roEP8e0rmgCuLMBgTd0aIkfTj5rxm_jv9A')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-elevated via-transparent to-transparent"></div>
+<!-- Overlay UI for Visualization -->
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div class="bg-surface-elevated/90 backdrop-blur border border-border-subtle rounded p-3 text-code-snippet font-code-snippet space-y-1">
+<div class="flex justify-between gap-8"><span class="text-text-muted">Nodes Explored:</span><span class="text-primary">14,203</span></div>
+<div class="flex justify-between gap-8"><span class="text-text-muted">Path Length:</span><span class="text-status-success">142.5u</span></div>
+<div class="flex justify-between gap-8"><span class="text-text-muted">Compute Time:</span><span class="text-text-primary">12ms</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Details Side Column -->
+<div class="md:col-span-4 flex flex-col gap-4 md:gap-6">
+<!-- Stats Card -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6 space-y-4">
+<h3 class="text-label-sm font-label-sm text-text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">memory</span> Performance Metrics
+                        </h3>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-body-md font-body-md mb-1">
+<span class="text-text-muted">Heuristic Efficiency</span>
+<span class="text-text-primary">94%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-md font-body-md mb-1">
+<span class="text-text-muted">Memory Usage</span>
+<span class="text-text-primary">24MB</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Repository Details -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6 flex-1">
+<h3 class="text-label-sm font-label-sm text-text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">folder_data</span> Technical Stack
+                        </h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-muted">Python 3.10</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-muted">NumPy</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-muted">Matplotlib</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-muted">SciPy</span>
+</div>
+<a class="w-full flex items-center justify-center gap-2 py-2 px-4 bg-primary text-on-primary rounded font-label-sm text-label-sm hover:bg-primary-fixed-dim transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                            View Source Code
+                        </a>
+</div>
+</div>
+<!-- Implementation Details Card -->
+<div class="md:col-span-12 bg-surface-elevated border border-border-subtle rounded-lg p-6 lg:p-8">
+<h3 class="text-headline-md font-headline-md mb-4 border-b border-border-subtle pb-4">Implementation Notes</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="space-y-4 text-body-md font-body-md text-text-secondary">
+<p>The core algorithm utilizes a custom priority queue implementation tailored for 3D coordinate tuples, significantly reducing the overhead associated with standard library queues when handling large volumetric grids.</p>
+<p>Heuristic function employs a modified Euclidean distance that applies heavier weighting to vertical traversal, mimicking real-world constraints often found in drone flight path planning where altitude changes consume more energy.</p>
+</div>
+<div class="bg-surface border border-border-subtle rounded p-4 overflow-x-auto">
+<pre class="text-code-snippet font-code-snippet text-text-muted"><code>def heuristic(a: tuple, b: tuple) -&gt; float:
+    <span class="text-text-secondary"># Modified Euclidean with vertical weight</span>
+    dx = abs(a[0] - b[0])
+    dy = abs(a[1] - b[1])
+    dz = abs(a[2] - b[2]) * 1.5 <span class="text-primary-container"># Z-axis penalty</span>
+    
+    return math.sqrt(dx*dx + dy*dy + dz*dz)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high dark:bg-surface-container-high lg:hidden border-t border-border-subtle">
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:bg-surface-interactive rounded px-4 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary py-2 hover:bg-surface-interactive rounded px-4 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_special</span>
+<span class="text-label-sm font-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:bg-surface-interactive rounded px-4 transition-colors" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="text-label-sm font-label-sm mt-1">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:bg-surface-interactive rounded px-4 transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-sm font-label-sm mt-1">Search</span>
+</a>
+</nav>
+</body></html>

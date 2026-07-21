@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hobbies - TJR Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#492900",
+                      "on-primary": "#002d6d",
+                      "surface-elevated": "#102238",
+                      "on-secondary-container": "#002f35",
+                      "secondary-fixed": "#9bf0ff",
+                      "primary-container": "#5b91ff",
+                      "tertiary-container": "#d68000",
+                      "border-subtle": "#203A57",
+                      "on-background": "#d6e3fb",
+                      "on-primary-fixed-variant": "#00429a",
+                      "outline": "#8c909f",
+                      "on-primary-container": "#002a67",
+                      "inverse-surface": "#d6e3fb",
+                      "status-warning": "#E4B768",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#424653",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-surface": "#d6e3fb",
+                      "surface": "#061425",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#afc6ff",
+                      "surface-variant": "#283648",
+                      "text-secondary": "#9CB0C7",
+                      "secondary-fixed-dim": "#62d6e9",
+                      "on-secondary-fixed": "#001f24",
+                      "tertiary-fixed": "#ffdcbd",
+                      "on-tertiary-fixed": "#2c1600",
+                      "surface-container-lowest": "#020f1f",
+                      "status-success": "#45CEA1",
+                      "tertiary-fixed-dim": "#ffb86e",
+                      "secondary-container": "#0d9fb1",
+                      "primary-fixed": "#d9e2ff",
+                      "app-bg": "#050D18",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "surface-container-high": "#1d2b3c",
+                      "inverse-on-surface": "#243143",
+                      "error-container": "#93000a",
+                      "surface-bright": "#2d3a4c",
+                      "surface-interactive": "#142A43",
+                      "surface-tint": "#afc6ff",
+                      "text-muted": "#70869F",
+                      "tertiary": "#ffb86e",
+                      "sidebar-bg": "#071321",
+                      "background": "#061425",
+                      "surface-container": "#132032",
+                      "on-surface-variant": "#c2c6d5",
+                      "surface-dim": "#061425",
+                      "inverse-primary": "#0f59c4",
+                      "on-secondary": "#00363d",
+                      "on-primary-fixed": "#001944",
+                      "surface-container-highest": "#283648",
+                      "secondary": "#62d6e9",
+                      "text-primary": "#EEF5FF",
+                      "primary": "#afc6ff",
+                      "surface-container-low": "#0e1c2d",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#452600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2rem",
+                      "stack-md": "1rem",
+                      "container-max": "1200px",
+                      "sidebar-width": "260px",
+                      "sidebar-collapsed": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "code-snippet": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-snippet": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .plugin-card {
+            background: linear-gradient(180deg, rgba(16, 34, 56, 0.8) 0%, rgba(16, 34, 56, 0.4) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid #203A57;
+            transition: all 0.3s ease;
+        }
+        .plugin-card:hover {
+            border-color: #5b91ff;
+            box-shadow: 0 4px 20px rgba(91, 145, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .dial {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #142A43;
+            border: 2px solid #203A57;
+            position: relative;
+        }
+        .dial::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            width: 2px;
+            height: 12px;
+            background: #afc6ff;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(45deg);
+        }
+        .waveform {
+            background: repeating-linear-gradient(
+                90deg,
+                #5b91ff,
+                #5b91ff 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            height: 24px;
+            opacity: 0.5;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-app-bg text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 lg:pl-[280px] bg-app-bg/80 backdrop-blur-md border-b border-border-subtle z-40">
+<div class="lg:hidden text-headline-md font-headline-md font-bold text-text-primary">
+            TJR Workspace
+        </div>
+<div class="flex-1 lg:flex-none">
+<!-- Search placeholder on left as per JSON -->
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors hover:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors hover:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-interactive overflow-hidden border border-border-subtle">
+<img alt="Tököli Jenő-Richard Portrait" class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a male software engineer, professional yet approachable, lit by the soft glow of a dual-monitor setup in a dark, high-end technical workspace. Deep navy shadows, cool blue highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApzPFvAXUk6o7D6OFb9vcG7MFrKeUMmuaPjkv2NNjAWqAsEmMqnTFrVJ4R14p3w0nnpVQ8_ed_xpfGD0xIJWtJMGwvHvn1G5umbDZ6D37LhXQ5aCopqCnN1sm6x_6_L69tjwW4yzxAcR4ngf7N8EhkgYhAagQiRhHj_3FJtDqg1BW10EsFhu_jEDmDy-Lq0emAExcturoXgxOgWmkVbK_v1-4KHtYKp5AKXrlDnzybQjEmoAuo8Gg_YQ"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col bg-sidebar-bg dark:bg-sidebar-bg h-screen w-[260px] border-r border-border-subtle z-50 transition-all duration-200 ease-in-out">
+<div class="p-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-lg bg-surface-interactive flex items-center justify-center font-bold text-primary border border-border-subtle">
+                    TJR
+                </div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter line-clamp-1">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted">Software Engineer</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-interactive rounded text-text-muted hover:text-primary border border-border-subtle mb-6 text-label-sm font-label-sm">
+<span>Search</span>
+<span class="bg-surface border border-border-subtle px-1 rounded">CMD+K</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+<span class="text-body-md font-body-md">About</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="code">code</span>
+<span class="text-body-md font-body-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="timer">timer</span>
+<span class="text-body-md font-body-md">Now</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="psychology">psychology</span>
+<span class="text-body-md font-body-md">Skills</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sports_esports" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="text-body-md font-body-md font-medium">Hobbies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span class="text-body-md font-body-md">Education</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="description">description</span>
+<span class="text-body-md font-body-md">Resume</span>
+</a>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-border-subtle">
+<div class="flex gap-4">
+<a class="text-text-muted hover:text-primary transition-colors flex items-center gap-2 text-label-sm font-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+                    LinkedIn
+                </a>
+<a class="text-text-muted hover:text-primary transition-colors flex items-center gap-2 text-label-sm font-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+                    GitHub
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="lg:pl-sidebar-width min-h-screen pb-24 lg:pb-8">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-stack-lg">
+<header class="mb-stack-lg flex items-end justify-between border-b border-border-subtle pb-4">
+<div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-text-primary">System.Plugins</h2>
+<p class="text-text-muted mt-2">Active modules outside of runtime environment.</p>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-status-success animate-pulse blur-[1px]"></span>
+<span class="text-label-sm font-label-sm text-status-success">4 MODULES ACTIVE</span>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Music/DJing Plugin Card -->
+<div class="plugin-card rounded-lg p-6 flex flex-col md:col-span-2">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="headphones">headphones</span>
+</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-text-primary">AudioEngine.DJ</h3>
+<p class="text-label-sm font-label-sm text-text-muted uppercase">Uptime: 10+ Years</p>
+</div>
+</div>
+<div class="px-2 py-1 rounded bg-status-success/15 border border-status-success/30 text-status-success text-label-sm font-label-sm">
+                            v.Mix.Pro
+                        </div>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 space-y-4">
+<p class="text-body-md text-text-secondary">Deep immersion in sound design, mixing, and rhythmic structures. The interface between technology and human experience through auditory channels.</p>
+<div class="w-full waveform mt-4"></div>
+</div>
+<div class="flex items-center justify-around bg-surface-elevated rounded border border-border-subtle p-4">
+<div class="flex flex-col items-center gap-2">
+<div class="dial" style="transform: rotate(-30deg)"></div>
+<span class="text-label-sm font-label-sm text-text-muted">BASS</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="dial" style="transform: rotate(45deg)"></div>
+<span class="text-label-sm font-label-sm text-text-muted">MID</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="dial" style="transform: rotate(15deg)"></div>
+<span class="text-label-sm font-label-sm text-text-muted">HI</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Gaming Plugin Card -->
+<div class="plugin-card rounded-lg p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-text-primary">Simulation.Env</h3>
+<p class="text-label-sm font-label-sm text-text-muted uppercase">Digital Realms</p>
+</div>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-4">
+<div class="h-32 rounded border border-border-subtle overflow-hidden relative">
+<img alt="Gaming Setup" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-500 mix-blend-screen" data-alt="A highly detailed, futuristic gaming setup viewed from a dynamic low angle in a dark room. The screen displays a complex, high-contrast abstract wireframe simulation in deep navy and electric blue. A mechanical keyboard glows softly. Professional, non-gamer-cliché aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4yk_l1VKhuQ-A0SL5b8irHTainDBSf9zDxJoG8-HoAip8XUxyD5DsLvIEVYy9JXq2wWPgpOyNWWQKude0r0R6HnMx1SHUFCksMgByTKyEC7PkgnhX06ojEbuaE48KHLXUt4WCwXPW1df2P7IK80UxTxmPLZKpZDuKnRLLYsD2OyqMe-CjsLZ0TkyQQpLBLlc9k2lywwABf1fEN_dZaiKN2GiEBByhcM2QYzs2yht0ZGi6QqVy8xjfnw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-elevated to-transparent"></div>
+</div>
+<p class="text-body-md text-text-secondary">Exploring complex rule systems, spatial reasoning, and narrative architecture within interactive digital spaces.</p>
+</div>
+</div>
+<!-- Fishing Plugin Card -->
+<div class="plugin-card rounded-lg p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="phishing">phishing</span> <!-- Closest icon to fishing hook in common sets -->
+</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-text-primary">Analog.Disconnect</h3>
+<p class="text-label-sm font-label-sm text-text-muted uppercase">Physical Activity</p>
+</div>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-4">
+<p class="text-body-md text-text-secondary">Tactile engagement with aquatic ecosystems. A required offline protocol for mental recalibration and patience processing.</p>
+<div class="mt-auto pt-4 border-t border-border-subtle flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-text-muted">CONNECTION</span>
+<span class="text-status-warning flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-warning inline-block"></span>
+                                OFFLINE MODE
+                            </span>
+</div>
+</div>
+</div>
+<!-- Geography Plugin Card -->
+<div class="plugin-card rounded-lg p-6 flex flex-col md:col-span-2">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</div>
+<div>
+<h3 class="text-headline-md font-headline-md text-text-primary">GeoSpatial.Data</h3>
+<p class="text-label-sm font-label-sm text-text-muted uppercase">Cartography Interest</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<p class="text-body-md text-text-secondary">Fascination with topographic data, borders, and the visual representation of spatial information. Understanding systems on a macro scale.</p>
+</div>
+<div class="flex-1 h-24 rounded border border-border-subtle relative overflow-hidden bg-surface-interactive">
+<!-- Abstract grid pattern to represent maps/geo -->
+<div class="absolute inset-0" style="background-image: radial-gradient(#203A57 1px, transparent 1px); background-size: 8px 8px; opacity: 0.5;"></div>
+<div class="absolute inset-0 border-t border-primary/30 w-full h-px top-1/2 -translate-y-1/2"></div>
+<div class="absolute inset-0 border-l border-primary/30 w-px h-full left-1/2 -translate-x-1/2"></div>
+<span class="absolute bottom-2 right-2 text-[10px] font-label-sm text-text-muted tracking-widest">LAT: UNKNOWN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high dark:bg-surface-container-high border-t border-border-subtle shadow-[0_-4px_20px_rgba(0,0,0,0.4)] lg:hidden active:bg-surface-interactive transition-all">
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:text-primary transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:text-primary transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+<span class="text-label-sm font-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:text-primary transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="text-label-sm font-label-sm mt-1">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 hover:text-primary transition-colors w-1/4" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-sm font-label-sm mt-1">Search</span>
+</a>
+</nav>
+</body></html>

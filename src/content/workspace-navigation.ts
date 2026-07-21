@@ -61,9 +61,9 @@ export const primaryWorkspaceNavigation = [
 
 export const pinnedProjectNavigation = [
   {
-    id: "repairpass",
-    label: "RepairPass",
-    href: "/work#repairpass",
+    id: "repairpass-architecture",
+    label: "RepairPass Architecture",
+    href: "/work#repairpass-architecture",
     icon: "pin",
   },
   {

@@ -38,7 +38,7 @@ beforeEach(() => {
 describe("typed workspace navigation", () => {
   it("keeps the pinned and secondary project links data-driven", () => {
     expect(pinnedProjectNavigation.map(({ label }) => label)).toEqual([
-      "RepairPass",
+      "RepairPass Architecture",
       "3D Optimal Pathfinder",
       "Online School Portal",
     ]);
@@ -72,9 +72,9 @@ describe("desktop workspace shell", () => {
 
     expect(sidebar).toHaveAttribute("data-collapsed", "false");
     expect(skills).toHaveAttribute("aria-current", "page");
-    expect(within(sidebar).getByRole("link", { name: "RepairPass" })).toHaveAttribute(
+    expect(within(sidebar).getByRole("link", { name: "RepairPass Architecture" })).toHaveAttribute(
       "href",
-      "/work#repairpass",
+      "/work#repairpass-architecture",
     );
     expect(screen.getByRole("contentinfo", { name: "Command composer" })).toBeInTheDocument();
   });

@@ -5,10 +5,7 @@ import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
 import { Card } from "@/components/ui";
 import { legacyProjects } from "@/content/legacy-content";
-import {
-  pinnedProjectNavigation,
-  secondaryProjectNavigation,
-} from "@/content/workspace-navigation";
+import { portfolioContent } from "@/content/portfolio";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -33,9 +30,9 @@ export default function WorkPage() {
           until their source facts are confirmed.
         </p>
         <ul className="foundation-list">
-          {[...pinnedProjectNavigation, ...secondaryProjectNavigation].map((project) => (
-            <li id={project.id} key={project.id}>
-              <h3>{project.label}</h3>
+          {portfolioContent.projects.map((project) => (
+            <li id={project.slug} key={project.slug}>
+              <h3>{project.title}</h3>
             </li>
           ))}
         </ul>

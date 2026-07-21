@@ -1,18 +1,19 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal-workspace shell and reusable design system for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with a typed, source-aware content model for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: responsive personal-workspace navigation, accessible shell behavior, and route placeholders based on the approved Stitch design.
+- Branch scope: typed profile, education, skill, project, interest, social, résumé, and contact content with runtime validation.
 - Production cutover: not authorized.
-- Final page designs and verified portfolio content: not implemented.
+- Final page designs and publication of verified portfolio content: not implemented.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
 - Legacy source recovery: still required.
 
 Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or content.
 Read `docs/design-system/foundation.md` before extending tokens or components.
 Read `docs/workspace-shell.md` before changing the workspace navigation, persistence, or deployment-origin behavior.
+Read `docs/content-editing-guide.md` before adding or publishing factual content.
 
 ## Stack
 

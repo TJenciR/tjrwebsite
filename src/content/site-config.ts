@@ -1,88 +1,54 @@
+import { contactAccessCopy } from "@/content/contact";
+import { biographies, profile, resumeMetadata } from "@/content/profile";
+import { socials } from "@/content/socials";
 import { defineContentValue } from "@/lib/content-value";
+import {
+  contentAuditDate,
+  toContentValue,
+} from "@/lib/content-model";
 import type {
   ContactAccessState,
   SiteConfiguration,
 } from "@/types/content";
 
-const auditDate = "2026-07-21" as const;
+const shortBiography = biographies.find(({ kind }) => kind === "short");
+const longBiography = biographies.find(({ kind }) => kind === "long");
+const github = socials.find(({ platform }) => platform === "github");
+const linkedin = socials.find(({ platform }) => platform === "linkedin");
 
 export const siteConfig: SiteConfiguration = Object.freeze({
-  name: defineContentValue({
-    value: "Tököli Jenő-Richard",
-    status: "verified",
-    verifiedAt: auditDate,
-    source: "User-provided repository brief",
-  }),
-  draftProfessionalTitle: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-conflicts.md",
-  }),
-  shortBiography: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-conflicts.md",
-  }),
-  longBiography: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-conflicts.md",
-  }),
-  location: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-conflicts.md",
-  }),
-  currentAvailability: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-conflicts.md",
-  }),
-  githubUrl: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-inventory.md",
-  }),
-  linkedinUrl: defineContentValue<string>({
-    value: null,
-    status: "needs-confirmation",
-    verifiedAt: null,
-    source: "docs/audit/content-inventory.md",
-  }),
+  name: toContentValue(profile.name.value, profile.name),
+  draftProfessionalTitle: toContentValue(
+    profile.professionalTitle.value,
+    profile.professionalTitle,
+  ),
+  shortBiography: toContentValue(shortBiography?.body ?? null, shortBiography ?? profile),
+  longBiography: toContentValue(longBiography?.body ?? null, longBiography ?? profile),
+  location: toContentValue(profile.location.value, profile.location),
+  currentAvailability: toContentValue(profile.availability.value, profile.availability),
+  githubUrl: toContentValue(github?.url ?? null, github ?? profile),
+  linkedinUrl: toContentValue(linkedin?.url ?? null, linkedin ?? profile),
   legacyWebsiteUrl: defineContentValue({
     value: "https://tjrichard.netlify.app/",
     status: "verified",
-    verifiedAt: auditDate,
+    verifiedAt: contentAuditDate,
     source: "docs/audit/legacy-site-audit.md",
   }),
   productionDomain: defineContentValue<string>({
     value: "https://jenorichardtokoli.com/",
     status: "verified",
-    verifiedAt: auditDate,
+    verifiedAt: contentAuditDate,
     source: "User-provided v0.4.0 domain rules",
   }),
-  sanitizedResumeUrl: defineContentValue<string>({
-    value: null,
-    status: "hidden",
-    verifiedAt: null,
-    source: "Privacy requirement; sanitized replacement not approved",
-  }),
-  contactAccessState: defineContentValue<ContactAccessState>({
-    value: "closed",
-    status: "verified",
-    verifiedAt: auditDate,
-    source: "v0.2.0 migration scope: no contact provider",
-  }),
+  sanitizedResumeUrl: toContentValue(resumeMetadata.publicPath, resumeMetadata),
+  contactAccessState: toContentValue<ContactAccessState>(
+    contactAccessCopy.state,
+    contactAccessCopy,
+  ),
   lastContentVerificationDate: defineContentValue({
-    value: auditDate,
+    value: contentAuditDate,
     status: "verified",
-    verifiedAt: auditDate,
-    source: "docs/audit/legacy-site-audit.md",
+    verifiedAt: contentAuditDate,
+    source: "v0.5.0 source-aware content model",
   }),
 });

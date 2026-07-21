@@ -36,3 +36,12 @@ logged.
   bodies in application logs.
 - If delivery is unavailable, leave the endpoint fail-closed and fix server
   configuration rather than publishing the private email.
+
+## Emergency disable procedure
+
+Set the Production `CONTACT_DELIVERY_MODE` value to `disabled` and create a new
+deployment. The server provider abstraction accepts real delivery only when the
+value is exactly `resend`; every other Production value fails closed with the
+generic provider-unavailable state. Keep the firewall rule active and verify the
+503 response with non-sensitive test data. Re-enable delivery only after the
+provider configuration and metadata-only logs have been reviewed.

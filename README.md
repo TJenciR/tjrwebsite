@@ -1,11 +1,13 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal workspace with source-aware profile, projects, and a privacy-safe professional contact-request workflow. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with source-aware profile, projects, and a privacy-safe professional contact-request workflow. The redesigned application is in final production-cutover review while the legacy Netlify deployment remains available for rollback.
 
 ## Status
 
-- Branch scope: reliable pull-request CI and deterministic Playwright coverage before production cutover.
-- Production cutover: not authorized.
+- Branch scope: final Vercel production readiness, custom-domain cutover planning,
+  and documented rollback without redesigning the application.
+- Production cutover: on hold until every required item in
+  `RELEASE_CHECKLIST.md` is complete and explicitly approved.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Authentication, accounts, a submissions database, CMS, and AI APIs: intentionally absent.
 - Legacy source recovery: still required.
@@ -22,6 +24,8 @@ Read `docs/contact-access.md` before changing contact fields, validation, delive
 Read `docs/deployment/contact-access.md` before enabling real delivery on Vercel.
 Read `docs/media-motion-performance.md` before adding imagery, animation, fonts, scripts, or client-side interaction.
 Read `docs/deployment/seo-vercel-migration.md` before changing SEO origins, Vercel environments, security headers, custom domains, Netlify behavior, or legacy redirects.
+Read `RELEASE_CHECKLIST.md` before changing DNS, assigning production domains,
+enabling contact delivery, redirecting Netlify, or promoting a deployment.
 
 ## Stack
 
@@ -102,7 +106,8 @@ original project fragment identifiers remain on the all-project grid.
 
 `.html` aliases redirect permanently to extensionless paths. The six public project-download paths temporarily redirect to Netlify. `/CV.pdf` permanently redirects to the sanitized web résumé, while the four legacy qualification-document paths return 410 pending privacy approval. No legacy PDF is copied into `public/`.
 
-The current Netlify deployment and its custom-domain configuration, if any, must remain unchanged until an approved release branch.
+The current Netlify deployment must remain intact until the production checklist
+has passed its monitoring and rollback gates.
 
 ## Deployment origins
 
@@ -113,7 +118,9 @@ The current Netlify deployment and its custom-domain configuration, if any, must
 The application does not derive its canonical origin from `VERCEL_URL`, and no
 redirect from the Netlify deployment is configured.
 
-The apex hostname is canonical. `www.jenorichardtokoli.com` is configured to
-redirect to the apex while preserving paths and queries once both hostnames are
-attached to Vercel. This branch does not attach either domain or modify Netlify.
+The apex hostname is canonical in application configuration.
+`www.jenorichardtokoli.com` redirects to the apex while preserving paths and
+queries when Vercel handles both hostnames. As of the release-checklist snapshot,
+the apex still serves a GoDaddy-hosted site while `www` reaches Vercel; follow the
+recorded cutover gates instead of assuming the domain migration is complete.
 

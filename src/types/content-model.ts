@@ -196,12 +196,24 @@ export interface Project extends ContentMetadata {
 export interface Hobby extends ContentMetadata {
   readonly id: string;
   readonly name: string;
+  readonly experience: SourcedValue<string>;
 }
+
+export const currentActivityKinds = [
+  "currently-building",
+  "currently-learning",
+  "currently-improving",
+  "upcoming-milestone",
+  "recently-completed",
+] as const;
+export type CurrentActivityKind = (typeof currentActivityKinds)[number];
 
 export interface CurrentActivity extends ContentMetadata {
   readonly id: string;
+  readonly kind: CurrentActivityKind;
   readonly title: string | null;
   readonly description: string | null;
+  readonly projectSlug: string | null;
 }
 
 export const socialPlatforms = [

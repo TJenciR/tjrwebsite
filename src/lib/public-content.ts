@@ -25,6 +25,15 @@ export function getPublishedEntries<T extends ContentMetadata>(
   return entries.filter(isPublishedContent);
 }
 
+export function formatVerifiedDate(date: string): string {
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    timeZone: "UTC",
+    year: "numeric",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
 const communicationLevelLabels: Readonly<Record<CommunicationLevel, string>> = {
   native: "Native",
   "full-professional": "Full professional",

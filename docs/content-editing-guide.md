@@ -48,8 +48,8 @@ truth.
 - `education.ts`: education and qualification facts.
 - `skills.ts`: programming/technology skills, tools, communication languages, and project evidence.
 - `projects.ts`: full source-aware case-study schema, exact project names, known technology/status facts, approved priority categories, aliases, and legacy download paths.
-- `hobbies.ts`: CV-backed interests without generated duration claims.
-- `now.ts`: current activity placeholders awaiting dated confirmation.
+- `hobbies.ts`: CV-backed interests and independently sourced experience details; only the user-confirmed DJ duration is currently publishable.
+- `now.ts`: one user-confirmed current project plus unpublished placeholders for learning, improvement, milestones, and recent completions.
 - `socials.ts`: audited public URLs and unresolved professional profiles.
 - `contact.ts`: privacy-safe contact-access state and copy.
 - `portfolio.ts`: validated aggregate consumed by application code.

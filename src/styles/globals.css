@@ -7,6 +7,7 @@
 @import "./tokens.css";
 @import "./components.css";
 @import "./workspace.css";
+@import "./profile-pages.css";
 
 *,
 *::before,

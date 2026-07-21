@@ -3,6 +3,7 @@ import {
   needsConfirmationMetadata,
   sourcedValue,
   userConfirmedMetadata,
+  userConfirmedMetadataFor,
 } from "@/lib/content-model";
 import type {
   Biography,
@@ -24,11 +25,10 @@ export const profile: Profile = Object.freeze({
       "Student, graduate, software engineer, and senior titles conflict across sources.",
     ),
   ),
-  location: sourcedValue<string>(
-    null,
-    needsConfirmationMetadata(
-      profileConflictSource,
-      "Cluj-Napoca and Budapest appear in different sources; no city is public truth yet.",
+  location: sourcedValue(
+    "Cluj-Napoca",
+    userConfirmedMetadataFor(
+      "User-provided v0.6.0 profile page brief",
     ),
   ),
   availability: sourcedValue<string>(
@@ -72,6 +72,8 @@ export const mediaAssets: readonly MediaAsset[] = Object.freeze([
     kind: "portrait",
     alt: null,
     publicPath: null,
+    width: null,
+    height: null,
   },
 ]);
 

@@ -1,10 +1,10 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal workspace with a typed, source-aware content model for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with source-aware profile, education, and privacy-safe web résumé pages. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: typed profile, education, skill, project, interest, social, résumé, and contact content with runtime validation.
+- Branch scope: Overview, About, Education, and web Résumé pages rendered through verified publication gates.
 - Production cutover: not authorized.
 - Final page designs and publication of verified portfolio content: not implemented.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
@@ -14,6 +14,7 @@ Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or 
 Read `docs/design-system/foundation.md` before extending tokens or components.
 Read `docs/workspace-shell.md` before changing the workspace navigation, persistence, or deployment-origin behavior.
 Read `docs/content-editing-guide.md` before adding or publishing factual content.
+Read `docs/profile-resume-pages.md` before changing profile placeholders, portrait handling, or print behavior.
 
 ## Stack
 

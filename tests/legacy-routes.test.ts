@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { legacyProjects } from "../src/content/legacy-content";
+import { projects } from "../src/content/projects";
 import {
   legacyAliases,
   legacyDownloadRedirects,
@@ -26,6 +28,20 @@ describe("legacy route contract", () => {
 
     for (const route of legacyDownloadRedirects) {
       expect(route.destination).toBe(`${legacyWebsiteOrigin}${route.source}`);
+    }
+  });
+
+  it("maps every legacy project download to a current project record", () => {
+    expect(legacyProjects).toHaveLength(6);
+
+    for (const legacyProject of legacyProjects) {
+      const migratedProject = projects.find(
+        ({ legacyPath }) => legacyPath === legacyProject.downloadPath,
+      );
+      expect(migratedProject, legacyProject.name).toBeDefined();
+      expect(migratedProject?.legacyUrl.value).toBe(
+        `${legacyWebsiteOrigin}${legacyProject.downloadPath}`,
+      );
     }
   });
 

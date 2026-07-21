@@ -1,5 +1,6 @@
 import {
   confidenceLevels,
+  projectMediaKinds,
   projectLifecycleStatuses,
   publicationStatuses,
   sourceKinds,
@@ -8,9 +9,12 @@ import {
 } from "@/types/content-model";
 
 export type ContentValidationCode =
+  | "duplicate-project-id"
   | "duplicate-project-slug"
   | "invalid-external-url"
+  | "invalid-project-media"
   | "invalid-status"
+  | "missing-project-id"
   | "missing-project-title"
   | "private-contact-data"
   | "unverified-content-published";
@@ -205,6 +209,30 @@ function validatePrivateContactData(
   }
 }
 
+function validateProjectMedia(
+  media: unknown,
+  path: string,
+  issues: ContentValidationIssue[],
+) {
+  if (media === null) {
+    return;
+  }
+
+  if (!isRecord(media) ||
+    typeof media.id !== "string" || media.id.trim().length === 0 ||
+    !projectMediaKinds.includes(media.kind as never) ||
+    typeof media.publicPath !== "string" || !media.publicPath.startsWith("/") ||
+    typeof media.alt !== "string" || media.alt.trim().length === 0 ||
+    typeof media.width !== "number" || media.width <= 0 ||
+    typeof media.height !== "number" || media.height <= 0) {
+    issues.push({
+      code: "invalid-project-media",
+      path,
+      message: "Project media requires an id, allowed kind, public path, alt text, and positive dimensions.",
+    });
+  }
+}
+
 export function validatePortfolioContent(
   content: PortfolioContentModel | unknown,
 ): readonly ContentValidationIssue[] {
@@ -220,6 +248,7 @@ export function validatePortfolioContent(
   }
 
   const rawProjects = Array.isArray(content.projects) ? content.projects : [];
+  const projectIds = new Set<string>();
   const projectSlugs = new Set<string>();
 
   rawProjects.forEach((rawProject, index) => {
@@ -237,6 +266,23 @@ export function validatePortfolioContent(
       });
     }
 
+    if (typeof rawProject.id !== "string" || rawProject.id.trim().length === 0) {
+      issues.push({
+        code: "missing-project-id",
+        path: `${path}.id`,
+        message: "Every project requires a non-empty id.",
+      });
+    } else {
+      if (projectIds.has(rawProject.id)) {
+        issues.push({
+          code: "duplicate-project-id",
+          path: `${path}.id`,
+          message: "Project ids must be unique.",
+        });
+      }
+      projectIds.add(rawProject.id);
+    }
+
     if (typeof rawProject.slug === "string") {
       if (projectSlugs.has(rawProject.slug)) {
         issues.push({
@@ -248,21 +294,43 @@ export function validatePortfolioContent(
       projectSlugs.add(rawProject.slug);
     }
 
-    const lifecycleStatus = rawProject.lifecycleStatus;
+    const lifecycleStatus = rawProject.status;
     if (
       isRecord(lifecycleStatus) &&
       !projectLifecycleStatuses.includes(lifecycleStatus.value as never)
     ) {
-      pushInvalidStatus(issues, `${path}.lifecycleStatus.value`, "Project lifecycle status");
+      pushInvalidStatus(issues, `${path}.status.value`, "Project lifecycle status");
     }
 
-    for (const field of ["repositoryUrl", "liveDemoUrl"] as const) {
+    for (const field of ["repositoryUrl", "liveUrl", "legacyUrl"] as const) {
       const urlField = rawProject[field];
       validateExternalUrl(
         isRecord(urlField) ? urlField.value : urlField,
         `${path}.${field}`,
         issues,
       );
+    }
+
+    for (const field of ["coverImage", "architectureDiagram"] as const) {
+      const mediaField = rawProject[field];
+      const media = isRecord(mediaField) ? mediaField.value : null;
+      validateProjectMedia(media, `${path}.${field}`, issues);
+    }
+
+    const galleryField = rawProject.gallery;
+    const gallery = isRecord(galleryField) ? galleryField.value : null;
+    if (gallery !== null) {
+      if (!Array.isArray(gallery)) {
+        issues.push({
+          code: "invalid-project-media",
+          path: `${path}.gallery`,
+          message: "Project gallery media must be an array.",
+        });
+      } else {
+        gallery.forEach((media, mediaIndex) =>
+          validateProjectMedia(media, `${path}.gallery[${mediaIndex}]`, issues),
+        );
+      }
     }
   });
 

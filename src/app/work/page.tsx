@@ -3,62 +3,128 @@ import Link from "next/link";
 
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
-import { Card } from "@/components/ui";
-import { legacyProjects } from "@/content/legacy-content";
-import { portfolioContent } from "@/content/portfolio";
+import { ProjectLibraryCard } from "@/components/projects";
+import { EmptyState, SectionHeading } from "@/components/ui";
+import { projects } from "@/content/projects";
+import {
+  filterProjects,
+  getFeaturedProjects,
+  getProjectFilterOptions,
+  parseProjectFilters,
+  type ProjectSearchParams,
+} from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Work",
-  description: "Legacy project inventory retained during the portfolio migration.",
+  title: "Projects",
+  description: "Verified project inventory and case studies by Tököli Jenő-Richard.",
   alternates: { canonical: "/work" },
 };
 
-export default function WorkPage() {
+interface WorkPageProps {
+  searchParams: Promise<ProjectSearchParams>;
+}
+
+export default async function WorkPage({ searchParams }: WorkPageProps) {
+  const filters = parseProjectFilters(await searchParams);
+  const filteredProjects = filterProjects(projects, filters);
+  const featuredProjects = getFeaturedProjects();
+  const options = getProjectFilterOptions(projects);
+
   return (
     <PageShell
-      eyebrow="Legacy route: /work"
-      summary="The published project names and download paths are retained as a migration inventory. Descriptions and outcomes remain on the legacy site until verified."
-      title="Legacy project inventory"
+      eyebrow="Project library"
+      summary="A source-aware record of confirmed projects. Unverified descriptions, outcomes, and links remain unpublished."
+      title="Projects and case studies"
     >
       <LegacyNotice path="/work" />
-      <Card as="section" aria-labelledby="workspace-projects">
-        <h2 className="foundation-card-heading" id="workspace-projects">
-          Workspace project index
-        </h2>
-        <p className="foundation-supporting-copy">
-          Project names are available for navigation. Descriptions remain withheld
-          until their source facts are confirmed.
+
+      <section aria-labelledby="featured-projects" className="project-library-section">
+        <SectionHeading
+          description="The current project priorities, presented without unverified outcomes or performance claims."
+          id="featured-projects"
+          title="Featured projects"
+        />
+        <div className="project-library-grid project-library-grid--featured">
+          {featuredProjects.map((project) => (
+            <ProjectLibraryCard key={project.id} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="all-projects" className="project-library-section">
+        <SectionHeading
+          description="Search and combine status, technology, and category filters. Filter state is stored in the URL."
+          id="all-projects"
+          title="All projects"
+        />
+
+        <form action="/work" className="project-filter-form" method="get" role="search">
+          <label className="project-filter-field project-filter-field--search">
+            <span>Search projects</span>
+            <input
+              defaultValue={filters.query}
+              name="q"
+              placeholder="Search by title or technology"
+              type="search"
+            />
+          </label>
+          <label className="project-filter-field">
+            <span>Status</span>
+            <select defaultValue={filters.status} name="status">
+              <option value="">All statuses</option>
+              <option value="finished">Finished</option>
+              <option value="work-in-progress">Work in progress</option>
+              <option value="incomplete">Incomplete</option>
+              <option value="undocumented">Not documented</option>
+            </select>
+          </label>
+          <label className="project-filter-field">
+            <span>Technology</span>
+            <select defaultValue={filters.technology} name="technology">
+              <option value="">All technologies</option>
+              {options.technologies.map((technology) => (
+                <option key={technology} value={technology}>{technology}</option>
+              ))}
+            </select>
+          </label>
+          <label className="project-filter-field">
+            <span>Category</span>
+            <select defaultValue={filters.category} name="category">
+              <option value="">All categories</option>
+              {options.categories.map((category) => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+          </label>
+          <div className="project-filter-actions">
+            <button type="submit">Apply filters</button>
+            <Link href="/work">Reset</Link>
+          </div>
+        </form>
+
+        <p aria-live="polite" className="project-result-count">
+          {filteredProjects.length} {filteredProjects.length === 1 ? "project" : "projects"}
         </p>
-        <ul className="foundation-list">
-          {portfolioContent.projects.map((project) => (
-            <li id={project.slug} key={project.slug}>
-              <h3>{project.title}</h3>
-            </li>
-          ))}
-        </ul>
-      </Card>
-      <Card as="section" aria-labelledby="legacy-projects">
-        <h2 className="foundation-card-heading" id="legacy-projects">
-          Published projects
-        </h2>
-        <ul className="foundation-list">
-          {legacyProjects.map((project) => (
-            <li key={project.downloadPath}>
-              <div>
-                <h3>{project.name}</h3>
-                <p>
-                  {project.category}
-                  {project.publishedStatus === "incomplete" ? " · published as incomplete" : ""}
-                </p>
-              </div>
-              <Link className="foundation-link" href={project.downloadPath}>
-                Legacy download
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Card>
+
+        {filteredProjects.length > 0 ? (
+          <div className="project-library-grid">
+            {filteredProjects.map((project) => (
+              <ProjectLibraryCard
+                anchorId={project.slug}
+                key={project.id}
+                project={project}
+              />
+            ))}
+          </div>
+        ) : (
+          <EmptyState
+            action={<Link className="project-card-link" href="/work">Reset filters</Link>}
+            description="Try another search term or clear one of the selected filters."
+            icon="search"
+            title="No projects match these filters"
+          />
+        )}
+      </section>
     </PageShell>
   );
 }
-

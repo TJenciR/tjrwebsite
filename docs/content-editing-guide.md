@@ -47,7 +47,7 @@ truth.
 - `profile.ts`: profile, biographies, media assets, and future sanitized résumé metadata.
 - `education.ts`: education and qualification facts.
 - `skills.ts`: programming/technology skills, tools, communication languages, and project evidence.
-- `projects.ts`: exact project names, known technology/status facts, aliases, and legacy download paths.
+- `projects.ts`: full source-aware case-study schema, exact project names, known technology/status facts, approved priority categories, aliases, and legacy download paths.
 - `hobbies.ts`: CV-backed interests without generated duration claims.
 - `now.ts`: current activity placeholders awaiting dated confirmation.
 - `socials.ts`: audited public URLs and unresolved professional profiles.
@@ -86,10 +86,10 @@ copy. Never copy `.private/` assets into `public/`.
 ## Validation
 
 `src/lib/content-validator.ts` is a small dependency-free validator for this
-fixed static model. It rejects duplicate project slugs, missing titles, invalid
-status values, non-HTTPS external URLs, direct contact fields/values, and
-inconsistent verified/publication metadata. A schema library is intentionally
-not added while the model remains static and compact.
+fixed static model. It rejects duplicate project IDs/slugs, missing IDs/titles,
+invalid status values, invalid project media, non-HTTPS external URLs, direct
+contact fields/values, and inconsistent verified/publication metadata. A schema
+library is intentionally not added while the model remains static and compact.
 
 Run after every content edit:
 

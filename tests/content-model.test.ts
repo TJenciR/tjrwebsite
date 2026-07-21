@@ -57,7 +57,7 @@ describe("verified portfolio content", () => {
       "Spam Filter",
       "Electronic Products Database Form App",
     ]);
-    expect(projects.every(({ summary }) => summary.value === null)).toBe(true);
+    expect(projects.every(({ shortDescription }) => shortDescription.value === null)).toBe(true);
   });
 
   it("retains only source-backed project technologies and statuses", () => {
@@ -66,12 +66,54 @@ describe("verified portfolio content", () => {
     const flower = projects.find(({ slug }) => slug === "flower-growth-simulator");
 
     expect(repairPass?.technologies.value).toEqual(["TypeScript"]);
-    expect(repairPass?.lifecycleStatus.value).toBe("work-in-progress");
-    expect(repairPass?.lifecycleStatus.requiresConfirmation).toBe(true);
+    expect(repairPass?.status.value).toBe("work-in-progress");
+    expect(repairPass?.status.requiresConfirmation).toBe(false);
     expect(pathfinder?.technologies.value).toEqual(["Python"]);
-    expect(pathfinder?.lifecycleStatus.value).toBe("finished");
-    expect(flower?.lifecycleStatus.value).toBe("unknown");
-    expect(flower?.lifecycleStatus.requiresConfirmation).toBe(true);
+    expect(pathfinder?.status.value).toBe("finished");
+    expect(flower?.status.value).toBe("unknown");
+    expect(flower?.status.requiresConfirmation).toBe(true);
+  });
+
+  it("keeps every requested case-study field source-aware without inventing narrative", () => {
+    for (const project of projects) {
+      expect(project.id).toBeTruthy();
+      expect(project).toEqual(expect.objectContaining({
+        shortDescription: expect.objectContaining({ source: expect.any(Object) }),
+        overview: expect.objectContaining({ source: expect.any(Object) }),
+        problem: expect.objectContaining({ source: expect.any(Object) }),
+        responsibilities: expect.objectContaining({ source: expect.any(Object) }),
+        process: expect.objectContaining({ source: expect.any(Object) }),
+        technicalDecisions: expect.objectContaining({ source: expect.any(Object) }),
+        solution: expect.objectContaining({ source: expect.any(Object) }),
+        outcome: expect.objectContaining({ source: expect.any(Object) }),
+        lessonsLearned: expect.objectContaining({ source: expect.any(Object) }),
+        dates: expect.objectContaining({ source: expect.any(Object) }),
+        coverImage: expect.objectContaining({ source: expect.any(Object) }),
+        gallery: expect.objectContaining({ source: expect.any(Object) }),
+        architectureDiagram: expect.objectContaining({ source: expect.any(Object) }),
+        privateProjectNotice: expect.objectContaining({ source: expect.any(Object) }),
+      }));
+      expect(project.overview.value).toBeNull();
+      expect(project.outcome.value).toBeNull();
+    }
+  });
+
+  it("keeps RepairPass implemented and planned functionality separate", () => {
+    const repairPass = projects.find(({ slug }) => slug === "repairpass-architecture");
+
+    expect(repairPass?.implementedFunctionality.value).toBeNull();
+    expect(repairPass?.plannedFunctionality.value).toBeNull();
+    expect(repairPass?.implementedFunctionality).not.toBe(
+      repairPass?.plannedFunctionality,
+    );
+  });
+
+  it("uses the approved featured project order", () => {
+    expect(projects.filter(({ featured }) => featured).map(({ title }) => title)).toEqual([
+      "RepairPass Architecture",
+      "3D Optimal Pathfinder",
+      "Online School Portal",
+    ]);
   });
 
   it("uses categorical skill bands and project evidence instead of percentages", () => {
@@ -108,6 +150,19 @@ describe("content validation failures", () => {
     );
   });
 
+  it("rejects duplicate project ids", () => {
+    const duplicateId = { ...projects[1], id: projects[0].id };
+    const issues = validatePortfolioContent(
+      withProjects([projects[0], duplicateId, ...projects.slice(2)]),
+    );
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: "duplicate-project-id" }),
+      ]),
+    );
+  });
+
   it("rejects missing project titles", () => {
     const missingTitle = { ...projects[0], title: " " };
     const issues = validatePortfolioContent(withProjects([missingTitle, ...projects.slice(1)]));
@@ -123,8 +178,8 @@ describe("content validation failures", () => {
     const invalidStatus = {
       ...projects[0],
       publicationStatus: "public-now",
-      lifecycleStatus: {
-        ...projects[0].lifecycleStatus,
+      status: {
+        ...projects[0].status,
         value: "abandoned",
       },
     };
@@ -146,6 +201,32 @@ describe("content validation failures", () => {
     expect(issues).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ code: "invalid-external-url" }),
+      ]),
+    );
+  });
+
+  it("rejects invalid project media", () => {
+    const invalidMedia = {
+      ...projects[0],
+      coverImage: {
+        ...projects[0].coverImage,
+        value: {
+          id: "repairpass-cover",
+          kind: "cover",
+          publicPath: "relative-image.png",
+          alt: "",
+          width: 0,
+          height: 0,
+        },
+      },
+    };
+    const issues = validatePortfolioContent(
+      withProjects([invalidMedia, ...projects.slice(1)]),
+    );
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ code: "invalid-project-media" }),
       ]),
     );
   });

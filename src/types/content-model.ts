@@ -138,17 +138,59 @@ export const projectLifecycleStatuses = [
 ] as const;
 export type ProjectLifecycleStatus = (typeof projectLifecycleStatuses)[number];
 
+export const projectMediaKinds = [
+  "cover",
+  "gallery",
+  "architecture",
+  "process",
+] as const;
+export type ProjectMediaKind = (typeof projectMediaKinds)[number];
+
+export interface ProjectMedia {
+  readonly id: string;
+  readonly kind: ProjectMediaKind;
+  readonly publicPath: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+}
+
+export interface ProjectDates {
+  readonly start: string | null;
+  readonly end: string | null;
+  readonly label: string | null;
+}
+
 export interface Project extends ContentMetadata {
+  readonly id: string;
   readonly slug: string;
   readonly title: string;
   readonly alternateTitles: readonly string[];
-  readonly summary: SourcedValue<string>;
+  readonly shortDescription: SourcedValue<string>;
+  readonly overview: SourcedValue<string>;
+  readonly problem: SourcedValue<string>;
+  readonly responsibilities: SourcedValue<readonly string[]>;
+  readonly process: SourcedValue<string>;
+  readonly technicalDecisions: SourcedValue<readonly string[]>;
+  readonly solution: SourcedValue<string>;
+  readonly outcome: SourcedValue<string>;
+  readonly lessonsLearned: SourcedValue<readonly string[]>;
+  readonly implementedFunctionality: SourcedValue<readonly string[]>;
+  readonly plannedFunctionality: SourcedValue<readonly string[]>;
+  readonly status: SourcedValue<ProjectLifecycleStatus>;
+  readonly featured: boolean;
+  readonly pinned: boolean;
+  readonly dates: SourcedValue<ProjectDates>;
   readonly technologies: SourcedValue<readonly string[]>;
-  readonly lifecycleStatus: SourcedValue<ProjectLifecycleStatus>;
+  readonly categories: SourcedValue<readonly string[]>;
+  readonly coverImage: SourcedValue<ProjectMedia>;
+  readonly gallery: SourcedValue<readonly ProjectMedia[]>;
+  readonly architectureDiagram: SourcedValue<ProjectMedia>;
   readonly repositoryUrl: SourcedValue<string>;
-  readonly liveDemoUrl: SourcedValue<string>;
-  readonly legacyDownloadPath: string | null;
-  readonly mediaAssetIds: readonly string[];
+  readonly liveUrl: SourcedValue<string>;
+  readonly legacyUrl: SourcedValue<string>;
+  readonly legacyPath: string | null;
+  readonly privateProjectNotice: SourcedValue<string>;
 }
 
 export interface Hobby extends ContentMetadata {

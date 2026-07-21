@@ -22,7 +22,7 @@ export function ProjectExperienceList({ limit }: ProjectExperienceListProps) {
     <div className="profile-project-grid">
       {displayedProjects.map((project) => {
         const technologies = getPublishedValue(project.technologies) ?? [];
-        const status = getPublishedValue(project.lifecycleStatus);
+        const status = getPublishedValue(project.status);
 
         return (
           <Card as="article" className="profile-project-card" key={project.slug}>
@@ -37,8 +37,8 @@ export function ProjectExperienceList({ limit }: ProjectExperienceListProps) {
             ) : (
               <p className="profile-muted-copy">Technology details await confirmation.</p>
             )}
-            <Link className="profile-inline-link" href={`/work#${project.slug}`}>
-              View in project experience
+            <Link className="profile-inline-link" href={`/work/${project.slug}`}>
+              View project details
             </Link>
           </Card>
         );

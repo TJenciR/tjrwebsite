@@ -1,12 +1,12 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal workspace with source-aware profile, education, and privacy-safe web résumé pages. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with source-aware profile, education, résumé, and project case-study pages. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: Overview, About, Education, and web Résumé pages rendered through verified publication gates.
+- Branch scope: server-rendered project library, URL-backed filters, and statically generated case-study routes rendered through verified publication gates.
 - Production cutover: not authorized.
-- Final page designs and publication of verified portfolio content: not implemented.
+- Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
 - Legacy source recovery: still required.
 
@@ -15,6 +15,7 @@ Read `docs/design-system/foundation.md` before extending tokens or components.
 Read `docs/workspace-shell.md` before changing the workspace navigation, persistence, or deployment-origin behavior.
 Read `docs/content-editing-guide.md` before adding or publishing factual content.
 Read `docs/profile-resume-pages.md` before changing profile placeholders, portrait handling, or print behavior.
+Read `docs/project-library.md` before changing project routes, filters, media, or legacy downloads.
 
 ## Stack
 
@@ -64,8 +65,9 @@ npm run build
 Preserved legacy page paths: `/`, `/about`, `/work`, `/documents`.
 
 Workspace routes added without replacing verified content: `/now`, `/skills`,
-`/hobbies`, `/education`, `/resume`, and `/contact-access`. The projects entry
-continues to use `/work`; project links use fragment identifiers on that route.
+`/hobbies`, `/education`, `/resume`, and `/contact-access`. The project library
+continues to use `/work`. Static detail routes use `/work/[slug]`, while the
+original project fragment identifiers remain on the all-project grid.
 
 `.html` aliases redirect permanently to extensionless paths. The six public project-download paths temporarily redirect to Netlify. Sensitive résumé and qualification PDF paths remain documented as legacy-only and are not copied into the new application.
 

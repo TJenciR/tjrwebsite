@@ -1,8 +1,8 @@
 {
   "name": "tjr-portfolio",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
-  "description": "Verified-content profile, education, and privacy-safe résumé pages for Tököli Jenő-Richard.",
+  "description": "Source-aware project library and portfolio for Tököli Jenő-Richard.",
   "packageManager": "npm@11.12.1",
   "engines": {
     "node": ">=22.0.0"

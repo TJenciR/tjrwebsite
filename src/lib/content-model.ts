@@ -52,6 +52,13 @@ export const userConfirmedMetadata = metadata({
   requiresConfirmation: false,
 });
 
+export function userConfirmedMetadataFor(reference: string): ContentMetadata {
+  return metadata({
+    ...userConfirmedMetadata,
+    source: source("user-confirmed", reference),
+  });
+}
+
 export const cvVerifiedMetadata = metadata({
   source: source("cv", "docs/audit/content-inventory.md — sanitized CV inventory"),
   verifiedAt: contentAuditDate,

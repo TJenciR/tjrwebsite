@@ -75,7 +75,7 @@ export type EducationStatus = (typeof educationStatuses)[number];
 
 export interface Education extends ContentMetadata {
   readonly id: string;
-  readonly institution: string;
+  readonly institution: SourcedValue<string>;
   readonly programme: SourcedValue<string>;
   readonly startDate: SourcedValue<string>;
   readonly endDate: SourcedValue<string>;
@@ -189,6 +189,8 @@ export interface MediaAsset extends ContentMetadata {
   readonly kind: MediaAssetKind;
   readonly alt: string | null;
   readonly publicPath: string | null;
+  readonly width: number | null;
+  readonly height: number | null;
 }
 
 export interface ResumeMetadata extends ContentMetadata {

@@ -3,6 +3,7 @@ import {
   hiddenMetadata,
   needsConfirmationMetadata,
   sourcedValue,
+  userConfirmedMetadataFor,
 } from "@/lib/content-model";
 import type {
   Education,
@@ -20,7 +21,10 @@ export const education: readonly Education[] = Object.freeze([
       "cv",
     ),
     id: "bathory-istvan-high-school",
-    institution: "Liceul Teoretic “Báthory István”",
+    institution: sourcedValue(
+      "Liceul Teoretic “Báthory István”",
+      userConfirmedMetadataFor("User-provided v0.6.0 education page brief"),
+    ),
     programme: sourcedValue<string>(null, needsConfirmationMetadata(
       educationConflictSource,
       "No programme wording is supplied for the high-school entry.",
@@ -54,12 +58,14 @@ export const education: readonly Education[] = Object.freeze([
       "cv",
     ),
     id: "babes-bolyai-university",
-    institution: "Babeș-Bolyai University, Mathematics and Computer Science",
-    programme: sourcedValue<string>(
-      null,
-      needsConfirmationMetadata(
-        educationConflictSource,
-        "Degree and programme wording conflict across Stitch concepts.",
+    institution: sourcedValue(
+      "Babeș-Bolyai University",
+      userConfirmedMetadataFor("User-provided v0.6.0 education page brief"),
+    ),
+    programme: sourcedValue(
+      "Mathematics and Computer Science",
+      userConfirmedMetadataFor(
+        "User-provided v0.6.0 profile and education page brief; this is background wording, not a degree-completion claim",
       ),
     ),
     startDate: sourcedValue(

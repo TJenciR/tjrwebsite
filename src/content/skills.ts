@@ -1,6 +1,6 @@
 import {
   cvVerifiedMetadata,
-  needsConfirmationMetadata,
+  userConfirmedMetadataFor,
 } from "@/lib/content-model";
 import type {
   CommunicationLanguage,
@@ -85,14 +85,13 @@ export const communicationLanguages: readonly CommunicationLanguage[] = Object.f
     level: "full-professional",
   },
   {
-    ...needsConfirmationMetadata(
-      "docs/audit/content-conflicts.md#content-conflicts",
-      "The CV says limited working while one concept says fluent; keep the CV value internal until confirmed.",
-      "cv",
+    ...userConfirmedMetadataFor(
+      "User-provided v0.8.0 Now/Skills/Hobbies brief",
     ),
     id: "romanian",
     name: "Romanian",
     level: "limited-working",
+    internalNote: "The user-confirmed CV level overrides the conflicting Stitch concept.",
   },
   {
     ...cvVerifiedMetadata,

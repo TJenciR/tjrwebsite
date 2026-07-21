@@ -1,5 +1,6 @@
 import {
   confidenceLevels,
+  currentActivityKinds,
   projectMediaKinds,
   projectLifecycleStatuses,
   publicationStatuses,
@@ -338,6 +339,22 @@ export function validatePortfolioContent(
   rawSocials.forEach((rawSocial, index) => {
     if (isRecord(rawSocial)) {
       validateExternalUrl(rawSocial.url, `content.socials[${index}].url`, issues);
+    }
+  });
+
+  const rawActivities = Array.isArray(content.currentActivities)
+    ? content.currentActivities
+    : [];
+  rawActivities.forEach((rawActivity, index) => {
+    if (
+      !isRecord(rawActivity) ||
+      !currentActivityKinds.includes(rawActivity.kind as never)
+    ) {
+      pushInvalidStatus(
+        issues,
+        `content.currentActivities[${index}].kind`,
+        "Current activity kind",
+      );
     }
   });
 

@@ -1,8 +1,8 @@
 {
   "name": "tjr-portfolio",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
-  "description": "Source-aware project library and portfolio for Tököli Jenő-Richard.",
+  "description": "Verified Now, skills, hobbies, and project portfolio for Tököli Jenő-Richard.",
   "packageManager": "npm@11.12.1",
   "engines": {
     "node": ">=22.0.0"

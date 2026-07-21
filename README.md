@@ -1,10 +1,10 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe personal workspace with source-aware profile, education, résumé, and project case-study pages. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal workspace with source-aware profile, education, résumé, projects, current activity, skills, and hobbies. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: server-rendered project library, URL-backed filters, and statically generated case-study routes rendered through verified publication gates.
+- Branch scope: server-rendered Now, Skills, and Hobbies experiences using verified CV, repository, and user-confirmed facts.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
@@ -16,6 +16,7 @@ Read `docs/workspace-shell.md` before changing the workspace navigation, persist
 Read `docs/content-editing-guide.md` before adding or publishing factual content.
 Read `docs/profile-resume-pages.md` before changing profile placeholders, portrait handling, or print behavior.
 Read `docs/project-library.md` before changing project routes, filters, media, or legacy downloads.
+Read `docs/now-skills-hobbies.md` before changing current activity, skill groupings, evidence links, communication levels, or hobby details.
 
 ## Stack
 

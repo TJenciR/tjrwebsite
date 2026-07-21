@@ -1,0 +1,414 @@
+.experience-page {
+  display: grid;
+  width: min(100%, var(--layout-container-max));
+  margin-inline: auto;
+  gap: var(--space-12);
+  padding: var(--space-10) var(--layout-gutter) var(--space-20);
+}
+
+.experience-page-header {
+  display: grid;
+  max-width: 50rem;
+  gap: var(--space-3);
+}
+
+.experience-page-header h1 {
+  font-size: var(--font-size-heading-large);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.experience-page-header > p:not(.ds-eyebrow, .verification-stamp),
+.experience-page-header > div > p:not(.ds-eyebrow, .verification-stamp) {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-heading-small);
+}
+
+.verification-stamp {
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+}
+
+.verification-stamp svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--color-success);
+}
+
+.verification-stamp time {
+  color: var(--color-text-secondary);
+}
+
+.experience-section-heading {
+  display: flex;
+  align-items: start;
+  gap: var(--space-3);
+}
+
+.experience-section-heading > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.experience-section-heading h2 {
+  font-size: var(--font-size-heading-small);
+}
+
+.experience-section-heading p {
+  color: var(--color-text-muted);
+}
+
+.experience-heading-icon,
+.hobby-plugin-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  color: var(--color-primary-accent);
+  background: var(--color-surface-interactive);
+}
+
+.experience-heading-icon svg,
+.hobby-plugin-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.experience-empty-copy,
+.skill-evidence-empty {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-body-small);
+}
+
+.experience-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary-accent);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  text-underline-offset: 0.2em;
+}
+
+.experience-link svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.experience-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-tag-list li {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-primary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+}
+
+.now-primary-section,
+.now-status-section,
+.skill-group {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.now-project-card {
+  display: grid;
+  gap: var(--space-5);
+  border-left: 3px solid var(--color-success);
+}
+
+.now-project-card,
+.now-status-card,
+.skill-item,
+.language-card {
+  transition:
+    border-color var(--motion-duration-normal) var(--motion-easing-standard),
+    background-color var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.now-project-card__header,
+.skill-item__heading,
+.hobby-plugin-card__header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.now-project-card__header > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.now-project-card h3 {
+  font-size: var(--font-size-heading);
+}
+
+.now-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.now-status-card {
+  display: flex;
+  min-height: 9rem;
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.now-status-card > div {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.now-status-card h3 {
+  font-size: var(--font-size-body);
+}
+
+.skills-primary-grid,
+.skills-grid,
+.language-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.skills-primary-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.skills-grid,
+.language-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill-item {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-surface-elevated);
+}
+
+.skill-item h3,
+.language-card h3 {
+  font-size: var(--font-size-heading-small);
+}
+
+.skill-evidence {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.skill-evidence > p {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  text-transform: uppercase;
+}
+
+.skill-evidence ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-evidence a {
+  color: var(--color-cyan-accent);
+  font-size: var(--font-size-body-small);
+  text-underline-offset: 0.2em;
+}
+
+.language-card {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.language-card p {
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+}
+
+.experience-page-header--plugins {
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.experience-page-header--plugins > div {
+  display: grid;
+  max-width: 50rem;
+  gap: var(--space-3);
+}
+
+.plugin-count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-success);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+}
+
+.plugin-count span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  box-shadow: var(--shadow-status);
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.hobby-plugin-card {
+  display: grid;
+  min-height: 15rem;
+  align-content: space-between;
+  gap: var(--space-6);
+  transition:
+    transform var(--motion-duration-normal) var(--motion-easing-standard),
+    border-color var(--motion-duration-normal) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.hobby-plugin-card__header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.hobby-plugin-card__header > div {
+  min-width: 0;
+}
+
+.hobby-plugin-card h2 {
+  font-size: var(--font-size-heading-small);
+}
+
+.hobby-plugin-id {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+}
+
+.hobby-details {
+  border-top: 1px solid var(--color-border);
+}
+
+.hobby-details summary {
+  padding-block: var(--space-3);
+  color: var(--color-primary-accent);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  cursor: pointer;
+}
+
+.hobby-details > div {
+  display: grid;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+@media (hover: hover) {
+  .now-project-card:hover,
+  .now-status-card:hover,
+  .skill-item:hover,
+  .language-card:hover,
+  .hobby-plugin-card:hover {
+    border-color: var(--color-primary-accent);
+    background: var(--color-surface-interactive);
+  }
+
+  .hobby-plugin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-low);
+  }
+}
+
+@media (max-width: 63.999rem) {
+  .skills-primary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .experience-page {
+    gap: var(--space-10);
+    padding: var(--space-8) var(--space-4) var(--space-16);
+  }
+
+  .now-status-grid,
+  .skills-grid,
+  .language-grid,
+  .hobby-grid,
+  .experience-page-header--plugins {
+    grid-template-columns: 1fr;
+  }
+
+  .now-project-card__header,
+  .skill-item__heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .hobby-plugin-card__header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .hobby-plugin-card__header .ds-badge {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .plugin-count {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now-project-card,
+  .now-status-card,
+  .skill-item,
+  .language-card,
+  .hobby-plugin-card {
+    transition: none;
+  }
+
+  .hobby-plugin-card:hover {
+    transform: none;
+  }
+}

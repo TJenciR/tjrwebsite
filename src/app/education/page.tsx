@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import { Icon } from "@/components/icons";
 import { Badge, Card, StatusNotice } from "@/components/ui";
 import { portfolioContent } from "@/content/portfolio";
@@ -8,12 +6,13 @@ import {
   getPublishedEntries,
   getPublishedValue,
 } from "@/lib/public-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Education",
   description: "Verified education institutions and qualification inventory.",
-  alternates: { canonical: "/education" },
-};
+  path: "/education",
+});
 
 export default function EducationPage() {
   const qualifications = getPublishedEntries(portfolioContent.qualifications);

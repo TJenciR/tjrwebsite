@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { VerificationStamp } from "@/components/content";
@@ -12,12 +11,13 @@ import {
 } from "@/lib/public-content";
 import { getProjectBySlug } from "@/lib/projects";
 import { skillGroups, type SkillDisplayItem } from "@/lib/skills";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Skills",
   description: "Verified technical skills, project evidence, and communication languages.",
-  alternates: { canonical: "/skills" },
-};
+  path: "/skills",
+});
 
 function SkillItem({ item }: { item: SkillDisplayItem }) {
   const evidence = item.evidenceProjectSlugs

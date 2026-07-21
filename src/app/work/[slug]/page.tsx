@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { ProjectGallery } from "@/components/media";
 import { ProjectMedia } from "@/components/projects";
+import { JsonLd } from "@/components/seo";
 import { Badge, Card, StatusNotice } from "@/components/ui";
 import { projects } from "@/content/projects";
 import {
@@ -11,6 +12,8 @@ import {
   getPublishedValue,
 } from "@/lib/public-content";
 import { getAdjacentProjects, getProjectBySlug } from "@/lib/projects";
+import { createPageMetadata } from "@/lib/seo";
+import { createBreadcrumbStructuredData } from "@/lib/structured-data";
 import type { Project } from "@/types/content-model";
 
 interface ProjectPageProps {
@@ -29,12 +32,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return { title: "Project not found" };
   }
 
-  return {
+  return createPageMetadata({
     title: project.title,
     description: getPublishedValue(project.shortDescription) ??
       `Verified project record for ${project.title}.`,
-    alternates: { canonical: `/work/${project.slug}` },
-  };
+    path: `/work/${project.slug}`,
+  });
 }
 
 interface TextSectionProps {
@@ -116,8 +119,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const hasLinks = Boolean(repositoryUrl || liveUrl || legacyUrl);
 
   return (
-    <main className="case-study-page" id="main-content">
+    <>
+      <JsonLd
+        data={createBreadcrumbStructuredData([
+          { name: "Overview", path: "/" },
+          { name: "Projects", path: "/work" },
+          { name: project.title, path: `/work/${project.slug}` },
+        ])}
+        id="project-breadcrumb-structured-data"
+      />
+      <main className="case-study-page" id="main-content">
       <nav aria-label="Breadcrumb" className="case-study-breadcrumb">
+        <Link href="/">Overview</Link>
+        <span aria-hidden="true">/</span>
         <Link href="/work">Projects</Link>
         <span aria-hidden="true">/</span>
         <span aria-current="page">{project.title}</span>
@@ -237,6 +251,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {previous ? <Link href={`/work/${previous.slug}`}>← {previous.title}</Link> : <span />}
         {next ? <Link href={`/work/${next.slug}`}>{next.title} →</Link> : <span />}
       </nav>
-    </main>
+      </main>
+    </>
   );
 }

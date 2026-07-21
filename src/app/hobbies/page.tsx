@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
-
 import { VerificationStamp } from "@/components/content";
 import { Icon, type IconName } from "@/components/icons";
 import { Badge, Card } from "@/components/ui";
 import { hobbies } from "@/content/hobbies";
 import { contentAuditDate } from "@/lib/content-model";
 import { getPublishedEntries, getPublishedValue } from "@/lib/public-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Hobbies",
   description: "Verified hobbies presented as personal workspace plugins.",
-  alternates: { canonical: "/hobbies" },
-};
+  path: "/hobbies",
+});
 
 const hobbyIcons: Readonly<Record<string, IconName>> = {
   "djing-and-music": "headphones",

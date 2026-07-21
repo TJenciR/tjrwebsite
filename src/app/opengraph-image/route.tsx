@@ -4,11 +4,9 @@ import { OpenGraphArtwork } from "@/components/media";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
 
-export const alt = "Tököli Jenő-Richard personal workspace portfolio";
-export const contentType = "image/png";
-export const size = { height: 630, width: 1200 };
+const size = { height: 630, width: 1200 };
 
-export default function OpenGraphImage() {
+export function GET() {
   const name = getPublicValue(siteConfig.name) ?? "Tököli Jenő-Richard";
 
   return new ImageResponse(

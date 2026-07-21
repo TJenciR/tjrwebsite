@@ -22,11 +22,15 @@ export const legacyDownloadRedirects = legacyDownloadPaths.map((source) => ({
   destination: `${legacyWebsiteOrigin}${source}`,
 }));
 
+export const legacyPermanentRedirects = [
+  { source: "/CV.pdf", destination: "/resume" },
+] as const;
+
 export const legacySensitiveAssets = [
-  { path: "/CV.pdf", migrationState: "legacy-only" },
-  { path: "/bacdipl.pdf", migrationState: "legacy-only" },
-  { path: "/engling.pdf", migrationState: "legacy-only" },
-  { path: "/certcomp.pdf", migrationState: "legacy-only" },
-  { path: "/ateprof.pdf", migrationState: "legacy-only" },
+  { path: "/CV.pdf", migrationState: "permanent-redirect", destination: "/resume" },
+  { path: "/bacdipl.pdf", migrationState: "intentional-410", destination: null },
+  { path: "/engling.pdf", migrationState: "intentional-410", destination: null },
+  { path: "/certcomp.pdf", migrationState: "intentional-410", destination: null },
+  { path: "/ateprof.pdf", migrationState: "intentional-410", destination: null },
 ] as const;
 

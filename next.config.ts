@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
-import {
-  legacyAliases,
-  legacyDownloadRedirects,
-} from "./src/content/legacy-routes";
+import { configuredRedirects } from "./src/config/redirects";
+import { getSecurityHeaders } from "./src/config/security-headers";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -11,19 +9,16 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  async redirects() {
+  async headers() {
     return [
-      ...legacyAliases.map(({ source, destination }) => ({
-        source,
-        destination,
-        permanent: true,
-      })),
-      ...legacyDownloadRedirects.map(({ source, destination }) => ({
-        source,
-        destination,
-        permanent: false,
-      })),
+      {
+        headers: getSecurityHeaders(),
+        source: "/:path*",
+      },
     ];
+  },
+  async redirects() {
+    return configuredRedirects;
   },
 };
 

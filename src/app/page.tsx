@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Icon } from "@/components/icons";
@@ -14,12 +13,13 @@ import {
   getPublishedEntries,
   getPublishedValue,
 } from "@/lib/public-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Overview",
   description: "Verified portfolio overview for Tököli Jenő-Richard.",
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 export default function HomePage() {
   const name = getPublishedValue(portfolioContent.profile.name) ?? "Tököli Jenő-Richard";

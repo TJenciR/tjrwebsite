@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { VerificationStamp } from "@/components/content";
@@ -8,12 +7,13 @@ import { currentActivities } from "@/content/now";
 import { formatProjectStatus, getPublishedValue, isPublishedContent } from "@/lib/public-content";
 import { getProjectBySlug } from "@/lib/projects";
 import type { CurrentActivityKind } from "@/types/content-model";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Now",
   description: "A dated, verified snapshot of current portfolio activity.",
-  alternates: { canonical: "/now" },
-};
+  path: "/now",
+});
 
 const activityPresentation: Readonly<Record<CurrentActivityKind, {
   icon: IconName;

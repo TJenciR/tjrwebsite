@@ -6,6 +6,7 @@ import {
   useRef,
   type MouseEvent,
   type ReactNode,
+  type RefObject,
 } from "react";
 
 import { IconButton } from "@/components/ui/icon-button";
@@ -17,6 +18,7 @@ export interface DialogProps {
   className?: string;
   description?: ReactNode;
   footer?: ReactNode;
+  initialFocusRef?: RefObject<HTMLElement | null>;
   onOpenChange: (open: boolean) => void;
   open: boolean;
   title: ReactNode;
@@ -27,6 +29,7 @@ export function Dialog({
   className,
   description,
   footer,
+  initialFocusRef,
   onOpenChange,
   open,
   title,
@@ -37,7 +40,7 @@ export function Dialog({
   const descriptionId = description ? `dialog-description-${generatedId}` : undefined;
   const dismiss = useCallback(() => onOpenChange(false), [onOpenChange]);
 
-  useModalFocus(open, dialogRef, dismiss);
+  useModalFocus(open, dialogRef, dismiss, initialFocusRef);
 
   if (!open) {
     return null;

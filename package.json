@@ -1,8 +1,8 @@
 {
   "name": "tjr-portfolio",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "private": true,
-  "description": "Verified Now, skills, hobbies, and project portfolio for Tököli Jenő-Richard.",
+  "description": "Verified portfolio workspace with deterministic local command navigation for Tököli Jenő-Richard.",
   "packageManager": "npm@11.12.1",
   "engines": {
     "node": ">=22.0.0"

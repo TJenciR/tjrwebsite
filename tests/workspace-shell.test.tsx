@@ -5,10 +5,11 @@ import { fireEvent, render, screen, waitFor, within } from "@testing-library/rea
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const navigationState = vi.hoisted(() => ({ pathname: "/" }));
+const navigationState = vi.hoisted(() => ({ pathname: "/", push: vi.fn() }));
 
 vi.mock("next/navigation", () => ({
   usePathname: () => navigationState.pathname,
+  useRouter: () => ({ push: navigationState.push }),
 }));
 
 import {
@@ -21,10 +22,11 @@ import {
   primaryWorkspaceNavigation,
   secondaryProjectNavigation,
 } from "@/content/workspace-navigation";
+import { portfolioCommands } from "@/content/portfolio-commands";
 
 function renderShell() {
   return render(
-    <WorkspaceShell>
+    <WorkspaceShell commands={portfolioCommands}>
       <main id="main-content">Workspace content</main>
     </WorkspaceShell>,
   );
@@ -32,6 +34,7 @@ function renderShell() {
 
 beforeEach(() => {
   navigationState.pathname = "/";
+  navigationState.push.mockReset();
   window.localStorage.clear();
 });
 
@@ -101,6 +104,16 @@ describe("desktop workspace shell", () => {
     await waitFor(() => {
       expect(screen.getByTestId("workspace-sidebar")).toHaveAttribute("data-collapsed", "true");
     });
+  });
+
+  it("opens the deterministic command composer with Ctrl+K", async () => {
+    const user = userEvent.setup();
+    renderShell();
+
+    await user.keyboard("{Control>}k{/Control}");
+
+    expect(screen.getByRole("dialog", { name: "Portfolio commands" })).toBeInTheDocument();
+    expect(screen.getByRole("combobox", { name: "Type a portfolio command" })).toHaveFocus();
   });
 });
 

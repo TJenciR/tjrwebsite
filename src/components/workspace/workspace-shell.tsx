@@ -1,26 +1,21 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   useEffect,
-  useMemo,
   useState,
   useSyncExternalStore,
   type ReactNode,
 } from "react";
 
 import { Icon } from "@/components/icons";
-import { Avatar, Dialog, Drawer, IconButton, SearchField } from "@/components/ui";
-import {
-  getWorkspaceBreadcrumb,
-  pinnedProjectNavigation,
-  primaryWorkspaceNavigation,
-  secondaryProjectNavigation,
-} from "@/content/workspace-navigation";
+import { Avatar, Drawer, IconButton } from "@/components/ui";
+import { getWorkspaceBreadcrumb } from "@/content/workspace-navigation";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
+import type { PortfolioCommand } from "@/types/portfolio-command";
 
+import { PortfolioCommandComposer } from "./portfolio-command-composer";
 import { WorkspaceSidebarContent } from "./workspace-sidebar-content";
 
 export const sidebarStorageKey = "tjr:workspace-sidebar-collapsed";
@@ -59,9 +54,10 @@ function persistSidebarState(collapsed: boolean) {
 
 interface WorkspaceShellProps {
   children: ReactNode;
+  commands: readonly PortfolioCommand[];
 }
 
-export function WorkspaceShell({ children }: WorkspaceShellProps) {
+export function WorkspaceShell({ children, commands }: WorkspaceShellProps) {
   const pathname = usePathname();
   const collapsed = useSyncExternalStore(
     subscribeToSidebarState,
@@ -69,8 +65,7 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
     getServerSidebarState,
   );
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [composerOpen, setComposerOpen] = useState(false);
   const name = getPublicValue(siteConfig.name) ?? "Portfolio";
   const breadcrumb = getWorkspaceBreadcrumb(pathname);
 
@@ -78,7 +73,7 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
     function handleShortcut(event: KeyboardEvent) {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
-        setSearchOpen(true);
+        setComposerOpen(true);
       }
     }
 
@@ -86,28 +81,13 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
     return () => document.removeEventListener("keydown", handleShortcut);
   }, []);
 
-  const searchResults = useMemo(() => {
-    const normalizedQuery = query.trim().toLocaleLowerCase();
-    const items = [
-      ...primaryWorkspaceNavigation,
-      ...pinnedProjectNavigation,
-      ...secondaryProjectNavigation,
-    ];
-
-    if (!normalizedQuery) {
-      return items;
-    }
-
-    return items.filter((item) => item.label.toLocaleLowerCase().includes(normalizedQuery));
-  }, [query]);
-
   function closeMobileNavigation() {
     setMobileOpen(false);
   }
 
-  function openSearch() {
+  function openComposer() {
     setMobileOpen(false);
-    setSearchOpen(true);
+    setComposerOpen(true);
   }
 
   return (
@@ -121,7 +101,7 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
         <WorkspaceSidebarContent
           collapsed={collapsed}
           onCollapseToggle={() => persistSidebarState(!collapsed)}
-          onSearch={openSearch}
+          onSearch={openComposer}
           pathname={pathname}
         />
       </aside>
@@ -142,7 +122,12 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
             <strong>{breadcrumb}</strong>
           </div>
           <div className="workspace-topbar__actions">
-            <IconButton icon="search" label="Search portfolio" onClick={openSearch} variant="ghost" />
+            <IconButton
+              icon="command"
+              label="Open portfolio commands"
+              onClick={openComposer}
+              variant="ghost"
+            />
             <Avatar alt={`${name} portrait placeholder`} initials="TJR" size="small" />
           </div>
         </header>
@@ -150,9 +135,9 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
         <div className="workspace-content-scroll">{children}</div>
 
         <footer aria-label="Command composer" className="workspace-composer-dock">
-          <button onClick={openSearch} type="button">
+          <button onClick={openComposer} type="button">
             <Icon name="command" />
-            <span>Search or navigate this portfolio</span>
+            <span>Ask or navigate this portfolio</span>
             <kbd aria-hidden="true">Ctrl K</kbd>
           </button>
         </footer>
@@ -168,44 +153,16 @@ export function WorkspaceShell({ children }: WorkspaceShellProps) {
         <WorkspaceSidebarContent
           mobile
           onNavigate={closeMobileNavigation}
-          onSearch={openSearch}
+          onSearch={openComposer}
           pathname={pathname}
         />
       </Drawer>
 
-      <Dialog
-        className="workspace-search-dialog"
-        description="Search verified sections and project names."
-        onOpenChange={setSearchOpen}
-        open={searchOpen}
-        title="Search portfolio"
-      >
-        <div className="workspace-search-dialog__content">
-          <SearchField
-            label="Search portfolio"
-            onChange={(event) => setQuery(event.currentTarget.value)}
-            placeholder="Search sections and projects…"
-            value={query}
-          />
-          <nav aria-label="Search results">
-            {searchResults.length > 0 ? (
-              <ul>
-                {searchResults.map((item) => (
-                  <li key={`${item.id}-${item.href}`}>
-                    <Link href={item.href} onClick={() => setSearchOpen(false)}>
-                      <Icon name={item.icon} />
-                      <span>{item.label}</span>
-                      <Icon name="chevronRight" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No matching portfolio sections.</p>
-            )}
-          </nav>
-        </div>
-      </Dialog>
+      <PortfolioCommandComposer
+        commands={commands}
+        onOpenChange={setComposerOpen}
+        open={composerOpen}
+      />
     </div>
   );
 }

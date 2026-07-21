@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TJR Workspace - Contact Access</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#492900",
+                        "on-primary": "#002d6d",
+                        "surface-elevated": "#102238",
+                        "on-secondary-container": "#002f35",
+                        "secondary-fixed": "#9bf0ff",
+                        "primary-container": "#5b91ff",
+                        "tertiary-container": "#d68000",
+                        "border-subtle": "#203A57",
+                        "on-background": "#d6e3fb",
+                        "on-primary-fixed-variant": "#00429a",
+                        "outline": "#8c909f",
+                        "on-primary-container": "#002a67",
+                        "inverse-surface": "#d6e3fb",
+                        "status-warning": "#E4B768",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#424653",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-surface": "#d6e3fb",
+                        "surface": "#061425",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#afc6ff",
+                        "surface-variant": "#283648",
+                        "text-secondary": "#9CB0C7",
+                        "secondary-fixed-dim": "#62d6e9",
+                        "on-secondary-fixed": "#001f24",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-container-lowest": "#020f1f",
+                        "status-success": "#45CEA1",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "secondary-container": "#0d9fb1",
+                        "primary-fixed": "#d9e2ff",
+                        "app-bg": "#050D18",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-high": "#1d2b3c",
+                        "inverse-on-surface": "#243143",
+                        "error-container": "#93000a",
+                        "surface-bright": "#2d3a4c",
+                        "surface-interactive": "#142A43",
+                        "surface-tint": "#afc6ff",
+                        "text-muted": "#70869F",
+                        "tertiary": "#ffb86e",
+                        "sidebar-bg": "#071321",
+                        "background": "#061425",
+                        "surface-container": "#132032",
+                        "on-surface-variant": "#c2c6d5",
+                        "surface-dim": "#061425",
+                        "inverse-primary": "#0f59c4",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001944",
+                        "surface-container-highest": "#283648",
+                        "secondary": "#62d6e9",
+                        "text-primary": "#EEF5FF",
+                        "primary": "#afc6ff",
+                        "surface-container-low": "#0e1c2d",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#452600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "stack-md": "1rem",
+                        "container-max": "1200px",
+                        "sidebar-width": "260px",
+                        "sidebar-collapsed": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "code-snippet": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "code-snippet": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.app-bg');
+            color: theme('colors.text-primary');
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay {
+            background-color: rgba(5, 13, 24, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .form-input {
+            @apply w-full bg-surface-container border border-border-subtle rounded text-text-primary px-3 py-2 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors placeholder-text-muted;
+        }
+        .form-label {
+            @apply block font-label-sm text-label-sm text-text-muted mb-1;
+        }
+    </style>
+</head>
+<body>
+<!-- Context: This is a modal overlay that would typically appear over the Overview page. 
+         For this specific task, we are rendering just the modal on a dark background to focus on its design. -->
+<div class="fixed inset-0 z-50 flex items-center justify-center modal-overlay p-4">
+<!-- Modal Container -->
+<div class="bg-surface-elevated border border-border-subtle rounded-xl w-full max-w-md shadow-[0_8px_32px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col relative">
+<!-- Header -->
+<div class="flex items-center justify-between p-6 border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">lock</span>
+<h2 class="font-headline-md text-headline-md text-text-primary">Contact Access</h2>
+</div>
+<button aria-label="Close modal" class="text-text-muted hover:text-text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Body -->
+<div class="p-6 overflow-y-auto max-h-[70vh]">
+<p class="font-body-sm text-body-sm text-text-muted mb-6 leading-relaxed">
+                    Direct contact details are shared after legitimate requests to maintain a focused workspace.
+                </p>
+<form class="space-y-4">
+<!-- Name -->
+<div>
+<label class="form-label" for="name">NAME</label>
+<input class="form-input" id="name" name="name" placeholder="Jane Doe" required="" type="text"/>
+</div>
+<!-- Email -->
+<div>
+<label class="form-label" for="email">PROFESSIONAL EMAIL</label>
+<input class="form-input" id="email" name="email" placeholder="jane@company.com" required="" type="email"/>
+</div>
+<!-- Company -->
+<div>
+<label class="form-label" for="company">COMPANY</label>
+<input class="form-input" id="company" name="company" placeholder="Acme Corp" required="" type="text"/>
+</div>
+<!-- Reason -->
+<div>
+<label class="form-label" for="reason">OPPORTUNITY / REASON</label>
+<select class="form-input" id="reason" name="reason" required="">
+<option disabled="" selected="" value="">Select an option...</option>
+<option value="recruitment">Recruitment / Job Opportunity</option>
+<option value="freelance">Freelance Project</option>
+<option value="networking">Professional Networking</option>
+<option value="other">Other</option>
+</select>
+</div>
+<!-- Optional URL -->
+<div>
+<label class="form-label" for="url">JOB DESCRIPTION URL (OPTIONAL)</label>
+<input class="form-input" id="url" name="url" placeholder="https://..." type="url"/>
+</div>
+<!-- Consent -->
+<div class="pt-2">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center mt-0.5">
+<input class="peer appearance-none w-4 h-4 border border-border-subtle rounded bg-surface-container checked:bg-primary checked:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" required="" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary text-[14px] pointer-events-none opacity-0 peer-checked:opacity-100 left-[1px] top-[1px]">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted group-hover:text-text-primary transition-colors">
+                                I confirm this is a legitimate professional inquiry.
+                            </span>
+</label>
+</div>
+</form>
+</div>
+<!-- Footer -->
+<div class="p-6 border-t border-border-subtle bg-surface-container-low flex justify-end gap-3">
+<button class="px-4 py-2 rounded border border-border-subtle text-text-primary font-label-sm text-label-sm hover:bg-surface-interactive transition-colors" type="button">
+                    CANCEL
+                </button>
+<button class="px-4 py-2 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-fixed-dim transition-colors flex items-center gap-2" type="submit">
+                    REQUEST ACCESS
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

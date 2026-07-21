@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#492900",
+                        "on-primary": "#002d6d",
+                        "surface-elevated": "#102238",
+                        "on-secondary-container": "#002f35",
+                        "secondary-fixed": "#9bf0ff",
+                        "primary-container": "#5b91ff",
+                        "tertiary-container": "#d68000",
+                        "border-subtle": "#203A57",
+                        "on-background": "#d6e3fb",
+                        "on-primary-fixed-variant": "#00429a",
+                        "outline": "#8c909f",
+                        "on-primary-container": "#002a67",
+                        "inverse-surface": "#d6e3fb",
+                        "status-warning": "#E4B768",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#424653",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-surface": "#d6e3fb",
+                        "surface": "#061425",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#afc6ff",
+                        "surface-variant": "#283648",
+                        "text-secondary": "#9CB0C7",
+                        "secondary-fixed-dim": "#62d6e9",
+                        "on-secondary-fixed": "#001f24",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-container-lowest": "#020f1f",
+                        "status-success": "#45CEA1",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "secondary-container": "#0d9fb1",
+                        "primary-fixed": "#d9e2ff",
+                        "app-bg": "#050D18",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-high": "#1d2b3c",
+                        "inverse-on-surface": "#243143",
+                        "error-container": "#93000a",
+                        "surface-bright": "#2d3a4c",
+                        "surface-interactive": "#142A43",
+                        "surface-tint": "#afc6ff",
+                        "text-muted": "#70869F",
+                        "tertiary": "#ffb86e",
+                        "sidebar-bg": "#071321",
+                        "background": "#061425",
+                        "surface-container": "#132032",
+                        "on-surface-variant": "#c2c6d5",
+                        "surface-dim": "#061425",
+                        "inverse-primary": "#0f59c4",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001944",
+                        "surface-container-highest": "#283648",
+                        "secondary": "#62d6e9",
+                        "text-primary": "#EEF5FF",
+                        "primary": "#afc6ff",
+                        "surface-container-low": "#0e1c2d",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#452600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "stack-md": "1rem",
+                        "container-max": "1200px",
+                        "sidebar-width": "260px",
+                        "sidebar-collapsed": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "code-snippet": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "code-snippet": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script><meta charset="utf-8"><style>@media print { body { background: white !important; color: black !important; } .lg\:ml-\[260px\] { ml-0 !important; } nav, header, .bg-surface, .absolute.inset-0 { display: none !important; } .bg-surface-elevated { background: white !important; border: none !important; box-shadow: none !important; padding: 0 !important; } .text-text-primary, .text-text-secondary, .text-text-muted { color: black !important; } .text-primary { color: #00429a !important; } .border-border-subtle { border-color: #eee !important; } }</style></head><body class="flex min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col bg-sidebar-bg dark:bg-sidebar-bg border-r border-border-subtle transition-all duration-200 ease-in-out w-[260px] z-50">
+<div class="p-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-surface-interactive flex items-center justify-center overflow-hidden border border-border-subtle">
+<img alt="TJR Monogram" class="w-full h-full object-cover" data-alt="A minimal, stylized monogram or portrait of a software engineer, set against a dark navy background. The style is technical and professional, resembling an avatar in a high-end IDE. The lighting is soft and focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADpoFSi2FDLfxS4QJ3IOtHFE5n2cN--PqPWmZ32QVff02WSDk67wcLofOyFc9Mh0tcmPI1gvWUHOp5gEnaoAg7F1hMn_vYR8bGLnQMrGptj_0W9mODE6YEQam0F8I4dkekzKcG0SYTj709UBkXb96zUTNJi84JT8PXeMp4oEg9bS4yFsp3iz62Yrh_Yq3O_8KGYpCiI6vudYLu3AcB2wwp7_KCowh4dpo9deLaaiXu_kedOIS53jCtow">
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted mt-1">Software Engineer</p>
+</div>
+</div>
+<button class="w-full mb-8 flex items-center gap-2 px-3 py-2 bg-surface-interactive border border-border-subtle rounded-DEFAULT text-text-muted hover:text-text-primary transition-colors text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">search</span>
+<span class="">Search (CMD+K)</span>
+</button>
+<ul class="flex flex-col gap-1 text-body-md font-body-md">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Overview</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">About</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="">Projects</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="">Now</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="">Skills</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="">Hobbies</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="">Education</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-primary dark:text-primary border-l-4 border-primary bg-surface-interactive rounded-r-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="description" data-weight="fill" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="">Resume</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto p-6 border-t border-border-subtle">
+<ul class="flex flex-col gap-2 text-label-sm font-label-sm">
+<li class="">
+<a class="flex items-center gap-3 text-text-muted hover:text-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="link">link</span>
+<span class="">LinkedIn</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 text-text-muted hover:text-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span>
+<span class="">GitHub</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- TopAppBar (Mobile/Tablet) -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 bg-app-bg/80 backdrop-blur-md border-b border-border-subtle z-40 lg:hidden text-primary dark:text-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95 transition-transform"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<img alt="Tököli Jenő-Richard Portrait" class="w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="Tököli Jenő-Richard Portrait miniature, professional technical styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoe7SlK1BYLBwOkWqpmHcvMoR--blaRQ7qkQCDWn7R3zLLU3R6C4WxRBhIZeQ91T6k8Lvm4aL7im5ovXQ2Hrjd6sdXOp8-Anh_45FAhUyzacdyOg16qQrbzCHVyuHuwXICCyB6Bg-g0KyXlXEUUJYw01pnZAQeUdhKIQ24uJovu4pCynU4_ptrH_Gljsr6ORNAxFOYzg1s9zHadlbwyiVlMKVKPDVS1B1I9bIk_iLypWxdpf5WYjW0ig">
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-[260px] pb-24 lg:pb-8 flex flex-col min-h-screen">
+<!-- Header Section -->
+<div class="px-6 py-8 border-b border-border-subtle bg-surface">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-text-primary mb-2 hidden md:block">Résumé</h2>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-text-primary mb-2 md:hidden">Résumé</h2>
+<p class="text-body-md font-body-md text-text-muted">A comprehensive overview of my professional experience and technical capabilities.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 border border-border-subtle text-text-primary hover:bg-surface-interactive transition-colors rounded-DEFAULT text-label-sm font-label-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                        Share
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary hover:bg-primary-fixed-dim transition-colors rounded-DEFAULT text-label-sm font-label-sm font-medium shadow-[0_2px_10px_rgba(91,145,255,0.2)]">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Download PDF
+                    </button>
+</div>
+</div>
+</div>
+<!-- Document Preview Area -->
+<div class="flex-1 p-4 md:p-8 overflow-y-auto relative">
+<!-- Subtle background pattern for technical feel -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(theme('colors.primary') 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="max-w-[850px] mx-auto bg-surface-elevated border border-border-subtle rounded-lg p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.4)] relative z-10">
+<!-- Resume Header -->
+<div class="border-b border-border-subtle pb-8 mb-8">
+<h1 class="text-headline-lg font-headline-lg text-text-primary mb-2">Richard Tököli</h1>
+<p class="text-primary font-medium text-body-lg font-body-lg mb-4">Senior Software Engineer</p>
+<div class="flex flex-wrap gap-4 text-label-sm font-label-sm text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Budapest, Hungary</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">mail</span> richard.tokoli@example.com</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">language</span> github.com/rtokoli</span>
+</div>
+</div>
+<!-- Grid Layout for Content -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Left Column (Main Experience) -->
+<div class="md:col-span-2 space-y-10">
+<!-- Profile/Summary -->
+<section>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">person</span> Profile
+                            </h3>
+<p class="text-body-md font-body-md text-text-secondary leading-relaxed">
+                                Dedicated software engineer with over 5 years of experience architecting and developing scalable web applications. Passionate about clean code, performance optimization, and building intuitive user interfaces. Proven track record of leading technical initiatives and delivering robust solutions in fast-paced agile environments.
+                            </p>
+</section>
+<!-- Experience -->
+<section>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">work</span> Experience
+                            </h3>
+<div class="space-y-8">
+<!-- Job 1 -->
+<div class="relative pl-6 border-l border-border-subtle">
+<div class="absolute w-3 h-3 bg-surface-elevated border-2 border-primary rounded-full -left-[6.5px] top-1"></div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-body-lg font-medium text-text-primary">Senior Frontend Developer</h4>
+<span class="text-label-sm font-label-sm text-text-muted bg-surface-interactive px-2 py-1 rounded">2021 - Present</span>
+</div>
+<p class="text-primary text-body-md font-body-md mb-3">TechCorp Solutions</p>
+<ul class="list-disc list-outside ml-4 text-body-md font-body-md text-text-secondary space-y-1.5">
+<li class="">Led the migration of a legacy monolithic frontend to a modern React/TypeScript micro-frontend architecture.</li>
+<li class="">Improved application load time by 40% through code splitting and asset optimization.</li>
+<li class="">Mentored junior developers and established code review best practices across the engineering team.</li>
+</ul>
+</div>
+<!-- Job 2 -->
+<div class="relative pl-6 border-l border-border-subtle">
+<div class="absolute w-3 h-3 bg-surface-elevated border-2 border-outline-variant rounded-full -left-[6.5px] top-1"></div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-body-lg font-body-lg font-medium text-text-primary">Software Engineer</h4>
+<span class="text-label-sm font-label-sm text-text-muted bg-surface-interactive px-2 py-1 rounded">2018 - 2021</span>
+</div>
+<p class="text-primary text-body-md font-body-md mb-3">Innovate Systems</p>
+<ul class="list-disc list-outside ml-4 text-body-md font-body-md text-text-secondary space-y-1.5">
+<li class="">Developed and maintained RESTful APIs using Node.js and Express.</li>
+<li class="">Implemented responsive UI components using Vue.js and Tailwind CSS.</li>
+<li class="">Collaborated with design and product teams to define feature specifications.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Projects -->
+<section>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">rocket_launch</span> Selected Projects
+                            </h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="p-4 border border-border-subtle rounded bg-surface-interactive/30">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-body-md font-body-md font-medium text-text-primary">AI Code Assistant</h4>
+<span class="text-label-sm font-label-sm text-secondary-fixed">TypeScript</span>
+</div>
+<p class="text-body-md font-body-md text-text-secondary mb-3 text-sm">A VS Code extension leveraging LLMs to provide context-aware code suggestions and refactoring.</p>
+<a class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-1" href="#"><span class="material-symbols-outlined text-[14px]">link</span> View Source</a>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (Sidebar details) -->
+<div class="space-y-10">
+<!-- Skills -->
+<section>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span> Skills
+                            </h3>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-sm font-label-sm text-text-muted uppercase mb-2">Languages</h4>
+<div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-primary/10 border border-primary/30 rounded text-code-snippet font-code-snippet text-primary font-medium">C++</span><span class="px-2 py-1 bg-primary/10 border border-primary/30 rounded text-code-snippet font-code-snippet text-primary font-medium">Java</span><span class="px-2 py-1 bg-primary/10 border border-primary/30 rounded text-code-snippet font-code-snippet text-primary font-medium">Python</span><span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">C#</span><span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">JavaScript</span><span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">TypeScript</span></div>
+</div>
+<div>
+<h4 class="text-label-sm font-label-sm text-text-muted uppercase mb-2">Frameworks</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">React</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Next.js</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Vue</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Tailwind</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Node.js</span>
+</div>
+</div>
+<div>
+<h4 class="text-label-sm font-label-sm text-text-muted uppercase mb-2">Tools</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Git</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Docker</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">AWS</span>
+<span class="px-2 py-1 bg-surface-interactive border border-border-subtle rounded text-code-snippet font-code-snippet text-text-primary">Figma</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Education -->
+<section>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">school</span> Education
+                            </h3>
+<div class="space-y-4"><div><h4 class="text-body-md font-body-md font-medium text-text-primary">BSc in Computer Science</h4><p class="text-label-sm font-label-sm text-text-muted mb-1">Babeș-Bolyai University</p><p class="text-label-sm font-label-sm text-text-secondary">Cluj-Napoca, Romania | 2016 - 2019</p></div><div><h4 class="text-body-md font-body-md font-medium text-text-primary">High School Diploma</h4><p class="text-label-sm font-label-sm text-text-muted mb-1">Liceul Teoretic Báthory István</p><p class="text-label-sm font-label-sm text-text-secondary">Cluj-Napoca, Romania | 2012 - 2016</p></div></div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high dark:bg-surface-container-high border-t border-border-subtle lg:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 flex-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 flex-1" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+<span class="text-label-sm font-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary py-2 active:bg-surface-interactive active:scale-90 duration-100 flex-1" href="#">
+<span class="material-symbols-outlined" data-icon="article" data-weight="fill" style="font-variation-settings: 'FILL' 1;">article</span>
+<span class="text-label-sm font-label-sm mt-1">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 flex-1" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-sm font-label-sm mt-1">Search</span>
+</a>
+</nav>
+
+</body></html>

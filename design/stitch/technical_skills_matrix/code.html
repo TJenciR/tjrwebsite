@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skills - TJR Workspace</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Setup -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#492900",
+                        "on-primary": "#002d6d",
+                        "surface-elevated": "#102238",
+                        "on-secondary-container": "#002f35",
+                        "secondary-fixed": "#9bf0ff",
+                        "primary-container": "#5b91ff",
+                        "tertiary-container": "#d68000",
+                        "border-subtle": "#203A57",
+                        "on-background": "#d6e3fb",
+                        "on-primary-fixed-variant": "#00429a",
+                        "outline": "#8c909f",
+                        "on-primary-container": "#002a67",
+                        "inverse-surface": "#d6e3fb",
+                        "status-warning": "#E4B768",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#424653",
+                        "on-tertiary-fixed-variant": "#693c00",
+                        "on-surface": "#d6e3fb",
+                        "surface": "#061425",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#afc6ff",
+                        "surface-variant": "#283648",
+                        "text-secondary": "#9CB0C7",
+                        "secondary-fixed-dim": "#62d6e9",
+                        "on-secondary-fixed": "#001f24",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-tertiary-fixed": "#2c1600",
+                        "surface-container-lowest": "#020f1f",
+                        "status-success": "#45CEA1",
+                        "tertiary-fixed-dim": "#ffb86e",
+                        "secondary-container": "#0d9fb1",
+                        "primary-fixed": "#d9e2ff",
+                        "app-bg": "#050D18",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-high": "#1d2b3c",
+                        "inverse-on-surface": "#243143",
+                        "error-container": "#93000a",
+                        "surface-bright": "#2d3a4c",
+                        "surface-interactive": "#142A43",
+                        "surface-tint": "#afc6ff",
+                        "text-muted": "#70869F",
+                        "tertiary": "#ffb86e",
+                        "sidebar-bg": "#071321",
+                        "background": "#061425",
+                        "surface-container": "#132032",
+                        "on-surface-variant": "#c2c6d5",
+                        "surface-dim": "#061425",
+                        "inverse-primary": "#0f59c4",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001944",
+                        "surface-container-highest": "#283648",
+                        "secondary": "#62d6e9",
+                        "text-primary": "#EEF5FF",
+                        "primary": "#afc6ff",
+                        "surface-container-low": "#0e1c2d",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#452600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "stack-md": "1rem",
+                        "container-max": "1200px",
+                        "sidebar-width": "260px",
+                        "sidebar-collapsed": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "code-snippet": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "code-snippet": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md antialiased flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- Shared Component: SideNavBar -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col bg-sidebar-bg dark:bg-sidebar-bg text-primary dark:text-primary w-[260px] border-r border-border-subtle z-50">
+<div class="p-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full bg-surface-interactive flex items-center justify-center overflow-hidden border border-border-subtle shrink-0">
+<span class="text-label-sm font-label-sm text-primary">TJR</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter truncate">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted">Software Engineer</p>
+</div>
+</div>
+<button class="w-full mb-8 flex items-center justify-between px-3 py-2 rounded border border-border-subtle bg-surface-interactive text-text-muted hover:text-text-primary transition-all duration-200 ease-in-out text-label-sm font-label-sm group">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">search</span>Search</span>
+<span class="opacity-50">CMD+K</span>
+</button>
+</div>
+<nav class="flex-1 flex flex-col gap-1 py-4">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="text-label-sm font-label-sm">Now</span>
+</a>
+<!-- Active State: Skills -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-label-sm font-label-sm font-bold">Skills</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="text-label-sm font-label-sm">Hobbies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-label-sm font-label-sm">Education</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-label-sm font-label-sm">Resume</span>
+</a>
+</nav>
+<div class="mt-auto p-4 border-t border-border-subtle">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-2 py-2 text-text-muted hover:text-text-primary transition-colors text-label-sm font-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+                    LinkedIn
+                </a>
+<a class="flex items-center gap-3 px-2 py-2 text-text-muted hover:text-text-primary transition-colors text-label-sm font-label-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+                    GitHub
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 lg:ml-[260px]">
+<!-- Shared Component: TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 bg-app-bg/80 backdrop-blur-md text-primary dark:text-primary border-b border-border-subtle z-40 lg:hidden">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-interactive border border-border-subtle overflow-hidden flex items-center justify-center shrink-0">
+<span class="text-label-sm font-label-sm text-primary">TJR</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95 transition-transform flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-interactive">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors active:scale-95 transition-transform flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-interactive relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-4 md:p-8 lg:p-12 pb-24 lg:pb-12 max-w-container-max mx-auto w-full">
+<div class="mb-10">
+<h2 class="text-headline-lg font-headline-lg text-text-primary mb-2">Technical Proficiencies</h2>
+<p class="text-body-lg font-body-lg text-text-muted max-w-2xl">A structured matrix of languages, environments, and tooling mapped by working competency and architectural familiarity.</p>
+</div>
+<div class="flex flex-col gap-8">
+<!-- More proficient Section -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl group-hover:bg-primary-container/10 transition-all duration-500"></div>
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-border-subtle relative z-10">
+<div class="w-8 h-8 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary">More proficient</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-headline-md font-headline-md text-text-primary font-bold">C++</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">terminal</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Game Engine Architecture
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-headline-md font-headline-md text-text-primary font-bold">Java</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">terminal</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Enterprise Backend System
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-headline-md font-headline-md text-text-primary font-bold">Python</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">terminal</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> 3D Optimal Pathfinder
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Currently using Section -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-border-subtle">
+<div class="w-8 h-8 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-status-success">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary">Currently using</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-body-lg font-body-lg text-text-primary font-semibold">TypeScript</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">code_blocks</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Interactive Dashboard
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-body-lg font-body-lg text-text-primary font-semibold">C#</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">code_blocks</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Unity Simulation
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-4 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="text-body-lg font-body-lg text-text-primary font-semibold">MySQL / MSSQL</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">database</span>
+</div>
+<div class="mt-auto pt-3 border-t border-border-subtle border-dashed">
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest block mb-2">Associated Projects</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Data Pipeline Setup
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Worked with Section -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-border-subtle">
+<div class="w-8 h-8 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary">Worked with</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-3 flex flex-col gap-3 hover:border-primary/50 transition-colors">
+<span class="text-body-md font-body-md text-text-primary font-semibold">C</span>
+<div class="mt-auto pt-2 border-t border-border-subtle border-dashed">
+<a class="text-text-muted hover:text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Embedded Systems
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-3 flex flex-col gap-3 hover:border-primary/50 transition-colors">
+<span class="text-body-md font-body-md text-text-primary font-semibold">Assembly</span>
+<div class="mt-auto pt-2 border-t border-border-subtle border-dashed">
+<a class="text-text-muted hover:text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> OS Kernel Module
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-3 flex flex-col gap-3 hover:border-primary/50 transition-colors">
+<span class="text-body-md font-body-md text-text-primary font-semibold">Bash</span>
+<div class="mt-auto pt-2 border-t border-border-subtle border-dashed">
+<a class="text-text-muted hover:text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> CI/CD Scripts
+                    </a>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="bg-surface border border-border-subtle rounded p-3 flex flex-col gap-3 hover:border-primary/50 transition-colors">
+<span class="text-body-md font-body-md text-text-primary font-semibold">MATLAB</span>
+<div class="mt-auto pt-2 border-t border-border-subtle border-dashed">
+<a class="text-text-muted hover:text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">link</span> Data Analysis Scripts
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Development Environments & Tooling -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-6">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-border-subtle">
+<div class="w-8 h-8 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[18px]">build</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary">Development Environments &amp; Tooling</h3>
+</div>
+<div class="flex flex-wrap gap-x-6 gap-y-4">
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> JetBrains (IntelliJ IDEA)
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> VS Code
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> Visual Studio
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> Eclipse
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> MATLAB
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> CodeBlocks
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> Unreal Engine 4
+            </div>
+<div class="flex items-center gap-2 text-text-secondary text-code-snippet font-code-snippet">
+<span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span> OllyDbg
+            </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Shared Component: BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high dark:bg-surface-container-high border-t border-border-subtle shadow-[0_-4px_20px_rgba(0,0,0,0.4)] lg:hidden">
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 transition-all w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="home">home</span>
+<span class="text-[10px] font-label-sm tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 transition-all w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="folder_special">folder_special</span>
+<span class="text-[10px] font-label-sm tracking-wider">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 transition-all w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="article">article</span>
+<span class="text-[10px] font-label-sm tracking-wider">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive active:scale-90 duration-100 transition-all w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="search">search</span>
+<span class="text-[10px] font-label-sm tracking-wider">Search</span>
+</a>
+</nav>
+</body></html>

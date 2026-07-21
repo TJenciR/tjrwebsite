@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#492900",
+                      "on-primary": "#002d6d",
+                      "surface-elevated": "#102238",
+                      "on-secondary-container": "#002f35",
+                      "secondary-fixed": "#9bf0ff",
+                      "primary-container": "#5b91ff",
+                      "tertiary-container": "#d68000",
+                      "border-subtle": "#203A57",
+                      "on-background": "#d6e3fb",
+                      "on-primary-fixed-variant": "#00429a",
+                      "outline": "#8c909f",
+                      "on-primary-container": "#002a67",
+                      "inverse-surface": "#d6e3fb",
+                      "status-warning": "#E4B768",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#424653",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-surface": "#d6e3fb",
+                      "surface": "#061425",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#afc6ff",
+                      "surface-variant": "#283648",
+                      "text-secondary": "#9CB0C7",
+                      "secondary-fixed-dim": "#62d6e9",
+                      "on-secondary-fixed": "#001f24",
+                      "tertiary-fixed": "#ffdcbd",
+                      "on-tertiary-fixed": "#2c1600",
+                      "surface-container-lowest": "#020f1f",
+                      "status-success": "#45CEA1",
+                      "tertiary-fixed-dim": "#ffb86e",
+                      "secondary-container": "#0d9fb1",
+                      "primary-fixed": "#d9e2ff",
+                      "app-bg": "#050D18",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "surface-container-high": "#1d2b3c",
+                      "inverse-on-surface": "#243143",
+                      "error-container": "#93000a",
+                      "surface-bright": "#2d3a4c",
+                      "surface-interactive": "#142A43",
+                      "surface-tint": "#afc6ff",
+                      "text-muted": "#70869F",
+                      "tertiary": "#ffb86e",
+                      "sidebar-bg": "#071321",
+                      "background": "#061425",
+                      "surface-container": "#132032",
+                      "on-surface-variant": "#c2c6d5",
+                      "surface-dim": "#061425",
+                      "inverse-primary": "#0f59c4",
+                      "on-secondary": "#00363d",
+                      "on-primary-fixed": "#001944",
+                      "surface-container-highest": "#283648",
+                      "secondary": "#62d6e9",
+                      "text-primary": "#EEF5FF",
+                      "primary": "#afc6ff",
+                      "surface-container-low": "#0e1c2d",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#452600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2rem",
+                      "stack-md": "1rem",
+                      "container-max": "1200px",
+                      "sidebar-width": "260px",
+                      "sidebar-collapsed": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-sm": ["JetBrains Mono"],
+                      "body-lg": ["Inter"],
+                      "code-snippet": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "code-snippet": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-app-bg text-on-surface font-body-md h-screen w-full overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col w-[260px] border-r border-border-subtle bg-sidebar-bg dark:bg-sidebar-bg transition-all duration-200 ease-in-out z-50">
+<div class="p-6 border-b border-border-subtle">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-surface-elevated border border-border-subtle overflow-hidden flex items-center justify-center shrink-0">
+<img alt="TJR Monogram" class="w-full h-full object-cover" data-alt="A striking minimalist 3D rendering of a stylized monogram 'TJR'. The letters are crafted from dark brushed metal with subtle deep navy reflections, set against a completely black background. The aesthetic is highly technical, precise, and sophisticated, perfectly suited for a high-end software engineer's workspace logo. The lighting is focused and dramatic, highlighting the crisp edges of the typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFVN9Cj4CQHI9JYe1dbaxbK60XVwDvC5hzVsZ1hh8S0Eg_eqbLZkCVlWMZfdoNVBkig-RtNROvXy27XYv-O9tH0qKJ086hQnx4I0gfOI9tY4GlZYInGJVgA5_PKB8pszABzrBOFmzpN-3Iodg-2kzuQX4yfbjqw4yNXZ0gImCeBP195kW3mdkMq84Rrgy0_DdCL0uwAgpnllPu5ME34XVVuPNBIIhg-_UUR8wsEhAtKtzao6bLpBlCgQ">
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter truncate">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted mt-1">Software Engineer</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-interactive rounded border border-border-subtle text-text-muted hover:text-text-primary hover:bg-surface-bright transition-colors group">
+<span class="text-label-sm font-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">search</span>
+                    Search
+                </span>
+<span class="text-label-sm font-label-sm opacity-50 border border-outline-variant rounded px-1 group-hover:opacity-100 transition-opacity">CMD+K</span>
+</button>
+</div>
+<div class="flex-1 py-4 overflow-y-auto">
+<ul class="space-y-1">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">code</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span class="text-label-sm font-label-sm">Now</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="text-label-sm font-label-sm">Skills</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_esports</span>
+<span class="text-label-sm font-label-sm">Hobbies</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-label-sm font-label-sm">Education</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-label-sm font-label-sm">Resume</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-4 border-t border-border-subtle mt-auto">
+<div class="flex gap-2">
+<a class="flex-1 flex items-center justify-center gap-2 py-2 rounded bg-surface-interactive text-text-muted hover:text-text-primary hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">link</span>
+<span class="text-label-sm font-label-sm">LinkedIn</span>
+</a>
+<a class="flex-1 flex items-center justify-center gap-2 py-2 rounded bg-surface-interactive text-text-muted hover:text-text-primary hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="text-label-sm font-label-sm">GitHub</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col lg:pl-[260px] h-full overflow-hidden">
+<!-- TopAppBar (Mobile & Content Header) -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 bg-app-bg/80 backdrop-blur-md border-b border-border-subtle z-40 shrink-0 lg:hidden">
+<div class="flex items-center gap-3">
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors focus:outline-none relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full blur-[1px]"></span>
+</button>
+<img alt="Tököli Jenő-Richard Portrait" class="w-8 h-8 rounded-full border border-border-subtle object-cover hidden sm:block" data-alt="A striking minimalist portrait of a software engineer. The subject is dimly lit with dramatic, soft blue key lighting against a deep navy background. The style resembles high-end corporate tech photography, highly polished, with a sophisticated, slightly mysterious aesthetic. Professional, focused, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApiWUjunbc7hPBPJL0KLhud2bJrNvlR2nyYsBVR5Zz_TxNnFEFmxmUSjnqXKYCy8O4YSWVzuaNJl4XfSa9OiUPyKSPG5UWARpOpW085b0llHifmLNAk23SklQiWpbUhEYw418uhui9Aqkhrmi9g1Af9Ts0KeyOh-r57COeXqjISQWrO0dIjsMSMQN8kKNrMi125wHfEUgwhOjxJeu7YQwEXDcQ4B126ao98jHi_d2McsvrB63KCtersQ">
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 w-full max-w-container-max mx-auto space-y-8 pb-24 lg:pb-12 scroll-smooth">
+<!-- Page Header -->
+<div class="space-y-2 mb-8 md:mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 border border-primary/20 text-primary mb-4">
+<span class="material-symbols-outlined text-[14px]">person</span>
+<span class="text-label-sm font-label-sm tracking-wider">ABOUT_ME.MD</span>
+</div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-text-primary">System Identity</h2>
+<p class="text-body-lg font-body-lg text-text-muted max-w-2xl">Dedicated software engineer architecting robust solutions upon a rigorous mathematical foundation. Focused on logic, efficiency, and continuous iteration.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Academic Background (Takes up 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-elevated border border-border-subtle rounded-xl p-6 relative overflow-hidden group"><div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div><div class="relative z-10"><div class="flex items-center justify-between mb-6 border-b border-border-subtle pb-4"><h3 class="text-headline-md font-headline-md text-text-primary flex items-center gap-2"><span class="material-symbols-outlined text-primary">school</span>Academic Background</h3><span class="text-label-sm font-label-sm text-status-success bg-status-success/10 px-2 py-1 rounded border border-status-success/20">Degree Completed</span></div><div class="space-y-6"><div class="flex flex-col sm:flex-row gap-4 sm:gap-6"><div class="shrink-0 pt-1"><div class="w-12 h-12 rounded bg-surface-interactive border border-border-subtle flex items-center justify-center"><span class="material-symbols-outlined text-text-secondary text-[24px]">functions</span></div></div><div><h4 class="text-body-lg font-body-lg text-text-primary font-medium mb-1">BSc in Mathematics &amp; Computer Science</h4><p class="text-label-sm font-label-sm text-text-secondary mb-3">Babeș-Bolyai University • Cluj-Napoca, Romania</p><p class="text-body-md font-body-md text-text-muted leading-relaxed">A rigorous foundation in abstract mathematics and computational logic. This dual discipline shaped a mindset focused on algorithmic efficiency and structural integrity, ensuring every line of code serves a mathematical purpose.</p></div></div><div class="bg-surface-interactive/50 border border-border-subtle rounded-lg p-4 font-code-snippet text-code-snippet text-text-muted mt-4"><div class="flex items-center gap-2 mb-2 text-text-secondary border-b border-border-subtle pb-2"><span class="material-symbols-outlined text-[16px]">terminal</span><span class="">quick_scan_competencies.json</span></div><pre class="overflow-x-auto"><code><span class="text-primary">"stack"</span>: [<br>  <span class="text-status-success">"Algorithmic Optimization"</span>,<br>  <span class="text-status-success">"Distributed Systems"</span>,<br>  <span class="text-status-success">"Functional Programming"</span>,<br>  <span class="text-status-success">"Mathematical Modeling"</span><br>]</code></pre></div></div></div></div>
+<!-- Positioning / Ethos (Takes up 4 cols on desktop) -->
+<div class="md:col-span-4 bg-surface-elevated border border-border-subtle rounded-xl p-6 flex flex-col justify-between"><div><div class="flex items-center gap-2 mb-6"><span class="material-symbols-outlined text-status-warning text-[20px]">architecture</span><h3 class="text-headline-md font-headline-md text-text-primary">Ethos</h3></div><p class="text-body-md font-body-md text-text-muted leading-relaxed mb-6">I view software engineering as the construction of living logical systems. My approach is defined by the 'Patience Protocol'—the ability to deconstruct complex problems into their fundamental mathematical components before writing a single line of code.</p></div><div class="bg-surface-interactive border border-border-subtle p-4 rounded-lg"><div class="flex items-center gap-3 mb-2"><div class="w-2 h-2 bg-status-success rounded-full blur-[1px]"></div><span class="text-label-sm font-label-sm text-text-primary">Status: Ready for Deployment</span></div><p class="text-label-sm font-label-sm text-text-secondary">Actively seeking high-impact engineering challenges.</p></div></div>
+<!-- Personal Interests (Plugins Metaphor) (Full width) -->
+<div class="md:col-span-12 mt-4">
+<div class="flex items-center gap-2 mb-6 px-2">
+<span class="material-symbols-outlined text-primary text-[20px]">extension</span>
+<h3 class="text-headline-md font-headline-md text-text-primary">Installed Plugins (Interests)</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Plugin: Music -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-5 hover:border-primary/50 hover:bg-surface-interactive transition-all duration-300 group"><div class="flex justify-between items-start mb-4"><div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">album</span></div><span class="text-[10px] font-label-sm text-text-secondary bg-surface px-2 py-1 rounded border border-border-subtle">v10.0+</span></div><h4 class="text-body-lg font-body-lg text-text-primary font-medium mb-2">Music &amp; DJing</h4><p class="text-body-md font-body-md text-text-muted">Over a decade of curating soundscapes. Applying technical precision to creative flow through harmonic mixing and rhythmic analysis.</p></div>
+<!-- Plugin: Gaming -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-5 hover:border-primary/50 hover:bg-surface-interactive transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">sports_esports</span>
+</div>
+<span class="text-[10px] font-label-sm text-status-success bg-status-success/10 px-2 py-1 rounded border border-status-success/20">Active</span>
+</div>
+<h4 class="text-body-lg font-body-lg text-text-primary font-medium mb-2">Gaming</h4>
+<p class="text-body-md font-body-md text-text-muted">Interactive systems analysis and strategic problem solving in virtual environments.</p>
+</div>
+<!-- Plugin: Fishing -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-5 hover:border-primary/50 hover:bg-surface-interactive transition-all duration-300 group"><div class="flex justify-between items-start mb-4"><div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">phishing</span></div><span class="text-[10px] font-label-sm text-text-secondary bg-surface px-2 py-1 rounded border border-border-subtle">Idle</span></div><h4 class="text-body-lg font-body-lg text-text-primary font-medium mb-2">Fishing</h4><p class="text-body-md font-body-md text-text-muted">The ultimate 'Patience Protocol'. Disconnecting from digital logic to observe natural systems and practice environmental awareness.</p></div>
+<!-- Plugin: Geography -->
+<div class="bg-surface-elevated border border-border-subtle rounded-lg p-5 hover:border-primary/50 hover:bg-surface-interactive transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded bg-primary-container/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">public</span>
+</div>
+<span class="text-[10px] font-label-sm text-text-secondary bg-surface px-2 py-1 rounded border border-border-subtle">Loaded</span>
+</div>
+<h4 class="text-body-lg font-body-lg text-text-primary font-medium mb-2">Geography</h4>
+<p class="text-body-md font-body-md text-text-muted">Spatial mapping and understanding macro-level global structures and terrain.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high dark:bg-surface-container-high border-t border-border-subtle shadow-[0_-4px_20px_rgba(0,0,0,0.4)] lg:hidden">
+<button class="flex flex-col items-center justify-center text-text-muted py-2 w-full active:bg-surface-interactive hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-text-muted py-2 w-full active:bg-surface-interactive hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined mb-1">folder_special</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</button>
+<button class="flex flex-col items-center justify-center text-text-muted py-2 w-full active:bg-surface-interactive hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined mb-1">article</span>
+<span class="text-label-sm font-label-sm">Resume</span>
+</button>
+<button class="flex flex-col items-center justify-center text-text-muted py-2 w-full active:bg-surface-interactive hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="text-label-sm font-label-sm">Search</span>
+</button>
+</nav>
+</body></html>

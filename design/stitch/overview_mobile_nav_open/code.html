@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overview - TJR Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#492900",
+                      "on-primary": "#002d6d",
+                      "surface-elevated": "#102238",
+                      "on-secondary-container": "#002f35",
+                      "secondary-fixed": "#9bf0ff",
+                      "primary-container": "#5b91ff",
+                      "tertiary-container": "#d68000",
+                      "border-subtle": "#203A57",
+                      "on-background": "#d6e3fb",
+                      "on-primary-fixed-variant": "#00429a",
+                      "outline": "#8c909f",
+                      "on-primary-container": "#002a67",
+                      "inverse-surface": "#d6e3fb",
+                      "status-warning": "#E4B768",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#424653",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-surface": "#d6e3fb",
+                      "surface": "#061425",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#afc6ff",
+                      "surface-variant": "#283648",
+                      "text-secondary": "#9CB0C7",
+                      "secondary-fixed-dim": "#62d6e9",
+                      "on-secondary-fixed": "#001f24",
+                      "tertiary-fixed": "#ffdcbd",
+                      "on-tertiary-fixed": "#2c1600",
+                      "surface-container-lowest": "#020f1f",
+                      "status-success": "#45CEA1",
+                      "tertiary-fixed-dim": "#ffb86e",
+                      "secondary-container": "#0d9fb1",
+                      "primary-fixed": "#d9e2ff",
+                      "app-bg": "#050D18",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "surface-container-high": "#1d2b3c",
+                      "inverse-on-surface": "#243143",
+                      "error-container": "#93000a",
+                      "surface-bright": "#2d3a4c",
+                      "surface-interactive": "#142A43",
+                      "surface-tint": "#afc6ff",
+                      "text-muted": "#70869F",
+                      "tertiary": "#ffb86e",
+                      "sidebar-bg": "#071321",
+                      "background": "#061425",
+                      "surface-container": "#132032",
+                      "on-surface-variant": "#c2c6d5",
+                      "surface-dim": "#061425",
+                      "inverse-primary": "#0f59c4",
+                      "on-secondary": "#00363d",
+                      "on-primary-fixed": "#001944",
+                      "surface-container-highest": "#283648",
+                      "secondary": "#62d6e9",
+                      "text-primary": "#EEF5FF",
+                      "primary": "#afc6ff",
+                      "surface-container-low": "#0e1c2d",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#452600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2rem",
+                      "stack-md": "1rem",
+                      "container-max": "1200px",
+                      "sidebar-width": "260px",
+                      "sidebar-collapsed": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "code-snippet": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-snippet": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.app-bg');
+            color: theme('colors.text-primary');
+        }
+        /* Mobile specific adjustments */
+        @media (max-width: 1023px) {
+            .mobile-content-pb {
+                padding-bottom: 5rem; /* Space for BottomNavBar */
+            }
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md lg:flex-row">
+<!-- Mobile Overlay for Drawer -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] lg:hidden"></div>
+<!-- SideNav (Mobile Drawer / Desktop Sidebar) -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto flex flex-col border-r border-border-subtle bg-sidebar-bg w-[260px] z-[60] shadow-2xl lg:shadow-none lg:z-50">
+<div class="p-6">
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">Tököli Jenő-Richard</h1>
+<p class="text-text-muted mt-1">Software Engineer</p>
+</div>
+<div class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">code</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">timer</span>
+<span class="text-label-sm font-label-sm">Now</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-label-sm font-label-sm">Skills</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="text-label-sm font-label-sm">Hobbies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-sm font-label-sm">Education</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-label-sm font-label-sm">Resume</span>
+</a>
+</div>
+<div class="p-6">
+<button class="w-full flex items-center justify-between px-4 py-2 bg-surface-elevated border border-border-subtle rounded text-text-muted hover:text-text-primary transition-colors text-label-sm font-label-sm">
+<span>Search (CMD+K)</span>
+<span class="material-symbols-outlined text-[16px]">search</span>
+</button>
+</div>
+<div class="p-4 border-t border-border-subtle flex justify-around">
+<a class="text-text-muted hover:text-text-primary p-2" href="#"><span class="material-symbols-outlined">link</span></a>
+<a class="text-text-muted hover:text-text-primary p-2" href="#"><span class="material-symbols-outlined">terminal</span></a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 lg:ml-[260px]">
+<!-- TopAppBar (Mobile Header with Menu & Monogram) -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 bg-app-bg/80 backdrop-blur-md border-b border-border-subtle z-40">
+<div class="flex items-center gap-4 lg:hidden">
+<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button>
+<div class="w-8 h-8 rounded bg-surface-interactive border border-border-subtle text-primary flex items-center justify-center font-label-sm text-[12px] font-bold">TJR</div>
+</div>
+<div class="hidden lg:flex items-center">
+<h2 class="text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</h2>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-text-muted hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-elevated border border-border-subtle overflow-hidden">
+<img alt="Tököli Jenő-Richard Portrait" class="w-full h-full object-cover" data-alt="A small, professional portrait photo of a software engineer, neutral background, sharp focus, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8uIU6s44oQuPvbu0GinIVH2ygM87V9w2S_uFLTf_5pvxM7yodsvWIU4TXGGGHyrbv__Z8koHVN9DZNdKzM_tcgm86zfaysj107GGC-z5X9TkJgdhaWG9gewraDTHGXc0GuloTJaC8mkD4g2biD3sFxqxv2yJ0afl81doRxGtsCuDCS8jZuca4fMAoyB-AH0y8xdrOl_dedAhvH5dWEqYe6FaqW_osJ3C9a6xiXgxMCeqsptbHKol-4A"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 mobile-content-pb">
+<div class="max-w-container-max mx-auto space-y-8">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="flex-1 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-interactive border border-border-subtle">
+<span class="w-2 h-2 rounded-full bg-status-success shadow-[0_0_8px_rgba(69,206,161,0.5)]"></span>
+<span class="text-label-sm font-label-sm text-text-secondary">Available for new opportunities</span>
+</div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-text-primary">
+                            Engineering robust software solutions with deliberate precision.
+                        </h1>
+<p class="text-body-lg font-body-lg text-text-muted max-w-2xl">
+                            Specializing in scalable architecture and high-performance applications. Bridging the gap between complex requirements and elegant, maintainable code.
+                        </p>
+<div class="flex flex-wrap gap-3 pt-2">
+<button class="px-6 py-2 bg-primary text-on-primary rounded text-label-sm font-label-sm font-medium hover:bg-primary-fixed transition-colors">
+                                View Projects
+                            </button>
+<button class="px-6 py-2 bg-transparent border border-border-subtle text-text-primary rounded text-label-sm font-label-sm font-medium hover:bg-surface-interactive transition-colors">
+                                Download Resume
+                            </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Sections -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Current Focus -->
+<div class="col-span-1 md:col-span-8 bg-surface-elevated border border-border-subtle rounded-lg p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">target</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Current Focus</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-2">Cloud-Native Architectures</h3>
+<p class="text-body-md font-body-md text-text-muted">Currently exploring advanced patterns in distributed systems and improving observable telemetry in microservices.</p>
+</div>
+<div class="mt-6 flex gap-2">
+<span class="px-2 py-1 rounded bg-surface-interactive text-text-secondary text-label-sm font-label-sm border border-border-subtle">Kubernetes</span>
+<span class="px-2 py-1 rounded bg-surface-interactive text-text-secondary text-label-sm font-label-sm border border-border-subtle">Go</span>
+</div>
+</div>
+<!-- Location / Env -->
+<div class="col-span-1 md:col-span-4 bg-surface-elevated border border-border-subtle rounded-lg p-6 relative overflow-hidden group">
+<div class="absolute inset-0 opacity-20 transition-opacity group-hover:opacity-30" data-alt="A stylized, highly technical map visualization of a European city in deep navy and blue tones, glowing nodes, minimalist HUD aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBafNAa_8BLAPsZqcNEZWJMJ_c7O-4PS4EUVvmmbDK3s2RoPuZNOOg2d3CTukNg5VTDqShHSaqShLB1cYL5qYSmsnutc39OvpmfcSpaVT-dnmnOwNXwdDaJVUKrot7Y3dF7BpPnI47lqN620J9SX2112w4et7sGemGIPX-l2Wb7LYqZT60hVbG6SENB3X1BOcHj7WSCoLydYcCKklZqdx0WyDWP6EW4dxRvaAVhXl9dW_Rprf9_0Lm0qg'); background-size: cover; background-position: center;"></div>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span class="text-label-sm font-label-sm text-text-primary">Budapest, Hungary</span>
+</div>
+<span class="text-label-sm font-label-sm text-text-muted">CET / CEST Timezone</span>
+</div>
+</div>
+</section>
+<!-- Quick Prompts / Terminal -->
+<section class="bg-surface-elevated border border-border-subtle rounded-lg p-6">
+<div class="flex items-center gap-2 mb-6 text-text-muted border-b border-border-subtle pb-4">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Quick Queries</span>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="flex items-center justify-between p-3 rounded bg-surface-interactive border border-border-subtle hover:border-primary transition-colors text-left group">
+<span class="text-body-md font-body-md text-text-primary group-hover:text-primary transition-colors">What is your primary tech stack?</span>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">arrow_forward</span>
+</button>
+<button class="flex items-center justify-between p-3 rounded bg-surface-interactive border border-border-subtle hover:border-primary transition-colors text-left group">
+<span class="text-body-md font-body-md text-text-primary group-hover:text-primary transition-colors">Are you open to relocation?</span>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">arrow_forward</span>
+</button>
+<button class="flex items-center justify-between p-3 rounded bg-surface-interactive border border-border-subtle hover:border-primary transition-colors text-left group">
+<span class="text-body-md font-body-md text-text-primary group-hover:text-primary transition-colors">Recent complex problems solved?</span>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">arrow_forward</span>
+</button>
+<button class="flex items-center justify-between p-3 rounded bg-surface-interactive border border-border-subtle hover:border-primary transition-colors text-left group">
+<span class="text-body-md font-body-md text-text-primary group-hover:text-primary transition-colors">Languages spoken fluently?</span>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center h-16 bg-surface-container-high lg:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-primary py-2 active:bg-surface-interactive transition-transform active:scale-90 duration-100 w-full h-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive transition-transform active:scale-90 duration-100 w-full h-full hover:text-text-primary" href="#">
+<span class="material-symbols-outlined">folder_special</span>
+<span class="text-label-sm font-label-sm mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive transition-transform active:scale-90 duration-100 w-full h-full hover:text-text-primary" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="text-label-sm font-label-sm mt-1">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-muted py-2 active:bg-surface-interactive transition-transform active:scale-90 duration-100 w-full h-full hover:text-text-primary" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-sm font-label-sm mt-1">Search</span>
+</a>
+</nav>
+</body></html>

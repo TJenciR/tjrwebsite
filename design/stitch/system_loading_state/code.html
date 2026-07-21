@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#492900",
+                      "on-primary": "#002d6d",
+                      "surface-elevated": "#102238",
+                      "on-secondary-container": "#002f35",
+                      "secondary-fixed": "#9bf0ff",
+                      "primary-container": "#5b91ff",
+                      "tertiary-container": "#d68000",
+                      "border-subtle": "#203A57",
+                      "on-background": "#d6e3fb",
+                      "on-primary-fixed-variant": "#00429a",
+                      "outline": "#8c909f",
+                      "on-primary-container": "#002a67",
+                      "inverse-surface": "#d6e3fb",
+                      "status-warning": "#E4B768",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#424653",
+                      "on-tertiary-fixed-variant": "#693c00",
+                      "on-surface": "#d6e3fb",
+                      "surface": "#061425",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#afc6ff",
+                      "surface-variant": "#283648",
+                      "text-secondary": "#9CB0C7",
+                      "secondary-fixed-dim": "#62d6e9",
+                      "on-secondary-fixed": "#001f24",
+                      "tertiary-fixed": "#ffdcbd",
+                      "on-tertiary-fixed": "#2c1600",
+                      "surface-container-lowest": "#020f1f",
+                      "status-success": "#45CEA1",
+                      "tertiary-fixed-dim": "#ffb86e",
+                      "secondary-container": "#0d9fb1",
+                      "primary-fixed": "#d9e2ff",
+                      "app-bg": "#050D18",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "surface-container-high": "#1d2b3c",
+                      "inverse-on-surface": "#243143",
+                      "error-container": "#93000a",
+                      "surface-bright": "#2d3a4c",
+                      "surface-interactive": "#142A43",
+                      "surface-tint": "#afc6ff",
+                      "text-muted": "#70869F",
+                      "tertiary": "#ffb86e",
+                      "sidebar-bg": "#071321",
+                      "background": "#061425",
+                      "surface-container": "#132032",
+                      "on-surface-variant": "#c2c6d5",
+                      "surface-dim": "#061425",
+                      "inverse-primary": "#0f59c4",
+                      "on-secondary": "#00363d",
+                      "on-primary-fixed": "#001944",
+                      "surface-container-highest": "#283648",
+                      "secondary": "#62d6e9",
+                      "text-primary": "#EEF5FF",
+                      "primary": "#afc6ff",
+                      "surface-container-low": "#0e1c2d",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#452600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1.5rem",
+                      "stack-lg": "2rem",
+                      "stack-md": "1rem",
+                      "container-max": "1200px",
+                      "sidebar-width": "260px",
+                      "sidebar-collapsed": "64px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "code-snippet": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-snippet": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    }catch(_e){}</script><meta charset="utf-8"/></head><body class="antialiased min-h-screen flex flex-col lg:flex-row">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col w-[260px] border-r border-border-subtle bg-sidebar-bg z-50">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-border-subtle shrink-0 bg-surface-elevated flex items-center justify-center">
+<span class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">TR</span>
+</div>
+<div>
+<h2 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter truncate">Tököli Jenő-Richard</h2>
+<p class="text-label-sm font-label-sm text-text-muted mt-1 truncate">Software Engineer</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-between px-3 py-2 border border-border-subtle rounded bg-surface-elevated hover:bg-surface-interactive transition-colors mb-6 group">
+<div class="flex items-center gap-2 text-text-muted group-hover:text-text-primary">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span class="text-body-md font-body-md">Search...</span>
+</div>
+<div class="flex items-center gap-1">
+<kbd class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-variant text-text-muted border border-border-subtle">⌘</kbd>
+<kbd class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-variant text-text-muted border border-border-subtle">K</kbd>
+</div>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto py-2">
+<ul class="flex flex-col gap-1">
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-body-md font-body-md">Overview</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-body-md font-body-md">About</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-primary border-l-4 border-primary bg-surface-interactive" href="#">
+<span class="material-symbols-outlined text-[20px]">code</span>
+<span class="text-body-md font-body-md font-medium">Projects</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span class="text-body-md font-body-md">Now</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="text-body-md font-body-md">Skills</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_esports</span>
+<span class="text-body-md font-body-md">Hobbies</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-body-md font-body-md">Education</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-6 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-body-md font-body-md">Resume</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-6 border-t border-border-subtle mt-auto">
+<ul class="flex flex-col gap-3">
+<li class="">
+<a class="flex items-center gap-3 text-text-muted hover:text-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">link</span>
+<span class="text-label-sm font-label-sm">LinkedIn</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 text-text-muted hover:text-text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="text-label-sm font-label-sm">GitHub</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 lg:pl-[280px] bg-app-bg/80 backdrop-blur-md border-b border-border-subtle z-40">
+<div class="flex items-center gap-4">
+<span class="lg:hidden text-headline-md font-headline-md font-bold text-text-primary">TJR Workspace</span>
+<div class="hidden lg:flex items-center gap-2 text-text-muted">
+<span class="material-symbols-outlined text-[18px]">folder</span>
+<span class="text-body-md font-body-md">/</span>
+<span class="text-body-md font-body-md text-text-primary flex items-center gap-2">
+  Projects
+  <span class="material-symbols-outlined text-[16px] animate-spin text-text-muted">progress_activity</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-text-muted hover:text-primary transition-colors hover:bg-surface-interactive rounded">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-text-muted hover:text-primary transition-colors hover:bg-surface-interactive rounded relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full blur-[1px]"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-border-subtle hidden md:block ml-2">
+<img alt="Tököli Jenő-Richard Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnbFpcK5cNmqvJryt7u2of0lm67szQq0lhxCarnI49_xeNoW7R05bgbvacTFRogted5LRsZTygUa4vyHW8xUYkrU6fkvSVLe8A77s7jLUa0XvehuDwGW8eTwq7h-OWtGKfLupSw7CqQ_xl-3tH23qQNtfW9_QpBfnXuxXS1mx4-W6uxVQDdFaQxms7o2LI3NcBYl_RS_kmeKfZCq_tnoREhqKNllbYI0GkN3ssNk9KgkejwjU4-bb34w"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full lg:pl-[260px] pb-24 lg:pb-8 flex justify-center">
+<div class="w-full max-w-[1200px] px-4 md:px-6 lg:px-8 pt-8">
+<div class="mb-8 border-b border-border-subtle pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-headline-lg font-headline-lg lg:font-headline-lg font-headline-lg-mobile text-text-primary mb-2">Projects Library</h1>
+<p class="text-body-lg font-body-lg text-text-muted max-w-2xl">A curated collection of software engineering projects, experiments, and technical explorations.</p>
+</div>
+<div class="flex gap-3">
+<div class="relative opacity-50 pointer-events-none">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-[18px]">filter_list</span>
+<select class="pl-9 pr-8 py-2 bg-surface-elevated border border-border-subtle rounded text-body-md font-body-md text-text-primary focus:border-primary focus:ring-1 focus:ring-primary appearance-none h-10">
+<option>All Projects</option>
+<option>Finished</option>
+<option>In Progress</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-min">
+<!-- Feature Skeleton -->
+<article class="col-span-1 md:col-span-2 xl:col-span-2 group relative overflow-hidden bg-surface-elevated border border-border-subtle rounded-lg flex flex-col animate-pulse">
+<div class="h-64 md:h-80 w-full bg-surface-variant border-b border-border-subtle"></div>
+<div class="p-6 md:p-8 flex flex-col flex-1 gap-4">
+<div class="h-8 w-1/3 bg-surface-variant rounded"></div>
+<div class="h-4 w-1/4 bg-surface-variant rounded"></div>
+<div class="mt-4 space-y-2">
+<div class="h-4 w-full bg-surface-variant rounded"></div>
+<div class="h-4 w-5/6 bg-surface-variant rounded"></div>
+</div>
+<div class="mt-auto pt-6 border-t border-border-subtle flex justify-between items-center">
+<div class="h-4 w-24 bg-surface-variant rounded"></div>
+</div>
+</div>
+</article>
+<!-- Standard Skeletons -->
+<article class="bg-surface-elevated border border-border-subtle rounded-lg flex flex-col h-full animate-pulse p-6">
+<div class="w-12 h-12 rounded bg-surface-variant mb-4"></div>
+<div class="h-6 w-3/4 bg-surface-variant rounded mb-2"></div>
+<div class="h-4 w-1/2 bg-surface-variant rounded mb-6"></div>
+<div class="space-y-2 flex-1">
+<div class="h-4 w-full bg-surface-variant rounded"></div>
+<div class="h-4 w-4/5 bg-surface-variant rounded"></div>
+</div>
+<div class="mt-auto pt-4 border-t border-border-subtle flex flex-col gap-3">
+<div class="h-4 w-24 bg-surface-variant rounded"></div>
+<div class="flex gap-3 mt-2">
+<div class="h-10 flex-1 bg-surface-variant rounded"></div>
+<div class="h-10 flex-1 bg-surface-variant rounded"></div>
+</div>
+</div>
+</article>
+<article class="bg-surface-elevated border border-border-subtle rounded-lg flex flex-col h-full animate-pulse p-6">
+<div class="w-12 h-12 rounded bg-surface-variant mb-4"></div>
+<div class="h-6 w-2/3 bg-surface-variant rounded mb-2"></div>
+<div class="h-4 w-2/5 bg-surface-variant rounded mb-6"></div>
+<div class="space-y-2 flex-1">
+<div class="h-4 w-full bg-surface-variant rounded"></div>
+<div class="h-4 w-5/6 bg-surface-variant rounded"></div>
+</div>
+<div class="mt-auto pt-4 border-t border-border-subtle flex flex-col gap-3">
+<div class="h-4 w-24 bg-surface-variant rounded"></div>
+<div class="flex gap-3 mt-2">
+<div class="h-10 flex-1 bg-surface-variant rounded"></div>
+</div>
+</div>
+</article>
+<article class="bg-surface-elevated border border-border-subtle rounded-lg flex flex-col h-full animate-pulse p-6">
+<div class="w-12 h-12 rounded bg-surface-variant mb-4"></div>
+<div class="h-6 w-3/4 bg-surface-variant rounded mb-2"></div>
+<div class="h-4 w-1/2 bg-surface-variant rounded mb-6"></div>
+<div class="space-y-2 flex-1">
+<div class="h-4 w-full bg-surface-variant rounded"></div>
+<div class="h-4 w-4/5 bg-surface-variant rounded"></div>
+</div>
+<div class="mt-auto pt-4 border-t border-border-subtle flex flex-col gap-3">
+<div class="h-4 w-24 bg-surface-variant rounded"></div>
+<div class="flex gap-3 mt-2">
+<div class="h-10 flex-1 bg-surface-variant rounded"></div>
+</div>
+</div>
+</article>
+</div>
+<!-- Compact List for older projects -->
+<div class="col-span-1 md:col-span-2 xl:col-span-3 mt-8">
+<h3 class="text-headline-md font-headline-md text-text-primary mb-4 pb-2 border-b border-border-subtle">Archived &amp; Minor Projects</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Skeletons -->
+<div class="flex items-center justify-between p-4 bg-surface-container border border-border-subtle rounded animate-pulse">
+<div class="flex items-center gap-4 w-full">
+<div class="w-6 h-6 bg-surface-variant rounded"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-1/2 bg-surface-variant rounded"></div>
+<div class="h-3 w-1/3 bg-surface-variant rounded"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container border border-border-subtle rounded animate-pulse">
+<div class="flex items-center gap-4 w-full">
+<div class="w-6 h-6 bg-surface-variant rounded"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-2/5 bg-surface-variant rounded"></div>
+<div class="h-3 w-1/4 bg-surface-variant rounded"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container border border-border-subtle rounded animate-pulse">
+<div class="flex items-center gap-4 w-full">
+<div class="w-6 h-6 bg-surface-variant rounded"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-3/5 bg-surface-variant rounded"></div>
+<div class="h-3 w-1/3 bg-surface-variant rounded"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container border border-border-subtle rounded animate-pulse">
+<div class="flex items-center gap-4 w-full">
+<div class="w-6 h-6 bg-surface-variant rounded"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-1/2 bg-surface-variant rounded"></div>
+<div class="h-3 w-1/4 bg-surface-variant rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

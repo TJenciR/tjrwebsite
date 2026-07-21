@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-tertiary": "#492900",
+                            "on-primary": "#002d6d",
+                            "surface-elevated": "#102238",
+                            "on-secondary-container": "#002f35",
+                            "secondary-fixed": "#9bf0ff",
+                            "primary-container": "#5b91ff",
+                            "tertiary-container": "#d68000",
+                            "border-subtle": "#203A57",
+                            "on-background": "#d6e3fb",
+                            "on-primary-fixed-variant": "#00429a",
+                            "outline": "#8c909f",
+                            "on-primary-container": "#002a67",
+                            "inverse-surface": "#d6e3fb",
+                            "status-warning": "#E4B768",
+                            "on-error-container": "#ffdad6",
+                            "outline-variant": "#424653",
+                            "on-tertiary-fixed-variant": "#693c00",
+                            "on-surface": "#d6e3fb",
+                            "surface": "#061425",
+                            "on-error": "#690005",
+                            "primary-fixed-dim": "#afc6ff",
+                            "surface-variant": "#283648",
+                            "text-secondary": "#9CB0C7",
+                            "secondary-fixed-dim": "#62d6e9",
+                            "on-secondary-fixed": "#001f24",
+                            "tertiary-fixed": "#ffdcbd",
+                            "on-tertiary-fixed": "#2c1600",
+                            "surface-container-lowest": "#020f1f",
+                            "status-success": "#45CEA1",
+                            "tertiary-fixed-dim": "#ffb86e",
+                            "secondary-container": "#0d9fb1",
+                            "primary-fixed": "#d9e2ff",
+                            "app-bg": "#050D18",
+                            "on-secondary-fixed-variant": "#004f58",
+                            "surface-container-high": "#1d2b3c",
+                            "inverse-on-surface": "#243143",
+                            "error-container": "#93000a",
+                            "surface-bright": "#2d3a4c",
+                            "surface-interactive": "#142A43",
+                            "surface-tint": "#afc6ff",
+                            "text-muted": "#70869F",
+                            "tertiary": "#ffb86e",
+                            "sidebar-bg": "#071321",
+                            "background": "#061425",
+                            "surface-container": "#132032",
+                            "on-surface-variant": "#c2c6d5",
+                            "surface-dim": "#061425",
+                            "inverse-primary": "#0f59c4",
+                            "on-secondary": "#00363d",
+                            "on-primary-fixed": "#001944",
+                            "surface-container-highest": "#283648",
+                            "secondary": "#62d6e9",
+                            "text-primary": "#EEF5FF",
+                            "primary": "#afc6ff",
+                            "surface-container-low": "#0e1c2d",
+                            "error": "#ffb4ab",
+                            "on-tertiary-container": "#452600"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin-mobile": "1rem",
+                            "stack-sm": "0.5rem",
+                            "gutter": "1.5rem",
+                            "stack-lg": "2rem",
+                            "stack-md": "1rem",
+                            "container-max": "1150px",
+                            "sidebar-width": "280px",
+                            "sidebar-collapsed": "64px"
+                    },
+                    "fontFamily": {
+                            "headline-lg-mobile": ["Inter", "sans-serif"],
+                            "body-md": ["Inter", "sans-serif"],
+                            "headline-md": ["Inter", "sans-serif"],
+                            "headline-lg": ["Inter", "sans-serif"],
+                            "label-sm": ["JetBrains Mono", "monospace"],
+                            "body-lg": ["Inter", "sans-serif"],
+                            "code-snippet": ["JetBrains Mono", "monospace"]
+                    },
+                    "fontSize": {
+                            "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                            "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                            "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                            "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "code-snippet": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script><meta charset="utf-8"/></head><body class="bg-app-bg text-text-primary min-h-screen flex flex-col md:flex-row font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- JSON: SideNavBar (lg:hidden structural commands applied manually to match design system requirement of 'Fixed Sidebar / Fluid Content') -->
+<nav class="fixed left-0 top-0 h-full overflow-y-auto hidden lg:flex flex-col bg-sidebar-bg border-r border-border-subtle w-[280px] z-50 transition-all duration-200 ease-in-out">
+<!-- Header -->
+<div class="px-6 py-8 border-b border-border-subtle">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-elevated border border-border-subtle flex items-center justify-center overflow-hidden">
+<img alt="TJR Monogram" class="w-full h-full object-cover" data-alt="A highly professional and clean profile placeholder image depicting a stylized, technical monogram 'TJR'. The image should use a deep navy blue background (#050D18) with sharp, crisp white typography that feels modern, minimalist, and akin to high-end developer tools. The mood is serious and capable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQIW_7RqrDIXt6uyyR8tUzm0zYA0kU0et5R86f86lh0yz9nSe4h4yMhxxPQ-PdwxSgfYUngYQfqqk-1_Q5E8FwAdHBl-vVoFWsCZW21l6SJ8by1-UBdA8h1nxJlr6az65WC6DmMsEAQO7CVFXx3UT4MEWu0wp3xeR8iXJvczauJxjKmFyWOOS1mNXEp1Z9sdjsxRo8ZzUOHkSseWY3V7YRoyOROiMjbghqq42NQVeHOpUu26H4VNa1Sw"/>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">Tököli Jenő-Richard</h1>
+<p class="text-label-sm font-label-sm text-text-muted mt-1">Software Engineer</p>
+</div>
+</div>
+<button class="w-full mt-4 flex items-center justify-between px-3 py-2 bg-surface-interactive border border-border-subtle rounded text-label-sm font-label-sm text-text-muted hover:text-text-primary hover:border-outline transition-colors">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="search">search</span>
+                    Search
+                </span>
+<span class="opacity-50">CMD+K</span>
+</button>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex-1 py-4 flex flex-col gap-1 px-2">
+<!-- Overview (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-primary border-l-4 border-primary bg-surface-interactive rounded-r transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<!-- About (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">About</span>
+</a>
+<!-- Projects (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="text-label-sm font-label-sm">Projects</span>
+</a>
+<!-- Now (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="text-label-sm font-label-sm">Now</span>
+</a>
+<!-- Skills (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-label-sm font-label-sm">Skills</span>
+</a>
+<!-- Hobbies (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="text-label-sm font-label-sm">Hobbies</span>
+</a>
+<!-- Education (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-label-sm font-label-sm">Education</span>
+</a>
+<!-- Resume (INACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-text-primary hover:bg-surface-interactive rounded-r border-l-4 border-transparent transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-label-sm font-label-sm">Resume</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="p-4 border-t border-border-subtle">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-2 py-1.5 text-text-muted hover:text-primary transition-colors" href="https://linkedin.com/in/richard-tokoli">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+<span class="text-label-sm font-label-sm">LinkedIn</span>
+</a>
+<a class="flex items-center gap-3 px-2 py-1.5 text-text-muted hover:text-primary transition-colors" href="https://github.com/richard-tokoli">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+<span class="text-label-sm font-label-sm">GitHub</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col lg:pl-[280px] min-h-screen relative">
+<!-- JSON: TopAppBar -->
+<header class="sticky top-0 w-full flex justify-between items-center px-4 md:px-6 h-16 bg-app-bg/80 backdrop-blur-md z-40 border-b border-border-subtle transition-all duration-200 ease-in-out">
+<!-- Left: Mobile Brand / Desktop Context -->
+<div class="flex items-center gap-4">
+<h2 class="lg:hidden text-headline-md font-headline-md font-bold text-text-primary tracking-tighter">TJR Workspace</h2>
+<span class="hidden lg:flex items-center text-label-sm font-label-sm text-text-muted gap-2">
+<span class="material-symbols-outlined text-[16px]">folder</span>
+                    workspace / overview
+                </span>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors p-2 rounded hover:bg-surface-interactive">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors p-2 rounded hover:bg-surface-interactive relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full blur-[1px]"></span>
+</button>
+<img alt="Tököli Jenő-Richard Portrait" class="w-8 h-8 rounded-full border border-border-subtle hidden md:block object-cover" data-alt="A small, circular avatar portrait of Tököli Jenő-Richard, presented in a clean, professional, and slightly moody lighting style fitting a dark mode developer interface. The background is a very dark navy, almost black, ensuring the subject stands out with subtle rim lighting on the shoulders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr02huhpcr5TCiekauBAh6M1a1MNLdPe36AhLO0GfTqFaS0-zkFEfhKvlNao4uFbMDRs7srcO-O6SzsFeWSdDnKlIYihkHTjTv34qLcLQ8Yuq5zwwHqpLbiVGTyIaBzW5oL4r9QXdnVHouTX8JBY1qqRjovq64_HgmFbWceNb8VFIEayAvKtAZV7wwWz0IkykHIBJjrEXv055We9C0R99MD9om9MlO9vWcVkXHYpTe9o4r_McWLfnN-w"/>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 p-6 md:p-8 lg:p-12 max-w-[1150px] w-full mx-auto pb-32 lg:pb-32">
+<!-- Hero Section / Value Prop -->
+<section class="mb-16 mt-4">
+<div class="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between mb-8">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-status-success/10 border border-status-success/20 text-status-success text-label-sm font-label-sm mb-6">
+<div class="w-1.5 h-1.5 rounded-full bg-status-success blur-[1px]"></div>
+<span class="outline-none border-b border-transparent focus:border-status-success/50 transition-colors cursor-text">Available for new opportunities</span>
+</div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-text-primary mb-4 leading-tight">
+                            Hello, I’m Tököli Jenő-Richard.
+                        </h1>
+<p class="text-body-lg font-body-lg text-text-secondary leading-relaxed">Computer Science graduate specializing in high-performance systems and backend architecture. Building robust solutions with <span class="text-primary font-medium">Java, C++, and Python</span>, with a focus on algorithmic efficiency and scalable data structures.</p>
+<div class="flex items-center gap-2 mt-6 text-text-muted text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="">Cluj-Napoca, Romania</span>
+</div>
+</div>
+<div class="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-2xl overflow-hidden border border-border-subtle relative group shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+<div class="absolute inset-0 bg-gradient-to-t from-app-bg/80 via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="A professional, high-quality portrait placeholder intended for Tököli Jenő-Richard. The portrait should have a modern, technical aesthetic, captured in soft, cool studio lighting against a dark navy background. The subject appears focused and approachable, wearing understated professional attire. The overall mood is sophisticated and aligns with a premium dark-mode software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq2n4Cua8pBO0o-YN8sCw5cMiMagBHNawptpfj8yJgdOrIBlh53Fnnp5OMVdrakEx_mOB87vwrNebwpE95DUqZY80E_mqFDNYxezUsUVanHT40dWWfJpMmijp3blLQ81qUPoMCuKON_cL_PQX97bwi2PN_XLbM5aPhTpbGEt_-g_f84HKYCQpoSrpG_mILAStY-gaMF0j8J06CGZ0hbJILeglJAXKOTK9zHbBaeKoqeV2WIBoZUNO8uw"/>
+<div class="absolute bottom-3 left-3 z-20 flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-status-success"></div>
+<span class="text-[10px] font-label-sm tracking-wider text-text-primary uppercase opacity-70">Sys. Online</span>
+</div>
+</div>
+</div>
+<!-- Primary Actions -->
+<div class="flex flex-wrap items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded font-label-sm text-label-sm hover:bg-primary-container transition-colors shadow-[0_2px_10px_rgba(91,145,255,0.2)] flex items-center gap-2">
+<span class="">Explore projects</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="bg-transparent border border-border-subtle text-text-primary px-6 py-2.5 rounded font-label-sm text-label-sm hover:bg-surface-interactive transition-colors">
+                        About me
+                    </button>
+<button class="bg-surface-elevated border border-border-subtle px-6 py-2.5 rounded font-label-sm text-label-sm hover:text-text-primary hover:border-outline transition-colors flex items-center gap-2 ml-auto border-primary text-text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
+                        Request contact access
+                    </button>
+</div>
+</section>
+<!-- Quick Prompt Interface (CMD+K Style Simulation) -->
+<section class="mb-16">
+<div class="bg-surface-elevated border border-border-subtle rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.15)]">
+<div class="flex items-center gap-3 mb-4 pb-4 border-b border-border-subtle">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-widest">Query Interface</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 bg-surface-interactive border border-border-subtle rounded hover:border-primary hover:text-primary text-label-sm font-label-sm text-text-secondary transition-all text-left">
+                            &gt; Show Richard’s strongest projects
+                        </button>
+<button class="px-4 py-2 bg-surface-interactive border border-border-subtle rounded hover:border-primary hover:text-primary text-label-sm font-label-sm text-text-secondary transition-all text-left">
+                            &gt; What is Richard currently building?
+                        </button>
+<button class="px-4 py-2 bg-surface-interactive border border-border-subtle rounded hover:border-primary hover:text-primary text-label-sm font-label-sm text-text-secondary transition-all text-left border-primary text-text-primary">
+                            &gt; Which technologies has he used?
+                        </button>
+<button class="px-4 py-2 bg-surface-interactive border border-border-subtle rounded hover:border-primary hover:text-primary text-label-sm font-label-sm text-text-secondary transition-all text-left">
+                            &gt; Tell me about RepairPass
+                        </button>
+<button class="px-4 py-2 bg-surface-interactive border border-border-subtle rounded hover:border-primary hover:text-primary text-label-sm font-label-sm text-text-secondary transition-all text-left">
+                            &gt; Why might Richard fit this role?
+                        </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Featured Sections -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Current Work -->
+<div class="md:col-span-2 bg-surface-elevated border border-border-subtle rounded-xl p-6 flex flex-col group hover:border-outline transition-colors">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-primary">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+                            CURRENT WORK
+                        </div>
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary transition-colors">open_in_new</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-text-primary mb-2">RepairPass</h3>
+<p class="text-body-md font-body-md text-text-secondary mb-6 max-w-md">A blockchain-inspired digital passport for vehicle maintenance. Tracks service history with <span class="text-text-primary font-medium">immutable records</span>, ensuring transparency for buyers and service providers.</p>
+<div class="mt-auto flex items-center gap-3">
+<span class="px-2.5 py-1 bg-surface-interactive border border-border-subtle rounded text-[11px] font-label-sm text-text-muted">Work in progress</span>
+<span class="px-2.5 py-1 bg-[#3178C6]/10 border border-[#3178C6]/30 rounded text-[11px] font-label-sm text-[#3178C6]">TypeScript</span>
+</div>
+</div>
+<!-- Strongest Technologies -->
+<div class="bg-surface-elevated border border-border-subtle rounded-xl p-6 flex flex-col group hover:border-outline transition-colors">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-muted uppercase mb-6">
+<span class="material-symbols-outlined text-[16px]">integration_instructions</span>
+                        Core Stack
+                    </div>
+<div class="flex flex-col gap-4 mt-auto">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-text-primary">C++</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-surface-interactive rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-text-primary">Java</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-surface-interactive rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-text-primary">Python</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-primary rounded-full"></div>
+<div class="w-4 h-1 bg-surface-interactive rounded-full"></div>
+<div class="w-4 h-1 bg-surface-interactive rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Languages -->
+<div class="md:col-span-3 bg-surface-elevated border border-border-subtle rounded-xl p-6">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-muted uppercase mb-6">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+                        Languages
+                    </div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-4 border border-border-subtle rounded bg-app-bg/50">
+<div class="text-body-md font-body-md text-text-primary mb-1">Hungarian</div>
+<div class="text-label-sm font-label-sm text-primary">Native</div>
+</div>
+<div class="p-4 border border-border-subtle rounded bg-app-bg/50">
+<div class="text-body-md font-body-md text-text-primary mb-1">English</div>
+<div class="text-label-sm font-label-sm text-text-secondary">Full Proficient</div>
+</div>
+<div class="p-4 border border-border-subtle rounded bg-app-bg/50 opacity-70">
+<div class="text-body-md font-body-md text-text-primary mb-1">Romanian</div>
+<div class="text-label-sm font-label-sm text-text-muted">Limited</div>
+</div>
+<div class="p-4 border border-border-subtle rounded bg-app-bg/50 opacity-50">
+<div class="text-body-md font-body-md text-text-primary mb-1">German</div>
+<div class="text-label-sm font-label-sm text-text-muted">Elementary</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Persistent Command Composer -->
+<div class="fixed bottom-0 right-0 w-full lg:w-[calc(100%-280px)] p-6 bg-app-bg/80 backdrop-blur-md border-t border-border-subtle z-40 hidden md:block">
+<div class="max-w-[1150px] mx-auto">
+<div class="flex items-center bg-surface-elevated border border-border-subtle rounded-xl px-4 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.2)] focus-within:border-primary transition-colors">
+<span class="material-symbols-outlined text-text-muted mr-3 text-[20px]">smart_toy</span>
+<input class="flex-1 bg-transparent border-none text-body-md font-body-md text-text-primary placeholder:text-text-muted focus:ring-0 p-0 outline-none" placeholder="Ask anything about my experience, skills, or projects..." type="text"/>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-text-muted px-2 py-1 bg-surface-interactive rounded border border-border-subtle hidden lg:block">⌘K</span>
+<button class="ml-2 p-1.5 bg-primary/10 text-primary hover:bg-primary hover:text-on-primary rounded-lg transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- JSON: BottomNavBar (lg:hidden, docked full-width bottom-0) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-high border-t border-border-subtle shadow-[0_-4px_20px_rgba(0,0,0,0.4)] lg:hidden">
+<!-- Home (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary py-2 w-full h-full active:bg-surface-interactive transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label-sm mt-1">Home</span>
+</a>
+<!-- Projects (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-text-muted py-2 w-full h-full active:bg-surface-interactive transition-colors hover:text-text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+<span class="text-[10px] font-label-sm mt-1">Projects</span>
+</a>
+<!-- Resume (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-text-muted py-2 w-full h-full active:bg-surface-interactive transition-colors hover:text-text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="text-[10px] font-label-sm mt-1">Resume</span>
+</a>
+<!-- Search (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-text-muted py-2 w-full h-full active:bg-surface-interactive transition-colors hover:text-text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span></a></nav></body></html>

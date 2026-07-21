@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
 import {
   useEffect,
   useState,
@@ -15,8 +16,14 @@ import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
 import type { PortfolioCommand } from "@/types/portfolio-command";
 
-import { PortfolioCommandComposer } from "./portfolio-command-composer";
 import { WorkspaceSidebarContent } from "./workspace-sidebar-content";
+
+const PortfolioCommandComposer = dynamic(
+  () => import("./portfolio-command-composer").then(
+    ({ PortfolioCommandComposer: Composer }) => Composer,
+  ),
+  { ssr: false },
+);
 
 export const sidebarStorageKey = "tjr:workspace-sidebar-collapsed";
 const sidebarStorageEvent = "tjr:workspace-sidebar-state";
@@ -54,7 +61,7 @@ function persistSidebarState(collapsed: boolean) {
 
 interface WorkspaceShellProps {
   children: ReactNode;
-  commands: readonly PortfolioCommand[];
+  commands?: readonly PortfolioCommand[];
 }
 
 export function WorkspaceShell({ children, commands }: WorkspaceShellProps) {
@@ -158,11 +165,13 @@ export function WorkspaceShell({ children, commands }: WorkspaceShellProps) {
         />
       </Drawer>
 
-      <PortfolioCommandComposer
-        commands={commands}
-        onOpenChange={setComposerOpen}
-        open={composerOpen}
-      />
+      {composerOpen ? (
+        <PortfolioCommandComposer
+          commands={commands}
+          onOpenChange={setComposerOpen}
+          open
+        />
+      ) : null}
     </div>
   );
 }

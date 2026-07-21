@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { WorkspaceShell } from "@/components/workspace";
-import { portfolioCommands } from "@/content/portfolio-commands";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
 import {
@@ -33,6 +32,19 @@ export const metadata: Metadata = {
     title: `${name} — personal workspace`,
     description: "The personal portfolio workspace of Tököli Jenő-Richard.",
     url: runtimeOrigin,
+    images: [
+      {
+        alt: "Tököli Jenő-Richard personal workspace portfolio",
+        height: 630,
+        url: "/opengraph-image",
+        width: 1200,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image"],
+    title: `${name} — personal workspace`,
   },
   robots: {
     index: isIndexable,
@@ -47,7 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <WorkspaceShell commands={portfolioCommands}>{children}</WorkspaceShell>
+        <WorkspaceShell>{children}</WorkspaceShell>
       </body>
     </html>
   );

@@ -439,7 +439,8 @@
   transition:
     color var(--motion-duration-fast) var(--motion-easing-standard),
     border-color var(--motion-duration-fast) var(--motion-easing-standard),
-    background-color var(--motion-duration-fast) var(--motion-easing-standard);
+    background-color var(--motion-duration-fast) var(--motion-easing-standard),
+    transform var(--motion-duration-fast) var(--motion-easing-standard);
 }
 
 .workspace-command-option:hover,
@@ -447,6 +448,7 @@
   color: var(--color-text-primary);
   border-color: var(--color-border-strong);
   background: var(--color-surface-interactive);
+  transform: translateX(var(--space-1));
 }
 
 .workspace-command-option > svg {

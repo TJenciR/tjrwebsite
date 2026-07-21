@@ -22,11 +22,10 @@ import {
   primaryWorkspaceNavigation,
   secondaryProjectNavigation,
 } from "@/content/workspace-navigation";
-import { portfolioCommands } from "@/content/portfolio-commands";
 
 function renderShell() {
   return render(
-    <WorkspaceShell commands={portfolioCommands}>
+    <WorkspaceShell>
       <main id="main-content">Workspace content</main>
     </WorkspaceShell>,
   );
@@ -112,8 +111,8 @@ describe("desktop workspace shell", () => {
 
     await user.keyboard("{Control>}k{/Control}");
 
-    expect(screen.getByRole("dialog", { name: "Portfolio commands" })).toBeInTheDocument();
-    expect(screen.getByRole("combobox", { name: "Type a portfolio command" })).toHaveFocus();
+    expect(await screen.findByRole("dialog", { name: "Portfolio commands" })).toBeInTheDocument();
+    expect(await screen.findByRole("combobox", { name: "Type a portfolio command" })).toHaveFocus();
   });
 });
 

@@ -11,17 +11,18 @@ import {
 
 import { Icon } from "@/components/icons";
 import { CommandInput, Dialog } from "@/components/ui";
+import { portfolioCommands } from "@/content/portfolio-commands";
 import { resolvePortfolioCommand } from "@/lib/command-matcher";
 import type { PortfolioCommand } from "@/types/portfolio-command";
 
 interface PortfolioCommandComposerProps {
-  commands: readonly PortfolioCommand[];
+  commands?: readonly PortfolioCommand[];
   onOpenChange: (open: boolean) => void;
   open: boolean;
 }
 
 export function PortfolioCommandComposer({
-  commands,
+  commands = portfolioCommands,
   onOpenChange,
   open,
 }: PortfolioCommandComposerProps) {

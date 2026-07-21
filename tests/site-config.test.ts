@@ -18,6 +18,12 @@ describe("site configuration", () => {
 
   it("publishes only verified values", () => {
     expect(getPublicValue(siteConfig.name)).toBe("Tököli Jenő-Richard");
+    expect(getPublicValue(siteConfig.productionDomain)).toBe(
+      "https://jenorichardtokoli.com/",
+    );
+    expect(getPublicValue(siteConfig.legacyWebsiteUrl)).toBe(
+      "https://tjrichard.netlify.app/",
+    );
     expect(getPublicValue(siteConfig.draftProfessionalTitle)).toBeNull();
     expect(getPublicValue(siteConfig.sanitizedResumeUrl)).toBeNull();
   });

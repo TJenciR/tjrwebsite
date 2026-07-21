@@ -5,10 +5,15 @@ import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
 import { Card } from "@/components/ui";
 import { legacyProjects } from "@/content/legacy-content";
+import {
+  pinnedProjectNavigation,
+  secondaryProjectNavigation,
+} from "@/content/workspace-navigation";
 
 export const metadata: Metadata = {
   title: "Work",
   description: "Legacy project inventory retained during the portfolio migration.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {
@@ -19,6 +24,22 @@ export default function WorkPage() {
       title="Legacy project inventory"
     >
       <LegacyNotice path="/work" />
+      <Card as="section" aria-labelledby="workspace-projects">
+        <h2 className="foundation-card-heading" id="workspace-projects">
+          Workspace project index
+        </h2>
+        <p className="foundation-supporting-copy">
+          Project names are available for navigation. Descriptions remain withheld
+          until their source facts are confirmed.
+        </p>
+        <ul className="foundation-list">
+          {[...pinnedProjectNavigation, ...secondaryProjectNavigation].map((project) => (
+            <li id={project.id} key={project.id}>
+              <h3>{project.label}</h3>
+            </li>
+          ))}
+        </ul>
+      </Card>
       <Card as="section" aria-labelledby="legacy-projects">
         <h2 className="foundation-card-heading" id="legacy-projects">
           Published projects

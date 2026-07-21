@@ -1,10 +1,10 @@
 # Tököli Jenő-Richard portfolio
 
-Migration-safe technical foundation and reusable design system for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
+Migration-safe personal-workspace shell and reusable design system for the existing portfolio. The live legacy site remains on Netlify while replacement routes are developed and reviewed in Vercel previews.
 
 ## Status
 
-- Branch scope: approved Stitch design tokens, accessible component primitives, and development showcase.
+- Branch scope: responsive personal-workspace navigation, accessible shell behavior, and route placeholders based on the approved Stitch design.
 - Production cutover: not authorized.
 - Final page designs and verified portfolio content: not implemented.
 - Contact provider, authentication, database, CMS, and AI APIs: intentionally absent.
@@ -12,6 +12,7 @@ Migration-safe technical foundation and reusable design system for the existing 
 
 Read `docs/audit/` and `docs/migration/foundation.md` before changing routes or content.
 Read `docs/design-system/foundation.md` before extending tokens or components.
+Read `docs/workspace-shell.md` before changing the workspace navigation, persistence, or deployment-origin behavior.
 
 ## Stack
 
@@ -58,9 +59,22 @@ npm run build
 
 ## Legacy compatibility
 
-Implemented page paths: `/`, `/about`, `/work`, `/documents`.
+Preserved legacy page paths: `/`, `/about`, `/work`, `/documents`.
+
+Workspace routes added without replacing verified content: `/now`, `/skills`,
+`/hobbies`, `/education`, `/resume`, and `/contact-access`. The projects entry
+continues to use `/work`; project links use fragment identifiers on that route.
 
 `.html` aliases redirect permanently to extensionless paths. The six public project-download paths temporarily redirect to Netlify. Sensitive résumé and qualification PDF paths remain documented as legacy-only and are not copied into the new application.
 
 The current Netlify deployment and its custom-domain configuration, if any, must remain unchanged until an approved release branch.
+
+## Deployment origins
+
+- Canonical production origin: `https://jenorichardtokoli.com`
+- Legacy Netlify deployment: `https://tjrichard.netlify.app`
+- Vercel previews: use the platform-provided preview URL at runtime and remain `noindex`
+
+The application does not derive its canonical origin from `VERCEL_URL`, and no
+redirect from the Netlify deployment is configured.
 

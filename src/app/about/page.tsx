@@ -9,6 +9,7 @@ import { siteConfig } from "@/content/site-config";
 export const metadata: Metadata = {
   title: "About",
   description: "Migration status for the portfolio's about and résumé content.",
+  alternates: { canonical: "/about" },
 };
 
 const pendingFields = [

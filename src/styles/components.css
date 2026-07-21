@@ -831,7 +831,7 @@
     flex-direction: column;
   }
 
-  .ds-modal-layer {
+  .ds-modal-layer:not(.ds-modal-layer--drawer) {
     align-items: end;
     padding: var(--space-3);
   }

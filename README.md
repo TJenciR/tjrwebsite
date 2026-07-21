@@ -4,7 +4,7 @@ Migration-safe personal workspace with source-aware profile, projects, and a pri
 
 ## Status
 
-- Branch scope: canonical SEO, non-indexable Vercel previews, security headers, and migration-safe legacy routes.
+- Branch scope: reliable pull-request CI and deterministic Playwright coverage before production cutover.
 - Production cutover: not authorized.
 - Unverified project narratives, media, dates, repositories, and demos: intentionally withheld.
 - Authentication, accounts, a submissions database, CMS, and AI APIs: intentionally absent.
@@ -36,6 +36,7 @@ Read `docs/deployment/seo-vercel-migration.md` before changing SEO origins, Verc
 - Resend REST delivery behind a server-only provider abstraction
 - npm
 - Vitest and Testing Library
+- Playwright with Chromium for production-build end-to-end checks
 - ESLint
 
 The command composer opens from the shell, sidebar search control, or
@@ -74,10 +75,16 @@ configuration and the published firewall rule documented in
 ```bash
 npm run lint
 npm run typecheck
-npm run test
+npm run test:unit
 npm run build
+npm run test:e2e:install
+npm run test:e2e
 npm run performance:assets
 ```
+
+The browser suite runs only against the local production build and does not
+depend on Netlify. See `docs/testing/ci-end-to-end.md` for the covered flows,
+contact-provider mocking boundary, failure artifacts, and CI security model.
 
 The asset report runs after a production build and lists uncompressed generated
 JavaScript and CSS. It is a composition aid rather than a network-transfer

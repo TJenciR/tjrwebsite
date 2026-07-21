@@ -5,6 +5,9 @@ node_modules/
 .next/
 out/
 coverage/
+playwright-report/
+test-results/
+blob-report/
 
 # Local environment and Vercel state
 .env*
@@ -13,5 +16,6 @@ coverage/
 
 # Tooling output
 *.tsbuildinfo
+debug.log
 npm-debug.log*
 

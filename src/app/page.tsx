@@ -1,6 +1,7 @@
 import { ContentStatus } from "@/components/content-status";
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
+import { Card } from "@/components/ui";
 import { siteConfig } from "@/content/site-config";
 import { getPublicValue } from "@/lib/content-value";
 
@@ -14,18 +15,18 @@ export default function HomePage() {
       title={name}
     >
       <LegacyNotice path="/" />
-      <section aria-labelledby="foundation-status" className="rounded-lg border border-slate-200 bg-white p-6">
-        <div className="flex flex-wrap items-center gap-3">
-          <h2 className="text-xl font-semibold" id="foundation-status">
+      <Card as="section" aria-labelledby="foundation-status">
+        <div className="foundation-heading-row">
+          <h2 id="foundation-status">
             Content status
           </h2>
           <ContentStatus status={siteConfig.lastContentVerificationDate.status} />
         </div>
-        <p className="mt-3 leading-7 text-slate-700">
+        <p className="foundation-supporting-copy">
           Biographies, professional title, location, availability, and public
           profile URLs remain unpublished until Richard confirms them.
         </p>
-      </section>
+      </Card>
     </PageShell>
   );
 }

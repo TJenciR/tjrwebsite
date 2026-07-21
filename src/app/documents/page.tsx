@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { LegacyNotice } from "@/components/legacy-notice";
 import { PageShell } from "@/components/page-shell";
+import { Card } from "@/components/ui";
 import { legacyQualifications } from "@/content/legacy-content";
 
 export const metadata: Metadata = {
@@ -17,16 +18,16 @@ export default function DocumentsPage() {
       title="Document access pending a privacy decision"
     >
       <LegacyNotice path="/documents" />
-      <section aria-labelledby="qualification-labels" className="rounded-lg border border-slate-200 bg-white p-6">
-        <h2 className="text-xl font-semibold" id="qualification-labels">
+      <Card as="section" aria-labelledby="qualification-labels">
+        <h2 className="foundation-card-heading" id="qualification-labels">
           Audited qualification labels
         </h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+        <ul className="foundation-bullet-list">
           {legacyQualifications.map((qualification) => (
             <li key={qualification}>{qualification}</li>
           ))}
         </ul>
-      </section>
+      </Card>
     </PageShell>
   );
 }

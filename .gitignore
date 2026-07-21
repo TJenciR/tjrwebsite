@@ -1,2 +1,17 @@
 .private/
 
+# Dependencies and build output
+node_modules/
+.next/
+out/
+coverage/
+
+# Local environment and Vercel state
+.env*
+!.env.example
+.vercel/
+
+# Tooling output
+*.tsbuildinfo
+npm-debug.log*
+
